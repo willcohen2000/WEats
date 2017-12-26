@@ -18,6 +18,7 @@
 		6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A51FF16AE7001F620D /* FourthOnboardDisplay.swift */; };
 		6E20C8A81FF16AF5001F620D /* FifthOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A71FF16AF5001F620D /* FifthOnboardDisplay.swift */; };
 		6E20C8AA1FF1A6E4001F620D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C8A91FF1A6E4001F620D /* Info.plist */; };
+		6E20C8AE1FF1D782001F620D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8AD1FF1D782001F620D /* SignUpController.swift */; };
 		6EB5953C1FE4A5BE00DF267E /* WEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */; };
 		6EB595471FE4A5BE00DF267E /* WEatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB595461FE4A5BE00DF267E /* WEatsUITests.swift */; };
 		6EB5955C1FE4AAB300DF267E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB5955B1FE4AAB300DF267E /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		6E20C8A51FF16AE7001F620D /* FourthOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardDisplay.swift; sourceTree = "<group>"; };
 		6E20C8A71FF16AF5001F620D /* FifthOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthOnboardDisplay.swift; sourceTree = "<group>"; };
 		6E20C8A91FF1A6E4001F620D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E20C8AD1FF1D782001F620D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		6EB595201FE4A5BE00DF267E /* WEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB595371FE4A5BE00DF267E /* WEatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WEatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEatsTests.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				6E20C89E1FF16A7E001F620D /* Onboard Displays */,
 				6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */,
 				6E20C8981FF144D4001F620D /* OnboardingPageController.swift */,
+				6E20C8AD1FF1D782001F620D /* SignUpController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				6EB5956A1FE4B1F200DF267E /* MainSelectionControllerViewController.swift in Sources */,
 				6E20C8A21FF16AA6001F620D /* SecondOnboardDisplay.swift in Sources */,
 				6E20C8A41FF16AB4001F620D /* ThirdOnboardDisplay.swift in Sources */,
+				6E20C8AE1FF1D782001F620D /* SignUpController.swift in Sources */,
 				6E20C8991FF144D4001F620D /* OnboardingPageController.swift in Sources */,
 				6EB595631FE4AABC00DF267E /* AppDelegate.swift in Sources */,
 				6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */,

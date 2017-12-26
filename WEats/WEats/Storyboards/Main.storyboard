@@ -602,6 +602,9 @@
                                         <state key="normal" title="Don't have an account?">
                                             <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="uRS-YD-IuB" kind="show" id="7bM-ov-PHw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFr-oA-TNK">
                                         <rect key="frame" x="174" y="0.0" width="156" height="30"/>
@@ -613,6 +616,9 @@
                                         <state key="normal" title="Create new account.">
                                             <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="uRS-YD-IuB" kind="show" id="yao-w6-qiR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -678,10 +684,10 @@
             </objects>
             <point key="canvasLocation" x="-679.20000000000005" y="1352.473763118441"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Controller-->
         <scene sceneID="Q8e-I5-GhD">
             <objects>
-                <viewController id="uRS-YD-IuB" sceneMemberID="viewController">
+                <viewController id="uRS-YD-IuB" customClass="SignUpController" customModule="WEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hfw-n0-IDp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -800,10 +806,47 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="uRS-YD-IuB" eventType="touchUpInside" id="4LI-z2-CQ0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yus-Ij-UAk">
+                                <rect key="frame" x="10" y="40" width="18" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="1in-mc-iRl"/>
+                                    <constraint firstAttribute="height" constant="37" id="Qix-Wb-6w4"/>
+                                </constraints>
+                                <state key="normal" image="BlueBackButton"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="uRS-YD-IuB" eventType="touchUpInside" id="h3j-8c-2sP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijt-Zb-ssr">
+                                <rect key="frame" x="62" y="466" width="250" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8En-Nb-djU"/>
+                                    <constraint firstAttribute="width" constant="250" id="OS1-cc-U3R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
+                                <state key="normal" title="By signing up, you agree to our">
+                                    <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-T0-Yee">
+                                <rect key="frame" x="62.5" y="486" width="250" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="aSl-fX-miu"/>
+                                    <constraint firstAttribute="height" constant="20" id="dzC-WP-BeU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Terms of Service">
+                                    <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="ijt-Zb-ssr" firstAttribute="top" secondItem="GzV-D3-Wd7" secondAttribute="bottom" constant="10" id="1eg-RX-8BH"/>
                             <constraint firstItem="At0-WF-wq9" firstAttribute="top" secondItem="OhD-Jt-CBv" secondAttribute="bottom" constant="20" id="2Us-4G-Uxl"/>
                             <constraint firstItem="p4g-DO-Sbp" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="25" id="5r3-oo-Etn"/>
                             <constraint firstItem="GzV-D3-Wd7" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="25" id="CUE-Z6-vQf"/>
@@ -811,24 +854,38 @@
                             <constraint firstItem="OhD-Jt-CBv" firstAttribute="top" secondItem="p4g-DO-Sbp" secondAttribute="bottom" constant="20" id="IG8-es-qJm"/>
                             <constraint firstItem="ZOl-Zb-N2l" firstAttribute="trailing" secondItem="p4g-DO-Sbp" secondAttribute="trailing" constant="25" id="KKJ-iy-ZqU"/>
                             <constraint firstItem="ZOl-Zb-N2l" firstAttribute="trailing" secondItem="GzV-D3-Wd7" secondAttribute="trailing" constant="25" id="NhU-Ai-yaD"/>
+                            <constraint firstItem="yus-Ij-UAk" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="10" id="QLZ-A4-M9l"/>
                             <constraint firstItem="bE6-hf-Kjp" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="10" id="T2o-Sw-UXP"/>
                             <constraint firstItem="ZOl-Zb-N2l" firstAttribute="trailing" secondItem="bE6-hf-Kjp" secondAttribute="trailing" constant="10" id="TZ4-Rg-nNc"/>
                             <constraint firstItem="OhD-Jt-CBv" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="25" id="Vgu-ni-qSL"/>
+                            <constraint firstItem="ijt-Zb-ssr" firstAttribute="centerX" secondItem="hfw-n0-IDp" secondAttribute="centerX" id="atM-93-AzF"/>
                             <constraint firstItem="ZOl-Zb-N2l" firstAttribute="trailing" secondItem="At0-WF-wq9" secondAttribute="trailing" constant="25" id="cXZ-6V-JQR"/>
                             <constraint firstItem="GzV-D3-Wd7" firstAttribute="top" secondItem="At0-WF-wq9" secondAttribute="bottom" constant="25" id="dfB-2L-TlW"/>
+                            <constraint firstItem="yus-Ij-UAk" firstAttribute="top" secondItem="ZOl-Zb-N2l" secondAttribute="top" constant="20" id="fY5-QW-T3l"/>
+                            <constraint firstItem="HSf-T0-Yee" firstAttribute="top" secondItem="ijt-Zb-ssr" secondAttribute="bottom" id="h9j-VN-ZlY"/>
                             <constraint firstItem="bE6-hf-Kjp" firstAttribute="top" secondItem="PHK-Ru-l9r" secondAttribute="bottom" id="hZm-MC-003"/>
                             <constraint firstItem="At0-WF-wq9" firstAttribute="leading" secondItem="ZOl-Zb-N2l" secondAttribute="leading" constant="25" id="ico-ky-GQ8"/>
                             <constraint firstItem="ZOl-Zb-N2l" firstAttribute="trailing" secondItem="OhD-Jt-CBv" secondAttribute="trailing" constant="25" id="ii6-gz-Rcr"/>
                             <constraint firstItem="PHK-Ru-l9r" firstAttribute="trailing" secondItem="ZOl-Zb-N2l" secondAttribute="trailing" id="jdr-sL-ZJV"/>
                             <constraint firstItem="p4g-DO-Sbp" firstAttribute="top" secondItem="bE6-hf-Kjp" secondAttribute="bottom" constant="10" id="oF6-Cf-Wus"/>
+                            <constraint firstItem="HSf-T0-Yee" firstAttribute="centerX" secondItem="hfw-n0-IDp" secondAttribute="centerX" id="rA5-P3-4Kg"/>
                             <constraint firstItem="PHK-Ru-l9r" firstAttribute="top" secondItem="ZOl-Zb-N2l" secondAttribute="top" constant="15" id="vhe-qk-057"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZOl-Zb-N2l"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordHolderView" destination="At0-WF-wq9" id="Be5-sT-Oj7"/>
+                        <outlet property="confirmPasswordTextField" destination="zHS-wh-vMb" id="tq9-9J-IXu"/>
+                        <outlet property="emailHolderView" destination="p4g-DO-Sbp" id="IDt-o2-azK"/>
+                        <outlet property="emailTextField" destination="kJt-YK-0st" id="P6F-yO-gvO"/>
+                        <outlet property="passwordHolderView" destination="OhD-Jt-CBv" id="jh1-q9-lQz"/>
+                        <outlet property="passwordTextField" destination="n3g-pr-c09" id="Md4-UX-UP2"/>
+                        <outlet property="signUpButton" destination="GzV-D3-Wd7" id="zgg-JV-uwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sDK-95-NXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679" y="2028"/>
+            <point key="canvasLocation" x="-679.20000000000005" y="2027.136431784108"/>
         </scene>
         <!--Onboarding Page Controller-->
         <scene sceneID="M8A-IC-0OD">
@@ -847,6 +904,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlueBackButton" width="28" height="58"/>
         <image name="BlueLogo" width="236" height="161"/>
         <image name="EmailIcon" width="54" height="37"/>
         <image name="FirstOnboardDisplay" width="421" height="877"/>
@@ -854,4 +912,7 @@
         <image name="SecondOnbboardDisplay" width="419" height="871"/>
         <image name="ThirdOnboardDisplay" width="414" height="860"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7bM-ov-PHw"/>
+    </inferredMetricsTieBreakers>
 </document>

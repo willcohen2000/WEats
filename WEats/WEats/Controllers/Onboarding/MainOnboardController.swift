@@ -20,7 +20,7 @@ class MainOnboardController: UIViewController {
     let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha:1.0);
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
 
         // Do any additional setup after loading the view.
     }
@@ -57,7 +57,7 @@ class MainOnboardController: UIViewController {
 
 extension MainOnboardController: pageChangeProtocol {
     func pageChanged(_ pageNumber: Int) {
-        changeIndicator(pageNum: pageNumber)
+        changeIndicator(pageNum: pageNumber);
     }
 }
 
@@ -65,7 +65,7 @@ extension MainOnboardController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "containerSegue") {
             if let featurePage = segue.destination as? OnboardingPageController {
-                featurePage.pageChange = self
+                featurePage.pageChange = self;
             }
         }
     }

@@ -15,24 +15,24 @@ protocol pageChangeProtocol {
 class OnboardingPageController: UIPageViewController {
 
     lazy var featureList: [UIViewController] = {
-        let storyboardObject = UIStoryboard(name: "Main", bundle: nil)
-        let firstDisplay = storyboardObject.instantiateViewController(withIdentifier: "One") as! FirstOnboardDisplay
-        firstDisplay.delegate = self
-        let secondDisplay = storyboardObject.instantiateViewController(withIdentifier: "Two") as! SecondOnboardDisplay
-        secondDisplay.delegate = self
-        let thirdDisplay = storyboardObject.instantiateViewController(withIdentifier: "Three") as! ThirdOnboardDisplay
-        thirdDisplay.delegate = self
-        let fourthDisplay = storyboardObject.instantiateViewController(withIdentifier: "Four") as! FourthOnboardDisplay
-        fourthDisplay.delegate = self
-        let fifthDisplay = storyboardObject.instantiateViewController(withIdentifier: "Five") as! FifthOnboardDisplay
-        fifthDisplay.delegate = self
-        return [firstDisplay, secondDisplay, thirdDisplay, fourthDisplay, fifthDisplay]
+        let storyboardObject = UIStoryboard(name: "Main", bundle: nil);
+        let firstDisplay = storyboardObject.instantiateViewController(withIdentifier: "One") as! FirstOnboardDisplay;
+        firstDisplay.delegate = self;
+        let secondDisplay = storyboardObject.instantiateViewController(withIdentifier: "Two") as! SecondOnboardDisplay;
+        secondDisplay.delegate = self;
+        let thirdDisplay = storyboardObject.instantiateViewController(withIdentifier: "Three") as! ThirdOnboardDisplay;
+        thirdDisplay.delegate = self;
+        let fourthDisplay = storyboardObject.instantiateViewController(withIdentifier: "Four") as! FourthOnboardDisplay;
+        fourthDisplay.delegate = self;
+        let fifthDisplay = storyboardObject.instantiateViewController(withIdentifier: "Five") as! FifthOnboardDisplay;
+        fifthDisplay.delegate = self;
+        return [firstDisplay, secondDisplay, thirdDisplay, fourthDisplay, fifthDisplay];
     }()
     
     var pageChange: pageChangeProtocol!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
         self.dataSource = self;
         
@@ -43,7 +43,7 @@ class OnboardingPageController: UIPageViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil);
     }
     
 }
@@ -103,7 +103,7 @@ extension OnboardingPageController: UIPageViewControllerDataSource {
         } else if (viewController == featureList[3]) {
             return featureList[4];
         } else {
-            return nil
+            return nil;
         }
     }
     
