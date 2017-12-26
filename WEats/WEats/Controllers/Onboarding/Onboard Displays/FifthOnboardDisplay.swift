@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol fifthDisplayProtocol {
     func fifthFeatureActivated();
@@ -17,6 +18,8 @@ class FifthOnboardDisplay: UIViewController {
     @IBOutlet weak var emailHolderView: UIView!
     @IBOutlet weak var passwordHolderView: UIView!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha:1.0);
     var delegate: fifthDisplayProtocol!
@@ -43,7 +46,15 @@ class FifthOnboardDisplay: UIViewController {
     }
     
     @IBAction func logInButtonPressed(_ sender: Any) {
-        
+        guard let USER_EMAIL = emailTextField.text else { return };
+        guard let USER_PASSWORD = passwordTextField.text else { return };
+        AuthenticationService.logIn(controller: self, userEmail: USER_EMAIL, userPassword: USER_PASSWORD) { (success) in
+            if (success) {
+                self.performSegue(withIdentifier: "toMain", sender: nil);
+            } else {
+                // handle
+            }
+        }
     }
     
 

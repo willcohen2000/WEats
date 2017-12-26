@@ -351,7 +351,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WestchesterEats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJg-gm-A3Y">
-                                <rect key="frame" x="73" y="95" width="230" height="30"/>
+                                <rect key="frame" x="75.5" y="95" width="225" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FEh-th-IAq"/>
                                 </constraints>
@@ -676,8 +676,11 @@
                     <size key="freeformSize" width="375" height="587"/>
                     <connections>
                         <outlet property="emailHolderView" destination="MJB-Ho-bpC" id="ehy-RO-4Yh"/>
+                        <outlet property="emailTextField" destination="9pj-9s-foV" id="xdG-Gv-aB1"/>
                         <outlet property="logInButton" destination="rde-T5-VU6" id="9Hm-qn-0l0"/>
                         <outlet property="passwordHolderView" destination="Svc-vz-T9t" id="MsY-4f-0Iw"/>
+                        <outlet property="passwordTextField" destination="VKC-4C-aLq" id="Jsh-wq-45B"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="utc-n5-Zot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beX-xL-DqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -895,6 +898,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="xXX-c4-kEe"/>
                     </view>
                     <size key="freeformSize" width="375" height="587"/>
                 </viewController>
