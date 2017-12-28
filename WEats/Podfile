@@ -17,6 +17,7 @@ target 'WEats' do
   pod 'Kingfisher'
   pod ‘SwiftKeychainWrapper’
   pod ‘CircleSlider’
+  pod 'SDWebImage'
 
   target 'WEatsTests' do
     inherit! :search_paths

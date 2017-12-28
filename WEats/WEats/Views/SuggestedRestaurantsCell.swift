@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SuggestedRestaurantsCell: UICollectionViewCell {
     
@@ -17,18 +18,19 @@ class SuggestedRestaurantsCell: UICollectionViewCell {
     @IBOutlet weak var restaurantDescription: UITextView!
     @IBOutlet weak var holderView: UIView!
     
-    func configureCell(restaurant: Restaurant) {
-        holderView.layer.cornerRadius = 20.0;
-        holderView.clipsToBounds = true;
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 20.0;
+        suggestedRestaurantNumberHolderView.layer.cornerRadius = (suggestedRestaurantNumberHolderView.frame.height / 2);
+        suggestedRestaurantNumberHolderView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4);
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews();
-        layer.cornerRadius = 20.0;
-        layer.shadowRadius = 2;
-        layer.shadowOpacity = 0.8;
-        layer.shadowOffset = CGSize(width: 5, height: 10);
-        self.clipsToBounds = false;
+    func configureCell(restaurant: Restaurant, indexPath: Int) {
+        holderView.layer.cornerRadius = 20.0;
+        holderView.clipsToBounds = true;
+        self.restaurantImage.sd_setImage(with: URL(string: "https://www.whattododigital.com/wp-content/uploads/2016/02/koku_bar.jpg"));
+        self.restaurantName.text = "Koku";
+        self.restaurantDescription.text = "Modern, intimate, and upbeat New York City vibes are just a few concepts to name that we will intertwine and bring into Armonk and to the residents of upstate New York.";
+        self.suggestedRestaurantNumberLabel.text = "\((indexPath + 1))";
     }
     
     @IBAction func directionsButtonPressed(_ sender: Any) {

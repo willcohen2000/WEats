@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import SDWebImage
 
 class Restaurant {
     
     var name: String!
     var description: String!
     var imageURL: String!
+    
+    init(name: String, description: String, imageURL: String) {
+        
+    }
     
 }
