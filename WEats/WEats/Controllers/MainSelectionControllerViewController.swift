@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MainSelectionControllerViewController: UIViewController {
 
     @IBOutlet weak var suggestedRestaurantsCollectionView: UICollectionView!
@@ -22,7 +23,13 @@ class MainSelectionControllerViewController: UIViewController {
         foodGenreCollectionView.backgroundView?.backgroundColor = UIColor.clear;
         foodGenreCollectionView.backgroundColor = UIColor.clear;
     }
+    
 
+    
+    @IBAction func menuButtonPressed(_ sender: Any) {
+      
+    }
+    
 }
 
 extension MainSelectionControllerViewController: UICollectionViewDelegate, UICollectionViewDataSource {

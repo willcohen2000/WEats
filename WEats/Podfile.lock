@@ -68,6 +68,7 @@ PODS:
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
   - SwiftKeychainWrapper (3.0.1)
+  - YALSideMenu (2.0.1)
 
 DEPENDENCIES:
   - CircleSlider
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - Kingfisher
   - SDWebImage
   - SwiftKeychainWrapper
+  - YALSideMenu
 
 SPEC CHECKSUMS:
   CircleSlider: e5ebeeda1ae15637fc992756adecbed115292649
@@ -102,7 +104,8 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: fa79801792c2c6cfe2f0a25ad914e130ab878c62
+PODFILE CHECKSUM: 2f686528c20e6a6972afa43d538afc0c177eeefd
 
 COCOAPODS: 1.2.1
