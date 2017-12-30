@@ -18,7 +18,8 @@ target 'WEats' do
   pod ‘SwiftKeychainWrapper’
   pod ‘CircleSlider’
   pod 'SDWebImage'
-  pod 'YALSideMenu'
+  pod 'TransitionButton', '~> 0.2’
+  pod 'DropDown'
 
   target 'WEatsTests' do
     inherit! :search_paths

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import TransitionButton
 
 protocol fifthDisplayProtocol {
     func fifthFeatureActivated();
@@ -17,7 +18,7 @@ class FifthOnboardDisplay: UIViewController {
 
     @IBOutlet weak var emailHolderView: UIView!
     @IBOutlet weak var passwordHolderView: UIView!
-    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var logInButton: TransitionButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -48,11 +49,16 @@ class FifthOnboardDisplay: UIViewController {
     @IBAction func logInButtonPressed(_ sender: Any) {
         guard let USER_EMAIL = emailTextField.text else { return };
         guard let USER_PASSWORD = passwordTextField.text else { return };
+        logInButton.startAnimation();
         AuthenticationService.logIn(controller: self, userEmail: USER_EMAIL, userPassword: USER_PASSWORD) { (success) in
             if (success) {
-                self.performSegue(withIdentifier: "toMain", sender: nil);
+                self.logInButton.stopAnimation(animationStyle: StopAnimationStyle.normal, revertAfterDelay: 0.5, completion: {
+                    self.performSegue(withIdentifier: "toMain", sender: nil);
+                })
             } else {
-                // handle
+                self.logInButton.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 0.5, completion: {
+                    
+                })
             }
         }
     }

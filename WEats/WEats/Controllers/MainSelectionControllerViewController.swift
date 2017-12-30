@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
+import SideMenu
 
 class MainSelectionControllerViewController: UIViewController {
-
+    
     @IBOutlet weak var suggestedRestaurantsCollectionView: UICollectionView!
     @IBOutlet weak var foodGenreCollectionView: UICollectionView!
     
@@ -23,8 +23,6 @@ class MainSelectionControllerViewController: UIViewController {
         foodGenreCollectionView.backgroundView?.backgroundColor = UIColor.clear;
         foodGenreCollectionView.backgroundColor = UIColor.clear;
     }
-    
-
     
     @IBAction func menuButtonPressed(_ sender: Any) {
       
