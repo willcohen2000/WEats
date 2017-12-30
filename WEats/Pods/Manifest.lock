@@ -67,6 +67,7 @@ PODS:
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
+  - ShadowView (1.2)
   - SwiftKeychainWrapper (3.0.1)
   - TransitionButton (0.3.0)
 
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - SDWebImage
+  - ShadowView
   - SwiftKeychainWrapper
   - TransitionButton (~> 0.2)
 
@@ -103,9 +105,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  ShadowView: e686f2e27fc281c0118419b1fb314b6e534a4682
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
 
-PODFILE CHECKSUM: 01ff48dafd1392e8c7eb77049374f7024c0cdb17
+PODFILE CHECKSUM: ff5027edd82ebd379b9aa219bc5ce543a7624548
 
 COCOAPODS: 1.2.1

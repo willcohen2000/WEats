@@ -20,6 +20,7 @@ target 'WEats' do
   pod 'SDWebImage'
   pod 'TransitionButton', '~> 0.2’
   pod 'DropDown'
+  pod 'ShadowView'
 
   target 'WEatsTests' do
     inherit! :search_paths

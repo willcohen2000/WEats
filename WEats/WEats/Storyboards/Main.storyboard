@@ -381,6 +381,7 @@
                                         <state key="normal" image="MenuButton"/>
                                         <connections>
                                             <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOM-HV-IsH"/>
+                                            <segue destination="sDl-AY-XDO" kind="show" id="MJm-Cx-NnP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -417,6 +418,214 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="28"/>
+        </scene>
+        <!--Menu Controller-->
+        <scene sceneID="EYP-tm-E6d">
+            <objects>
+                <viewController id="sDl-AY-XDO" customClass="MenuController" customModule="WEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oP1-ox-INe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXn-jQ-pkX">
+                                <rect key="frame" x="10" y="30" width="17" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="LRM-84-DMZ"/>
+                                    <constraint firstAttribute="height" constant="35" id="d0A-sL-MG9"/>
+                                </constraints>
+                                <state key="normal" image="BlueBackButton"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="WjF-jB-qyR"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lbv-Mu-mox">
+                                <rect key="frame" x="27.5" y="115" width="320" height="140"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXE-Qc-xZb" customClass="ShadowView">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1q-JC-mpH">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <color key="backgroundColor" red="0.22145996987819672" green="0.28515717387199402" blue="0.36088159680366516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                <state key="normal" title="Explore">
+                                                    <color key="titleColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="exploreRestaurantButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="mO6-KG-nPQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="o1q-JC-mpH" secondAttribute="trailing" id="3dc-rl-mhe"/>
+                                            <constraint firstItem="o1q-JC-mpH" firstAttribute="top" secondItem="eXE-Qc-xZb" secondAttribute="top" id="NEp-A2-aIO"/>
+                                            <constraint firstAttribute="width" constant="140" id="kuK-zz-OZq"/>
+                                            <constraint firstAttribute="bottom" secondItem="o1q-JC-mpH" secondAttribute="bottom" id="pOp-zu-XFF"/>
+                                            <constraint firstAttribute="height" constant="140" id="scM-Bz-qwG"/>
+                                            <constraint firstItem="o1q-JC-mpH" firstAttribute="leading" secondItem="eXE-Qc-xZb" secondAttribute="leading" id="uM0-2n-tKL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-VZ-S8u" customClass="ShadowView">
+                                        <rect key="frame" x="180" y="0.0" width="140" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-mO-VXg">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                <state key="normal" title="Search">
+                                                    <color key="titleColor" red="0.21760980784893036" green="0.28914743661880493" blue="0.36088123917579651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="finderButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="x0E-zM-1Rb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4L3-mO-VXg" secondAttribute="trailing" id="KOm-t3-o9R"/>
+                                            <constraint firstAttribute="bottom" secondItem="4L3-mO-VXg" secondAttribute="bottom" id="YUa-9T-3kN"/>
+                                            <constraint firstItem="4L3-mO-VXg" firstAttribute="leading" secondItem="qZp-VZ-S8u" secondAttribute="leading" id="dR1-Eb-jXm"/>
+                                            <constraint firstAttribute="width" constant="140" id="io5-lU-UhS"/>
+                                            <constraint firstAttribute="height" constant="140" id="nlI-ti-OWh"/>
+                                            <constraint firstItem="4L3-mO-VXg" firstAttribute="top" secondItem="qZp-VZ-S8u" secondAttribute="top" id="sRf-Bz-jjI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-y1-2Rf">
+                                <rect key="frame" x="27" y="295" width="320" height="140"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yc-Xo-rsg" customClass="ShadowView">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKu-bZ-ts9">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                <state key="normal" title="Filler">
+                                                    <color key="titleColor" red="0.21761001646518707" green="0.29313793778419495" blue="0.36088091135025024" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="Lek-OK-etd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="B14-0s-M3F"/>
+                                            <constraint firstAttribute="height" constant="140" id="CH1-d4-2EI"/>
+                                            <constraint firstItem="uKu-bZ-ts9" firstAttribute="top" secondItem="8yc-Xo-rsg" secondAttribute="top" id="KkU-Y7-dYy"/>
+                                            <constraint firstAttribute="bottom" secondItem="uKu-bZ-ts9" secondAttribute="bottom" id="KvQ-lw-ad0"/>
+                                            <constraint firstItem="uKu-bZ-ts9" firstAttribute="leading" secondItem="8yc-Xo-rsg" secondAttribute="leading" id="WzQ-iR-xVg"/>
+                                            <constraint firstAttribute="trailing" secondItem="uKu-bZ-ts9" secondAttribute="trailing" id="hYo-ja-YN7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKO-5q-nXB" customClass="ShadowView">
+                                        <rect key="frame" x="180" y="0.0" width="140" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-Rp-BNO">
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                                <state key="normal" title="Settings">
+                                                    <color key="titleColor" red="0.22145996987819672" green="0.28515717387199402" blue="0.36088159680366516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="settingsButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="0qF-ER-uM9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="JDT-Rp-BNO" firstAttribute="top" secondItem="jKO-5q-nXB" secondAttribute="top" id="1ce-73-jiz"/>
+                                            <constraint firstItem="JDT-Rp-BNO" firstAttribute="leading" secondItem="jKO-5q-nXB" secondAttribute="leading" id="76r-zy-uoX"/>
+                                            <constraint firstAttribute="width" constant="140" id="dua-vG-vzE"/>
+                                            <constraint firstAttribute="bottom" secondItem="JDT-Rp-BNO" secondAttribute="bottom" id="jbm-rY-HFa"/>
+                                            <constraint firstAttribute="height" constant="140" id="mLV-Ht-ipb"/>
+                                            <constraint firstAttribute="trailing" secondItem="JDT-Rp-BNO" secondAttribute="trailing" id="xK7-2A-u64"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Dkn-y1-2Rf" firstAttribute="top" secondItem="lbv-Mu-mox" secondAttribute="bottom" constant="40" id="F4D-Kq-3MB"/>
+                            <constraint firstItem="lbv-Mu-mox" firstAttribute="centerX" secondItem="oP1-ox-INe" secondAttribute="centerX" id="Ouu-NN-aIJ"/>
+                            <constraint firstItem="Dkn-y1-2Rf" firstAttribute="centerX" secondItem="oP1-ox-INe" secondAttribute="centerX" id="brK-rx-3z7"/>
+                            <constraint firstItem="lbv-Mu-mox" firstAttribute="top" secondItem="pXn-jQ-pkX" secondAttribute="bottom" constant="50" id="cUd-Wz-xJJ"/>
+                            <constraint firstItem="pXn-jQ-pkX" firstAttribute="leading" secondItem="bgd-uh-wcn" secondAttribute="leading" constant="10" id="dwl-ab-SJz"/>
+                            <constraint firstItem="pXn-jQ-pkX" firstAttribute="top" secondItem="oP1-ox-INe" secondAttribute="topMargin" constant="10" id="l5J-OP-4VN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bgd-uh-wcn"/>
+                    </view>
+                    <connections>
+                        <outlet property="exploreButton" destination="o1q-JC-mpH" id="c37-R5-Hem"/>
+                        <outlet property="finderButton" destination="4L3-mO-VXg" id="Ddi-Bi-Fdq"/>
+                        <outlet property="searchButton" destination="uKu-bZ-ts9" id="dhk-cO-HBO"/>
+                        <outlet property="settingsButton" destination="JDT-Rp-BNO" id="bU2-Xu-hpQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mue-Ba-4cO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893.60000000000002" y="797.45127436281871"/>
         </scene>
         <!--First Onboard Display-->
         <scene sceneID="9FF-hd-Wxg">
