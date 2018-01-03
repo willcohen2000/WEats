@@ -21,6 +21,7 @@ target 'WEats' do
   pod 'TransitionButton', '~> 0.2’
   pod 'DropDown'
   pod 'ShadowView'
+  pod 'HGCircularSlider'
 
   target 'WEatsTests' do
     inherit! :search_paths
