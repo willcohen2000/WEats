@@ -25,6 +25,7 @@
 		6E2897F51FF830FA00B1C74F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F41FF830FA00B1C74F /* MenuController.swift */; };
 		6E2897F91FF88B7B00B1C74F /* RestaurantFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */; };
 		6E2897FD1FFC5EE900B1C74F /* PreOrderingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897FC1FFC5EE900B1C74F /* PreOrderingController.swift */; };
+		6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897FE2001271700B1C74F /* Firebase+Service.swift */; };
 		6E50342F1FF31B5B00788D44 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50342E1FF31B5B00788D44 /* Restaurants.swift */; };
 		6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5034301FF47A1300788D44 /* FoodGenresCell.swift */; };
 		6EB5953C1FE4A5BE00DF267E /* WEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */; };
@@ -83,6 +84,7 @@
 		6E2897F41FF830FA00B1C74F /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFinderController.swift; sourceTree = "<group>"; };
 		6E2897FC1FFC5EE900B1C74F /* PreOrderingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOrderingController.swift; sourceTree = "<group>"; };
+		6E2897FE2001271700B1C74F /* Firebase+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Service.swift"; sourceTree = "<group>"; };
 		6E50342E1FF31B5B00788D44 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		6E5034301FF47A1300788D44 /* FoodGenresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGenresCell.swift; sourceTree = "<group>"; };
 		6EB595201FE4A5BE00DF267E /* WEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				6E20C8AF1FF1E073001F620D /* Authentication+Service.swift */,
+				6E2897FE2001271700B1C74F /* Firebase+Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				6EB595631FE4AABC00DF267E /* AppDelegate.swift in Sources */,
 				6E20C8B01FF1E073001F620D /* Authentication+Service.swift in Sources */,
 				6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */,
+				6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */,
 				6E20C8A01FF16A94001F620D /* FirstOnboardDisplay.swift in Sources */,
 				6E2897FD1FFC5EE900B1C74F /* PreOrderingController.swift in Sources */,
 			);

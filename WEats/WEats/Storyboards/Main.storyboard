@@ -251,6 +251,7 @@
                                         </state>
                                         <connections>
                                             <action selector="skipButtonPressed:" destination="10a-aK-TcB" eventType="touchUpInside" id="QlM-vU-1Jp"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="skd-fb-0sm"/>
                                         </connections>
                                     </button>
                                 </subviews>

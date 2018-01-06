@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MainSelectionControllerViewController: UIViewController {
+class MainSelectionControllerViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var suggestedRestaurantsCollectionView: UICollectionView!
     @IBOutlet weak var foodGenreCollectionView: UICollectionView!
+    
+    var openRestaurantCategories = [String]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -21,6 +23,12 @@ class MainSelectionControllerViewController: UIViewController {
         foodGenreCollectionView.dataSource = self;
         foodGenreCollectionView.backgroundView?.backgroundColor = UIColor.clear;
         foodGenreCollectionView.backgroundColor = UIColor.clear;
+        FirebaseService.pullCurrentlyAllotedCategories { (pulledCategories) in
+            if let pulledCategories = pulledCategories {
+                self.openRestaurantCategories = pulledCategories;
+                self.foodGenreCollectionView.reloadData();
+            }
+        }
     }
     
     @IBAction func menuButtonPressed(_ sender: Any) {
@@ -35,7 +43,7 @@ extension MainSelectionControllerViewController: UICollectionViewDelegate, UICol
         if (collectionView.tag == 1) {
             return 10;
         } else {
-            return Restaurants.restaurantImages.count;
+            return openRestaurantCategories.count;
         }
     }
     
@@ -50,15 +58,13 @@ extension MainSelectionControllerViewController: UICollectionViewDelegate, UICol
             }
         } else {
             if let cell = foodGenreCollectionView.dequeueReusableCell(withReuseIdentifier: "foodGenreCell", for: indexPath) as? FoodGenresCell {
-                cell.configureCell(genreName: Restaurants.restaurantTypes[indexPath.row]);
+                cell.configureCell(genreName: self.openRestaurantCategories[indexPath.row]);
                 return cell;
             } else {
                 return FoodGenresCell();
             }
         }
     }
-    
-    
     
     
 }
