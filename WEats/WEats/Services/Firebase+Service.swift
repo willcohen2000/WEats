@@ -58,7 +58,8 @@ class FirebaseService {
             guard let name = postDict["name"] else { return };
             guard let town = postDict["town"] else { return };
             guard let website = postDict["website"] else { return };
-            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String));
+            guard let rating = postDict["rating"] else { return };
+            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String, rating: rating as! Float));
         }) { (error) in
             completionHandler(nil);
         }
