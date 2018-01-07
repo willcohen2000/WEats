@@ -14,6 +14,7 @@ class MainSelectionControllerViewController: UIViewController, UICollectionViewD
     @IBOutlet weak var foodGenreCollectionView: UICollectionView!
     
     var openRestaurantCategories = [String]();
+    var selectedCategory: String?
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -47,9 +48,15 @@ extension MainSelectionControllerViewController: UICollectionViewDelegate, UICol
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = openRestaurantCategories[indexPath.row];
+        selectedCategory = category;
+        performSegue(withIdentifier: "toRestaurantSelection", sender: nil);
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView.tag == 1) {
-            let restaurant = Restaurant(name: "", description: "", imageURL: "");
+            let restaurant = Restaurant(name: "", description: "", imageURL: "", doesHaveOnlineOrder: false, town: "", website: "", address: "");
             if let cell = suggestedRestaurantsCollectionView.dequeueReusableCell(withReuseIdentifier: "suggestedRestaurantCell", for: indexPath) as? SuggestedRestaurantsCell {
                 cell.configureCell(restaurant: restaurant, indexPath: indexPath.row);
                 return cell
@@ -66,5 +73,20 @@ extension MainSelectionControllerViewController: UICollectionViewDelegate, UICol
         }
     }
     
-    
 }
+
+extension MainSelectionControllerViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toRestaurantSelection") {
+            if let selectionController = segue.destination as? RestaurantSelectionController {
+                if let selectedCategory = selectedCategory {
+                    selectionController.selectedCategory = selectedCategory;
+                }
+            }
+        }
+    }
+}
+
+
+
+

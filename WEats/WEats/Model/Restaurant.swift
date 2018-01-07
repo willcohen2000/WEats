@@ -14,9 +14,46 @@ class Restaurant {
     var name: String!
     var description: String!
     var imageURL: String!
+    var doesHaveOnlineOrder: Bool!
+    var town: String!
+    var website: String!
+    var address: String!
+    var postKey: String?
     
-    init(name: String, description: String, imageURL: String) {
+    init(name: String, description: String, imageURL: String, doesHaveOnlineOrder: Bool, town: String, website: String, address: String) {
+        self.name = name;
+        self.description = description;
+        self.imageURL = imageURL;
+        self.doesHaveOnlineOrder = doesHaveOnlineOrder;
+        self.town = town;
+        self.website = website;
+        self.address = address;
+    }
+    
+    init(postkey: String, postData: Dictionary<String, AnyObject>) {
+        self.postKey = postkey;
         
+        if let address = postData["address"] as? String {
+            self.address = address;
+        }
+        if let description = postData["description"] as? String {
+            self.description = description;
+        }
+        if let doesHaveOnlineOrder = postData["doesHaveOnlineOrder"] as? Bool {
+            self.doesHaveOnlineOrder = doesHaveOnlineOrder;
+        }
+        if let imageUrl = postData["imageUrl"] as? String {
+            self.imageURL = imageUrl;
+        }
+        if let name = postData["name"] as? String {
+            self.name = name;
+        }
+        if let town = postData["town"] as? String {
+            self.town = town;
+        }
+        if let website = postData["website"] as? String {
+            self.website = website;
+        }
     }
     
 }

@@ -22,10 +22,50 @@ class FirebaseService {
                     }
                 }
             }
-            completionHandler(pulledCategories)
+            completionHandler(pulledCategories);
         }) { (error) in
-            completionHandler(nil)
+            completionHandler(nil);
         }
     }
     
+    static func getRestaurantsByCategory(category: String, completionHandler: @escaping (_ pulledRestaurants: [MiniRestaurant]?) -> Void) {
+        let categoryReference = Database.database().reference().child("Categories").child(category);
+        var pulledRestaurants = [MiniRestaurant]();
+        categoryReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        let key = snap.key;
+                        let restaurant = MiniRestaurant(postkey: key, postData: postDict);
+                        pulledRestaurants.append(restaurant);
+                    }
+                }
+            }
+            completionHandler(pulledRestaurants);
+        }) { (error) in
+            completionHandler(nil);
+        }
+    }
+    
+    static func getFullRestaurantByName(name: String, completionHandler: @escaping (_ restaurant: Restaurant?) -> Void) {
+        let restaurantReference = Database.database().reference().child("Restaurants").child(name);
+        restaurantReference.observe(.value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:];
+            guard let address = postDict["address"] else { return };
+            guard let description = postDict["description"] else { return };
+            guard let doesHaveOnlineOrder = postDict["doesHaveOnlineOrder"] else { return };
+            guard let imageURL = postDict["imageUrl"] else { return };
+            guard let name = postDict["name"] else { return };
+            guard let town = postDict["town"] else { return };
+            guard let website = postDict["website"] else { return };
+            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String));
+        }) { (error) in
+            completionHandler(nil);
+        }
+        
+    }
+    
 }
+
+
+
