@@ -19,6 +19,12 @@ class IndividualRestaurantController: UIViewController {
     @IBOutlet weak var thirdStarImage: UIImageView!
     @IBOutlet weak var fourthStarImage: UIImageView!
     @IBOutlet weak var fifthStarImage: UIImageView!
+    @IBOutlet weak var firstDollar: UILabel!
+    @IBOutlet weak var secondDollar: UILabel!
+    @IBOutlet weak var thirdDollar: UILabel!
+    @IBOutlet weak var fourthDollar: UILabel!
+    @IBOutlet weak var fifthDollar: UILabel!
+    @IBOutlet weak var orderButton: UIButton!
     
     @IBOutlet weak var restaurantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var restaurantImageDarkenViewHeight: NSLayoutConstraint!
@@ -30,6 +36,7 @@ class IndividualRestaurantController: UIViewController {
         super.viewDidLoad();
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
         restaurantImageDarkenViewHeight.constant = (self.view.frame.height * 0.45);
+        orderButton.layer.cornerRadius = (orderButton.frame.height / 2);
         FirebaseService.getFullRestaurantByName(name: restaurantName) { (restaurant) in
             self.restaurant = restaurant;
             self.buildView();
@@ -40,11 +47,11 @@ class IndividualRestaurantController: UIViewController {
         
     }
     
-    @IBAction func directionsButtonPressed(_ sender: Any) {
+    @IBAction func websiteButtonPressed(_ sender: Any) {
         
     }
     
-    @IBAction func websiteButtonPressed(_ sender: Any) {
+    @IBAction func orderButtonPressed(_ sender: Any) {
         
     }
     
@@ -52,6 +59,21 @@ class IndividualRestaurantController: UIViewController {
         restaurantImageView.sd_setImage(with: URL(string: restaurant.imageURL), completed: nil);
         restaurantNameLabel.text = restaurant.name;
         buildStarRating();
+        buildDollarRating();
+    }
+    
+    private func buildDollarRating() {
+        var rating = restaurant.dollarRating;
+        let numToDollar: [Int:UILabel] = [1: firstDollar, 2: secondDollar, 3: thirdDollar, 4: fourthDollar, 5: fifthDollar];
+        for i in 1...5 {
+            if (rating! >= Int(1)) {
+                numToDollar[i]!.alpha = 1.0;
+                rating = (rating! - 1);
+            } else {
+                numToDollar[i]!.alpha = 0.5;
+                rating = (rating! - 1);
+            }
+        }
     }
     
     private func buildStarRating() {

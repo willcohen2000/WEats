@@ -19,9 +19,10 @@ class Restaurant {
     var website: String!
     var address: String!
     var rating: Float!
+    var dollarRating: Int!
     var postKey: String?
     
-    init(name: String, description: String, imageURL: String, doesHaveOnlineOrder: Bool, town: String, website: String, address: String, rating: Float) {
+    init(name: String, description: String, imageURL: String, doesHaveOnlineOrder: Bool, town: String, website: String, address: String, rating: Float, dollarRating: Int) {
         self.name = name;
         self.description = description;
         self.imageURL = imageURL;
@@ -30,6 +31,7 @@ class Restaurant {
         self.website = website;
         self.address = address;
         self.rating = rating;
+        self.dollarRating = dollarRating;
     }
     
     init(postkey: String, postData: Dictionary<String, AnyObject>) {
@@ -58,6 +60,9 @@ class Restaurant {
         }
         if let rating = postData["rating"] as? Float {
             self.rating = rating;
+        }
+        if let dollarRating = postData["dollarRating"] as? Int {
+            self.dollarRating = dollarRating;
         }
     }
     
