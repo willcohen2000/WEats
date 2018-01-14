@@ -56,10 +56,10 @@ extension MainSelectionControllerViewController: UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView.tag == 1) {
-            let restaurant = Restaurant(name: "", description: "", imageURL: "", doesHaveOnlineOrder: false, town: "", website: "", address: "", rating: 1.0, dollarRating: 1);
+            let restaurant = Restaurant(name: "", description: "", imageURL: "", doesHaveOnlineOrder: false, town: "", website: "", address: "", rating: 1.0, dollarRating: 1, phoneNumber: "", hours: [:]);
             if let cell = suggestedRestaurantsCollectionView.dequeueReusableCell(withReuseIdentifier: "suggestedRestaurantCell", for: indexPath) as? SuggestedRestaurantsCell {
                 cell.configureCell(restaurant: restaurant, indexPath: indexPath.row);
-                return cell
+                return cell;
             } else {
                 return SuggestedRestaurantsCell()
             }

@@ -25,26 +25,45 @@ class IndividualRestaurantController: UIViewController {
     @IBOutlet weak var fourthDollar: UILabel!
     @IBOutlet weak var fifthDollar: UILabel!
     @IBOutlet weak var orderButton: UIButton!
+    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var addressLabel: VerticalTopAlignLabel!
+    @IBOutlet weak var phoneLabel: VerticalTopAlignLabel!
+    @IBOutlet weak var hoursTableView: UITableView!
     
     @IBOutlet weak var restaurantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var restaurantImageDarkenViewHeight: NSLayoutConstraint!
     
     var restaurantName: String!
     var restaurant: Restaurant!
+    var didBuild: Bool = false;
+    var hourDayNames = [String]();
+    var hourHours = [String]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        hoursTableView.delegate = self;
+        hoursTableView.dataSource = self;
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
         restaurantImageDarkenViewHeight.constant = (self.view.frame.height * 0.45);
         orderButton.layer.cornerRadius = (orderButton.frame.height / 2);
         FirebaseService.getFullRestaurantByName(name: restaurantName) { (restaurant) in
             self.restaurant = restaurant;
             self.buildView();
+            self.didBuild = true;
+            self.getHoursArray();
+            self.hoursTableView.reloadData();
+        }
+    }
+    
+    private func getHoursArray() {
+        for (hourBlock) in self.restaurant.hours {
+            hourDayNames.append(hourBlock.key);
+            hourHours.append(hourBlock.value);
         }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        
+        self.dismiss(animated: true, completion: nil);
     }
     
     @IBAction func websiteButtonPressed(_ sender: Any) {
@@ -58,6 +77,8 @@ class IndividualRestaurantController: UIViewController {
     private func buildView() {
         restaurantImageView.sd_setImage(with: URL(string: restaurant.imageURL), completed: nil);
         restaurantNameLabel.text = restaurant.name;
+        addressLabel.text = restaurant.address;
+        phoneLabel.text = restaurant.phoneNumber;
         buildStarRating();
         buildDollarRating();
     }
@@ -96,4 +117,24 @@ class IndividualRestaurantController: UIViewController {
         }
     }
 
+}
+
+extension IndividualRestaurantController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (!didBuild) {
+            return 0;
+        }
+        return self.restaurant.hours.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let hoursCell = hoursTableView.dequeueReusableCell(withIdentifier: "hoursCell") as? RestaurantHoursCell {
+            hoursCell.buildCell(dayOfWeek: self.hourDayNames[indexPath.row], hour: self.hourHours[indexPath.row]);
+            return hoursCell;
+        } else {
+            return RestaurantHoursCell();
+        }
+    }
+    
 }
