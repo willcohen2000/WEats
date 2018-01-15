@@ -9,24 +9,82 @@
 import UIKit
 import Foundation
 import HGCircularSlider
+import DropDown
 
 class RestaurantFinderController: UIViewController {
     
     @IBOutlet weak var priceSelectionHolderView: UIView!
+    @IBOutlet weak var firstDollar: UILabel!
+    @IBOutlet weak var secondDollar: UILabel!
+    @IBOutlet weak var thirdDollar: UILabel!
+    @IBOutlet weak var fourthDollar: UILabel!
+    @IBOutlet weak var fifthDollar: UILabel!
+    @IBOutlet weak var yesShadowView: UIView!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noShadowView: UIView!
+    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var categorySelectionView: UIView!
+    @IBOutlet weak var selectTypeOfRestaurantButton: UIButton!
+    @IBOutlet weak var restaurantTypeDropdownFrameView: UIView!
+    @IBOutlet weak var findRestaurantsButton: UIButton!
     
     let blueColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0);
+    let blueColorLowAlpha = UIColor(red:0.20, green:0.29, blue:0.37, alpha:0.7);
     let blueTrackColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:0.4);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
+    var slider: CircularSlider?
+    let dropDown = DropDown();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         setupPriceSlider();
+        buildView();
+        dropDown.hide();
+        dropDown.anchorView = restaurantTypeDropdownFrameView;
+        dropDown.dataSource = Restaurants.restaurantTypes;
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.selectTypeOfRestaurantButton.setTitleColor(self.blueColor, for: .normal);
+            self.selectTypeOfRestaurantButton.setTitle("\(item) Restaurants", for: .normal);
+        }
     }
 
+    private func buildDollarRating(value: Int) {
+        var rating = value;
+        let numToDollar: [Int:UILabel] = [1: firstDollar, 2: secondDollar, 3: thirdDollar, 4: fourthDollar, 5: fifthDollar];
+        for i in 1...5 {
+            if (rating >= Int(1)) {
+                numToDollar[i]!.alpha = 1.0;
+                rating = (rating - 1);
+            } else {
+                numToDollar[i]!.alpha = 0.5;
+                rating = (rating - 1);
+            }
+        }
+    }
+    
+    private func buildView() {
+        firstDollar.alpha = 1.0;
+        secondDollar.alpha = 0.5;
+        thirdDollar.alpha = 0.5;
+        fourthDollar.alpha = 0.5;
+        fifthDollar.alpha = 0.5;
+        yesShadowView.layer.cornerRadius = (yesShadowView.frame.height / 2);
+        noShadowView.layer.cornerRadius = (noShadowView.frame.height / 2);
+        yesButton.layer.cornerRadius = (yesButton.frame.height / 2);
+        noButton.layer.cornerRadius = (noButton.frame.height / 2);
+        yesButton.backgroundColor = offWhiteColor;
+        noButton.backgroundColor = offWhiteColor;
+        categorySelectionView.layer.cornerRadius = 10.0;
+        categorySelectionView.layer.borderColor = blueColor.cgColor;
+        categorySelectionView.layer.borderWidth = 1.0;
+        findRestaurantsButton.layer.cornerRadius = (findRestaurantsButton.frame.height / 2);
+        selectTypeOfRestaurantButton.setTitleColor(blueColorLowAlpha, for: .normal);
+    }
+    
     private func setupPriceSlider() {
         let circularSlider = CircularSlider(frame: priceSelectionHolderView.frame);
         circularSlider.minimumValue = 0.0;
-        circularSlider.maximumValue = 1.0;
+        circularSlider.maximumValue = 100.0;
         circularSlider.diskColor = blueColor;
         circularSlider.backgroundColor = .clear;
         circularSlider.diskColor = .clear;
@@ -39,7 +97,48 @@ class RestaurantFinderController: UIViewController {
         circularSlider.endThumbTintColor = blueColor;
         circularSlider.endThumbStrokeColor = blueColor;
         circularSlider.endThumbStrokeHighlightedColor = blueColor;
+        slider = circularSlider;
+        circularSlider.addTarget(self, action: #selector(updatedPrice), for: .valueChanged);
         self.view.addSubview(circularSlider)
     }
-
+    
+    @objc func updatedPrice() {
+        if let slider = slider {
+            let value = Int(slider.endPointValue);
+            if (value < 20) {
+                buildDollarRating(value: 1);
+            } else if (value < 40) {
+                buildDollarRating(value: 2);
+            } else if (value < 60) {
+                buildDollarRating(value: 3);
+            } else if (value < 80) {
+                buildDollarRating(value: 4);
+            } else {
+                buildDollarRating(value: 5);
+            }
+        }
+    }
+    
+    @IBAction func selectTypeOfRestaurantButtonPressed(_ sender: Any) {
+        dropDown.show();
+    }
+    
+    @IBAction func findRestaurantsButtonPressed(_ sender: Any) {
+        print("computer")
+    }
+    
+    @IBAction func yesButtonPressed(_ sender: Any) {
+        yesButton.backgroundColor = blueColor;
+        yesButton.setTitleColor(offWhiteColor, for: .normal);
+        noButton.backgroundColor = offWhiteColor;
+        noButton.setTitleColor(blueColor, for: .normal);
+    }
+    
+    @IBAction func noButtonPressed(_ sender: Any) {
+        yesButton.backgroundColor = offWhiteColor;
+        yesButton.setTitleColor(blueColor, for: .normal);
+        noButton.backgroundColor = blueColor;
+        noButton.setTitleColor(offWhiteColor, for: .normal);
+    }
+    
 }
