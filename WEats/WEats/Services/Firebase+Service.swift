@@ -47,19 +47,43 @@ class FirebaseService {
         }
     }
     
-    static func restaurantFinderPullRestaurantsWithCategory(category: String, order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurants: [Restaurant]?) -> Void) {
-        let DBR = Database.database().reference().child("Finder");
+    static func restaurantFinderPullRestaurantsWithCategory(category: String, order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [String]?) -> Void) {
+        let DBR = Database.database().reference().child("Finder").child(category);
+        var pulledRestaurantNames = [String]();
         DBR.observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for (snap) in snapshot {
                     if let postDict = snap.value as? Dictionary<String,AnyObject> {
-                        let key = snap.key;
-                        let restaurant = MiniRestaurant(postkey: key, postData: postDict);
-                        pulledRestaurants.append(restaurant);
+                        let restaurant = FinderRestaurant(postData: postDict);
+                        guard let price = restaurant.price else { return };
+                        if (((order && restaurant.order) || (!order)) && (price == priceRange || price + 1 == priceRange || price - 1 == priceRange)) {
+                            pulledRestaurantNames.append(restaurant.name);
+                        }
                     }
                 }
             }
-            completionHandler(pulledRestaurants);
+            completionHandler(pulledRestaurantNames);
+        }) { (error) in
+            completionHandler(nil);
+        }
+    }
+    
+    static func restaurantFinderPullRestaurantsNoCategory(order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [String]?) -> Void) {
+        let DBR = Database.database().reference().child("Finder").child("All");
+        var pulledRestaurantNames = [String]();
+        DBR.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        let restaurant = FinderRestaurant(postData: postDict);
+                        guard let price = restaurant.price else { return };
+                        if (((order && restaurant.order) || (!order)) && (price == priceRange || price + 1 == priceRange || price - 1 == priceRange)) {
+                            pulledRestaurantNames.append(restaurant.name);
+                        }
+                    }
+                }
+            }
+            completionHandler(pulledRestaurantNames);
         }) { (error) in
             completionHandler(nil);
         }

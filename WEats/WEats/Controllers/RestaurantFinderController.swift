@@ -124,16 +124,16 @@ class RestaurantFinderController: UIViewController {
                 currentRestaurantFind.priceRange = 1;
             } else if (value < 40) {
                 buildDollarRating(value: 2);
-                currentRestaurantFind.priceRange = 1;
+                currentRestaurantFind.priceRange = 2;
             } else if (value < 60) {
                 buildDollarRating(value: 3);
-                currentRestaurantFind.priceRange = 1;
+                currentRestaurantFind.priceRange = 3;
             } else if (value < 80) {
                 buildDollarRating(value: 4);
-                currentRestaurantFind.priceRange = 1;
+                currentRestaurantFind.priceRange = 4;
             } else {
                 buildDollarRating(value: 5);
-                currentRestaurantFind.priceRange = 1;
+                currentRestaurantFind.priceRange = 5;
             }
         }
     }
@@ -143,7 +143,16 @@ class RestaurantFinderController: UIViewController {
     }
     
     @IBAction func findRestaurantsButtonPressed(_ sender: Any) {
-       findRestaurantsButton.startAnimation();
+        findRestaurantsButton.startAnimation();
+        if (currentRestaurantFind.category != "Unsure") {
+            FirebaseService.restaurantFinderPullRestaurantsWithCategory(category: currentRestaurantFind.category, order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange) { (pulledRestaurantNames) in
+                print(pulledRestaurantNames);
+            }
+        } else {
+            FirebaseService.restaurantFinderPullRestaurantsNoCategory(order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange, completionHandler: { (pulledRestaurantNames) in
+                print(pulledRestaurantNames);
+            })
+        }
     }
     
     @IBAction func yesButtonPressed(_ sender: Any) {
