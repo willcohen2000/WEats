@@ -29,6 +29,7 @@ class IndividualRestaurantController: UIViewController {
     @IBOutlet weak var addressLabel: VerticalTopAlignLabel!
     @IBOutlet weak var phoneLabel: VerticalTopAlignLabel!
     @IBOutlet weak var hoursTableView: UITableView!
+    @IBOutlet weak var favoriteRestaurantButton: UIButton!
     
     @IBOutlet weak var restaurantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var restaurantImageDarkenViewHeight: NSLayoutConstraint!
@@ -38,6 +39,9 @@ class IndividualRestaurantController: UIViewController {
     var didBuild: Bool = false;
     var hourDayNames = [String]();
     var hourHours = [String]();
+    var favorited: Bool = false;
+    let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha: 1.0);
+    let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -46,6 +50,7 @@ class IndividualRestaurantController: UIViewController {
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
         restaurantImageDarkenViewHeight.constant = (self.view.frame.height * 0.45);
         orderButton.layer.cornerRadius = (orderButton.frame.height / 2);
+        favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
         FirebaseService.getFullRestaurantByName(name: restaurantName) { (restaurant) in
             self.restaurant = restaurant;
             self.buildView();
@@ -59,6 +64,22 @@ class IndividualRestaurantController: UIViewController {
         for (hourBlock) in self.restaurant.hours {
             hourDayNames.append(hourBlock.key);
             hourHours.append(hourBlock.value);
+        }
+    }
+    
+    @IBAction func favoriteRestaurantButtonPressed(_ sender: Any) {
+        if (favorited) {
+            favorited = false;
+            favoriteRestaurantButton.setTitle("Favorite Restaurant", for: .normal);
+            favoriteRestaurantButton.setTitleColor(offWhiteColor, for: .normal);
+            favoriteRestaurantButton.backgroundColor = UIColor.clear;
+            favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
+            favoriteRestaurantButton.layer.borderWidth = 1.0;
+        } else {
+            favorited = true;
+            favoriteRestaurantButton.setTitle("Favorited", for: .normal);
+            favoriteRestaurantButton.setTitleColor(blueColor, for: .normal);
+            favoriteRestaurantButton.backgroundColor = UIColor.white;
         }
     }
     

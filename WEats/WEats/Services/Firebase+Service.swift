@@ -47,6 +47,24 @@ class FirebaseService {
         }
     }
     
+    static func restaurantFinderPullRestaurantsWithCategory(category: String, order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurants: [Restaurant]?) -> Void) {
+        let DBR = Database.database().reference().child("Finder");
+        DBR.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        let key = snap.key;
+                        let restaurant = MiniRestaurant(postkey: key, postData: postDict);
+                        pulledRestaurants.append(restaurant);
+                    }
+                }
+            }
+            completionHandler(pulledRestaurants);
+        }) { (error) in
+            completionHandler(nil);
+        }
+    }
+    
     static func getFullRestaurantByName(name: String, completionHandler: @escaping (_ restaurant: Restaurant?) -> Void) {
         let restaurantReference = Database.database().reference().child("Restaurants").child(name);
         restaurantReference.observe(.value, with: { (snapshot) in

@@ -22,6 +22,7 @@ target 'WEats' do
   pod 'DropDown'
   pod 'ShadowView'
   pod 'HGCircularSlider'
+  pod 'ModernSearchBar'
 
   target 'WEatsTests' do
     inherit! :search_paths

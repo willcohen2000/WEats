@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import HGCircularSlider
 import DropDown
+import TransitionButton
 
 class RestaurantFinderController: UIViewController {
     
@@ -26,7 +27,7 @@ class RestaurantFinderController: UIViewController {
     @IBOutlet weak var categorySelectionView: UIView!
     @IBOutlet weak var selectTypeOfRestaurantButton: UIButton!
     @IBOutlet weak var restaurantTypeDropdownFrameView: UIView!
-    @IBOutlet weak var findRestaurantsButton: UIButton!
+    @IBOutlet weak var findRestaurantsButton: TransitionButton!
     
     let blueColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0);
     let blueColorLowAlpha = UIColor(red:0.20, green:0.29, blue:0.37, alpha:0.7);
@@ -34,6 +35,18 @@ class RestaurantFinderController: UIViewController {
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     var slider: CircularSlider?
     let dropDown = DropDown();
+    var currentRestaurantFind = RestaurantCriteria();
+    
+    struct RestaurantCriteria {
+        var priceRange: Int!
+        var category: String!
+        var order: Bool!
+        init() {
+            priceRange = 1;
+            category = "Unsure";
+            order = false;
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -41,10 +54,11 @@ class RestaurantFinderController: UIViewController {
         buildView();
         dropDown.hide();
         dropDown.anchorView = restaurantTypeDropdownFrameView;
-        dropDown.dataSource = Restaurants.restaurantTypes;
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+        dropDown.dataSource = Restaurants.restaurantFinderTypes;
+        dropDown.selectionAction = { [unowned self] (index: Int, category: String) in
             self.selectTypeOfRestaurantButton.setTitleColor(self.blueColor, for: .normal);
-            self.selectTypeOfRestaurantButton.setTitle("\(item) Restaurants", for: .normal);
+            self.selectTypeOfRestaurantButton.setTitle("\(category) Restaurants", for: .normal);
+            self.currentRestaurantFind.category = category;
         }
     }
 
@@ -107,14 +121,19 @@ class RestaurantFinderController: UIViewController {
             let value = Int(slider.endPointValue);
             if (value < 20) {
                 buildDollarRating(value: 1);
+                currentRestaurantFind.priceRange = 1;
             } else if (value < 40) {
                 buildDollarRating(value: 2);
+                currentRestaurantFind.priceRange = 1;
             } else if (value < 60) {
                 buildDollarRating(value: 3);
+                currentRestaurantFind.priceRange = 1;
             } else if (value < 80) {
                 buildDollarRating(value: 4);
+                currentRestaurantFind.priceRange = 1;
             } else {
                 buildDollarRating(value: 5);
+                currentRestaurantFind.priceRange = 1;
             }
         }
     }
@@ -124,7 +143,7 @@ class RestaurantFinderController: UIViewController {
     }
     
     @IBAction func findRestaurantsButtonPressed(_ sender: Any) {
-        print("computer")
+       findRestaurantsButton.startAnimation();
     }
     
     @IBAction func yesButtonPressed(_ sender: Any) {
@@ -132,6 +151,7 @@ class RestaurantFinderController: UIViewController {
         yesButton.setTitleColor(offWhiteColor, for: .normal);
         noButton.backgroundColor = offWhiteColor;
         noButton.setTitleColor(blueColor, for: .normal);
+        currentRestaurantFind.order = true;
     }
     
     @IBAction func noButtonPressed(_ sender: Any) {
@@ -139,6 +159,7 @@ class RestaurantFinderController: UIViewController {
         yesButton.setTitleColor(blueColor, for: .normal);
         noButton.backgroundColor = blueColor;
         noButton.setTitleColor(offWhiteColor, for: .normal);
+        currentRestaurantFind.order = false;
     }
     
 }

@@ -68,6 +68,22 @@ struct Restaurants {
         "Sushi"
     ];
     
+    static var restaurantFinderTypes: [String] = [
+        "Unsure",
+        "BBQ",
+        "Burgers",
+        "Cafe",
+        "Chinese",
+        "Indian",
+        "Italian",
+        "Mexican",
+        "Pizza",
+        "Salad",
+        "Sandwiches",
+        "Steak",
+        "Sushi"
+    ];
+    
     static var restaurantImages: [String:UIImage] = [
         "BBQ": UIImage(named: "BBQIcon")!,
         "Burgers": UIImage(named: "BurgersIcon")!,
