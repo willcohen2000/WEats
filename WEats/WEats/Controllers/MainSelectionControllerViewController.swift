@@ -7,30 +7,42 @@
 //
 
 import UIKit
-import ModernSearchBar
+import SearchTextField
 
 class MainSelectionControllerViewController: UIViewController {
     
     @IBOutlet weak var foodGenreCollectionView: UICollectionView!
-    @IBOutlet weak var restaurantSearchBar: ModernSearchBar!
+    @IBOutlet weak var restaurantSearchBar: SearchTextField!
     
     var openRestaurantCategories = [String]();
     var selectedCategory: String?
-    let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha:0.5);
+    var selectedRestaurant: String?
+    let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha:1.0);
+    let blueColorContainer = UIColor(red:0.22, green:0.29, blue:0.36, alpha:0.95);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     
     override func viewDidLoad() {
         super.viewDidLoad();
         //suggestedRestaurantsCollectionView.delegate = self;
-        //suggestedRestaurantsCollectionView.dataSource = self;
-        self.restaurantSearchBar.delegateModernSearchBar = self;
+       // suggestedRestaurantsCollectionView.dataSource = self;
         foodGenreCollectionView.delegate = self;
         foodGenreCollectionView.dataSource = self;
         foodGenreCollectionView.backgroundView?.backgroundColor = UIColor.clear;
         foodGenreCollectionView.backgroundColor = UIColor.clear;
         loadSearchAppearance();
-        var suggestionList = ["Fortina", "Amore", "Koku", "Little Buddah", "Market North", "North Restaurant", "Tazza", "Granola Bar", "Zerro Otto Nove", "Made In Asia", "Deciccos", "David Chens", "Kira Sushi", "Inka's Seafood Grill"];
-        self.restaurantSearchBar.setDatas(datas: suggestionList);
+        var suggestionList = [SearchTextFieldItem]();
+        
+        for (restaurant) in WEUser.sharedInstance.allRestaurants {
+            suggestionList.append(SearchTextFieldItem(title: restaurant.name, subtitle: restaurant.address));
+        }
+        
+        self.restaurantSearchBar.filterItems(suggestionList);
+        
+        self.restaurantSearchBar.itemSelectionHandler = { filteredResults, itemPos in
+            let restaurantName = filteredResults[itemPos].title;
+            self.selectedRestaurant = restaurantName;
+            self.performSegue(withIdentifier: "toIndividiualRestaurant", sender: nil);
+        }
         
         FirebaseService.pullCurrentlyAllotedCategories { (pulledCategories) in
             if let pulledCategories = pulledCategories {
@@ -41,17 +53,15 @@ class MainSelectionControllerViewController: UIViewController {
     }
     
     private func loadSearchAppearance() {
-        self.restaurantSearchBar.searchImage = ModernSearchBarIcon.Icon.none.image;
-        self.restaurantSearchBar.suggestionsView_contentViewColor = .white;
-        self.restaurantSearchBar.barTintColor = blueColor;
-        self.restaurantSearchBar.tintColor = offWhiteColor;
-        self.restaurantSearchBar.showsBookmarkButton = false;
-        self.restaurantSearchBar.showsCancelButton = false;
-        guard let searchField = self.restaurantSearchBar.value(forKey: "searchField") as? UITextField else { return };
-        searchField.backgroundColor = UIColor.clear;
-        searchField.borderStyle = .none;
-        searchField.textColor = offWhiteColor;
-        searchField.font = UIFont(name: "Lato-Regular", size: 20);
+        self.restaurantSearchBar.theme.font = UIFont(name: "Lato-Regular", size: 20)!;
+        self.restaurantSearchBar.theme.separatorColor = blueColor;
+        self.restaurantSearchBar.comparisonOptions = [.caseInsensitive];
+        self.restaurantSearchBar.theme.bgColor = blueColorContainer;
+        self.restaurantSearchBar.theme.borderColor = blueColor;
+        self.restaurantSearchBar.theme.fontColor = offWhiteColor;
+        self.restaurantSearchBar.setLeftPaddingPoints(10);
+        self.restaurantSearchBar.highlightAttributes = [NSAttributedStringKey.backgroundColor: UIColor.clear, NSAttributedStringKey.font: UIFont(name: "Lato-Bold", size: 20)!];
+        self.restaurantSearchBar.theme.cellHeight = 70;
     }
     
     @IBAction func menuButtonPressed(_ sender: Any) {
@@ -60,14 +70,6 @@ class MainSelectionControllerViewController: UIViewController {
     
 }
 
-extension MainSelectionControllerViewController: ModernSearchBarDelegate {
-    
-    func onClickItemSuggestionsView(item: String) {
-        print("user touched item: \(item)");
-    }
-
-    
-}
 
 extension MainSelectionControllerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -114,10 +116,27 @@ extension MainSelectionControllerViewController {
                     selectionController.selectedCategory = selectedCategory;
                 }
             }
+        } else {
+            if let restaurantController = segue.destination as? IndividualRestaurantController {
+                if let selectedRestaurant = selectedRestaurant {
+                    restaurantController.restaurantName = selectedRestaurant;
+                }
+            }
         }
     }
 }
 
-
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+}
 
 

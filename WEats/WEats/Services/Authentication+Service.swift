@@ -13,6 +13,50 @@ import SwiftKeychainWrapper
 
 class AuthenticationService {
     
+    struct FavoriteRestaurant {
+        var imageURL: String!
+        var name: String!
+        
+        init(imageURL: String, name: String) {
+            self.imageURL = imageURL;
+            self.name = name;
+        }
+        
+        init(postData: Dictionary<String, AnyObject>) {
+            
+            if let name = postData["name"] as? String {
+                self.name = name;
+            }
+            if let imageURL = postData["imageUrl"] as? String {
+                self.imageURL = imageURL;
+            }
+            
+        }
+        
+    }
+    
+    struct RestaurantAbridged {
+        var address: String!
+        var name: String!
+        
+        init(address: String, name: String) {
+            self.address = address;
+            self.name = name;
+        }
+        
+        init(postData: Dictionary<String, AnyObject>) {
+            
+            if let name = postData["name"] as? String {
+                self.name = name;
+            }
+            if let address = postData["address"] as? String {
+                self.address = address;
+            }
+            
+        }
+        
+    }
+    
     static func loginErrors(error: Error, controller: UIViewController) {
         switch (error.localizedDescription) {
         case "The email address is badly formatted.":
@@ -62,13 +106,61 @@ class AuthenticationService {
         }
     }
     
+    static func getAllRestaurants(completionHandler: @escaping (_ favorites: [RestaurantAbridged]) -> Void) {
+        let RestaurantsReference = Database.database().reference().child("RestaurantsAbridged");
+        var restaurants = [RestaurantAbridged]();
+        RestaurantsReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        let restaurant = RestaurantAbridged(postData: postDict);
+                        restaurants.append(restaurant);
+                    }
+                }
+            }
+            completionHandler(restaurants);
+        }) { (error) in
+            completionHandler([]);
+        }
+    }
+    
+    static func getFavorites(UID: String, completionHandler: @escaping (_ favorites: [FavoriteRestaurant]) -> Void) {
+        let favoriteReference = Database.database().reference().child("Favorites").child(UID);
+        var userFavorites = [FavoriteRestaurant]();
+        favoriteReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
+                        let favRestaurant = FavoriteRestaurant(postData: postDict);
+                        userFavorites.append(favRestaurant);
+                    }
+                }
+            }
+            completionHandler(userFavorites);
+        }) { (error) in
+            completionHandler([]);
+        }
+    }
+    
+    static func loadAppInfo(UID: String, successCompletionHandler: @escaping (_ success: Bool) -> Void) {
+        getFavorites(UID: UID) { (favoriteRestaurants) in
+            getAllRestaurants(completionHandler: { (allRestaurants) in
+                WEUser.sharedInstance.allRestaurants = allRestaurants;
+                WEUser.sharedInstance.favoriteRestaurants = favoriteRestaurants;
+                successCompletionHandler(true);
+            })
+        }
+    }
+    
     static func logIn(controller: UIViewController, userEmail: String, userPassword: String, completionHandler: @escaping (_ success: Bool) -> Void) {
         Auth.auth().signIn( withEmail: userEmail, password: userPassword, completion: { (user, error) in
             if error == nil {
                 if let user = user {
                     WEUser.sharedInstance.uid = user.uid;
+                    loadAppInfo(UID: user.uid, successCompletionHandler: { (success) in
+                        completionHandler(true);
+                    })
                     //KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
-                    completionHandler(true);
                 }
             } else {
                 if let error = error {

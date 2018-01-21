@@ -46,44 +46,38 @@ class FirebaseService {
             completionHandler(nil);
         }
     }
-    
-    static func restaurantFinderPullRestaurantsWithCategory(category: String, order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [String]?) -> Void) {
+
+    static func restaurantFinderPullRestaurantsWithCategory(category: String, order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [FinderRestaurant]?) -> Void) {
         let DBR = Database.database().reference().child("Finder").child(category);
-        var pulledRestaurantNames = [String]();
+        var pulledRestaurants = [FinderRestaurant]();
         DBR.observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for (snap) in snapshot {
                     if let postDict = snap.value as? Dictionary<String,AnyObject> {
                         let restaurant = FinderRestaurant(postData: postDict);
-                        guard let price = restaurant.price else { return };
-                        if (((order && restaurant.order) || (!order)) && (price == priceRange || price + 1 == priceRange || price - 1 == priceRange)) {
-                            pulledRestaurantNames.append(restaurant.name);
-                        }
+                        pulledRestaurants.append(restaurant);
                     }
                 }
             }
-            completionHandler(pulledRestaurantNames);
+            completionHandler(pulledRestaurants);
         }) { (error) in
             completionHandler(nil);
         }
     }
     
-    static func restaurantFinderPullRestaurantsNoCategory(order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [String]?) -> Void) {
+    static func restaurantFinderPullRestaurantsNoCategory(order: Bool, priceRange: Int, completionHandler: @escaping (_ pulledRestaurantNames: [FinderRestaurant]?) -> Void) {
         let DBR = Database.database().reference().child("Finder").child("All");
-        var pulledRestaurantNames = [String]();
+        var pulledRestaurants = [FinderRestaurant]();
         DBR.observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for (snap) in snapshot {
                     if let postDict = snap.value as? Dictionary<String,AnyObject> {
                         let restaurant = FinderRestaurant(postData: postDict);
-                        guard let price = restaurant.price else { return };
-                        if (((order && restaurant.order) || (!order)) && (price == priceRange || price + 1 == priceRange || price - 1 == priceRange)) {
-                            pulledRestaurantNames.append(restaurant.name);
-                        }
+                        pulledRestaurants.append(restaurant);
                     }
                 }
             }
-            completionHandler(pulledRestaurantNames);
+            completionHandler(pulledRestaurants);
         }) { (error) in
             completionHandler(nil);
         }
@@ -104,7 +98,8 @@ class FirebaseService {
             guard let dollarRating = postDict["dollarRating"] else { return };
             guard let phoneNumber = postDict["phoneNumber"] else { return };
             guard let hours = postDict["hours"] else { return };
-            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String, rating: rating as! Float, dollarRating: dollarRating as! Int, phoneNumber: phoneNumber as! String, hours: hours as! [String:String]));
+            guard let orderURL = postDict["orderURL"] else { return };
+            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String, rating: rating as! Float, dollarRating: dollarRating as! Int, phoneNumber: phoneNumber as! String, hours: hours as! [String:String], orderURL: orderURL as! String));
         }) { (error) in
             completionHandler(nil);
         }

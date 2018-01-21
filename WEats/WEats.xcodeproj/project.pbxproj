@@ -10,6 +10,7 @@
 		2FFA4CD3C56C0C33BC72510C /* Pods_WEatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C920BAE5436DA6F1CB5BDA /* Pods_WEatsTests.framework */; };
 		3E0AEDE0DCA041FAFCB7719C /* Pods_WEatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AC4B6411239AC9002E3E0 /* Pods_WEatsUITests.framework */; };
 		6E0E85A9200FBCF100CF89DF /* FinderRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E85A8200FBCF100CF89DF /* FinderRestaurant.swift */; };
+		6E0E85AB200FD8BC00CF89DF /* RestaurantFinderResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E85AA200FD8BC00CF89DF /* RestaurantFinderResultsController.swift */; };
 		6E20C8991FF144D4001F620D /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8981FF144D4001F620D /* OnboardingPageController.swift */; };
 		6E20C89B1FF149F4001F620D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C89A1FF149F4001F620D /* Lato-Light.ttf */; };
 		6E20C89D1FF16A1C001F620D /* MainOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */; };
@@ -25,12 +26,13 @@
 		6E20C8EE1FF211C9001F620D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C8ED1FF211C9001F620D /* GoogleService-Info.plist */; };
 		6E2897F51FF830FA00B1C74F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F41FF830FA00B1C74F /* MenuController.swift */; };
 		6E2897F91FF88B7B00B1C74F /* RestaurantFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */; };
-		6E2897FD1FFC5EE900B1C74F /* PreOrderingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897FC1FFC5EE900B1C74F /* PreOrderingController.swift */; };
 		6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897FE2001271700B1C74F /* Firebase+Service.swift */; };
 		6E2898012001420A00B1C74F /* RestaurantSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2898002001420A00B1C74F /* RestaurantSelectionController.swift */; };
+		6E3352D02013E20D0055DA41 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3352CF2013E20D0055DA41 /* PaddedTextField.swift */; };
 		6E50342F1FF31B5B00788D44 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50342E1FF31B5B00788D44 /* Restaurants.swift */; };
 		6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5034301FF47A1300788D44 /* FoodGenresCell.swift */; };
 		6E55B6CE20043E740039AE0C /* RestaurantHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */; };
+		6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */; };
 		6EB5953C1FE4A5BE00DF267E /* WEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */; };
 		6EB595471FE4A5BE00DF267E /* WEatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB595461FE4A5BE00DF267E /* WEatsUITests.swift */; };
 		6EB5955C1FE4AAB300DF267E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB5955B1FE4AAB300DF267E /* Assets.xcassets */; };
@@ -45,6 +47,9 @@
 		6EB595741FE4B37A00DF267E /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EB595701FE4B37A00DF267E /* Lato-Regular.ttf */; };
 		6EB595751FE4B37A00DF267E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EB595711FE4B37A00DF267E /* Lato-Italic.ttf */; };
 		6EB595771FE4B8B600DF267E /* SuggestedRestaurantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB595761FE4B8B600DF267E /* SuggestedRestaurantsCell.swift */; };
+		6ED7729F2014381E006DC0A1 /* OrderWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED7729E2014381E006DC0A1 /* OrderWebController.swift */; };
+		6ED772A120144971006DC0A1 /* FavoriteRestaurantsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED772A020144971006DC0A1 /* FavoriteRestaurantsController.swift */; };
+		6ED772A32014498E006DC0A1 /* FavoriteRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED772A22014498E006DC0A1 /* FavoriteRestaurantCell.swift */; };
 		6EEE57E020014CC2007D55AB /* TopAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57DF20014CC2007D55AB /* TopAlignedLabel.swift */; };
 		6EEE57E220014EAD007D55AB /* RestaurantSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57E120014EAD007D55AB /* RestaurantSelectionCell.swift */; };
 		6EEE57E4200155D5007D55AB /* IndividualRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57E3200155D5007D55AB /* IndividualRestaurantController.swift */; };
@@ -76,6 +81,7 @@
 		383D98A72538773990B3B2A4 /* Pods-WEatsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WEatsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WEatsUITests/Pods-WEatsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A70AF6F4C3F5EF2D8FF2666 /* Pods_WEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0E85A8200FBCF100CF89DF /* FinderRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderRestaurant.swift; sourceTree = "<group>"; };
+		6E0E85AA200FD8BC00CF89DF /* RestaurantFinderResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFinderResultsController.swift; sourceTree = "<group>"; };
 		6E20C8981FF144D4001F620D /* OnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageController.swift; sourceTree = "<group>"; };
 		6E20C89A1FF149F4001F620D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../../Downloads/Lato/Lato-Light.ttf"; sourceTree = "<group>"; };
 		6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboardController.swift; sourceTree = "<group>"; };
@@ -91,12 +97,13 @@
 		6E20C8ED1FF211C9001F620D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E2897F41FF830FA00B1C74F /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFinderController.swift; sourceTree = "<group>"; };
-		6E2897FC1FFC5EE900B1C74F /* PreOrderingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOrderingController.swift; sourceTree = "<group>"; };
 		6E2897FE2001271700B1C74F /* Firebase+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Service.swift"; sourceTree = "<group>"; };
 		6E2898002001420A00B1C74F /* RestaurantSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionController.swift; sourceTree = "<group>"; };
+		6E3352CF2013E20D0055DA41 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		6E50342E1FF31B5B00788D44 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		6E5034301FF47A1300788D44 /* FoodGenresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGenresCell.swift; sourceTree = "<group>"; };
 		6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHoursCell.swift; sourceTree = "<group>"; };
+		6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundRestaurantsCell.swift; sourceTree = "<group>"; };
 		6EB595201FE4A5BE00DF267E /* WEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB595371FE4A5BE00DF267E /* WEatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WEatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEatsTests.swift; sourceTree = "<group>"; };
@@ -117,6 +124,9 @@
 		6EB595701FE4B37A00DF267E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../../Downloads/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		6EB595711FE4B37A00DF267E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Italic.ttf"; path = "../../../../../../Downloads/Lato/Lato-Italic.ttf"; sourceTree = "<group>"; };
 		6EB595761FE4B8B600DF267E /* SuggestedRestaurantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedRestaurantsCell.swift; sourceTree = "<group>"; };
+		6ED7729E2014381E006DC0A1 /* OrderWebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderWebController.swift; sourceTree = "<group>"; };
+		6ED772A020144971006DC0A1 /* FavoriteRestaurantsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantsController.swift; sourceTree = "<group>"; };
+		6ED772A22014498E006DC0A1 /* FavoriteRestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantCell.swift; sourceTree = "<group>"; };
 		6EEE57DF20014CC2007D55AB /* TopAlignedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedLabel.swift; sourceTree = "<group>"; };
 		6EEE57E120014EAD007D55AB /* RestaurantSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionCell.swift; sourceTree = "<group>"; };
 		6EEE57E3200155D5007D55AB /* IndividualRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRestaurantController.swift; sourceTree = "<group>"; };
@@ -263,9 +273,11 @@
 				6EB595691FE4B1F200DF267E /* MainSelectionControllerViewController.swift */,
 				6E2897F41FF830FA00B1C74F /* MenuController.swift */,
 				6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */,
-				6E2897FC1FFC5EE900B1C74F /* PreOrderingController.swift */,
 				6E2898002001420A00B1C74F /* RestaurantSelectionController.swift */,
 				6EEE57E3200155D5007D55AB /* IndividualRestaurantController.swift */,
+				6E0E85AA200FD8BC00CF89DF /* RestaurantFinderResultsController.swift */,
+				6ED7729E2014381E006DC0A1 /* OrderWebController.swift */,
+				6ED772A020144971006DC0A1 /* FavoriteRestaurantsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -328,6 +340,9 @@
 				6EEE57DF20014CC2007D55AB /* TopAlignedLabel.swift */,
 				6EEE57E120014EAD007D55AB /* RestaurantSelectionCell.swift */,
 				6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */,
+				6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */,
+				6E3352CF2013E20D0055DA41 /* PaddedTextField.swift */,
+				6ED772A22014498E006DC0A1 /* FavoriteRestaurantCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -634,10 +649,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E20C89D1FF16A1C001F620D /* MainOnboardController.swift in Sources */,
+				6E3352D02013E20D0055DA41 /* PaddedTextField.swift in Sources */,
 				6EB595771FE4B8B600DF267E /* SuggestedRestaurantsCell.swift in Sources */,
+				6ED772A32014498E006DC0A1 /* FavoriteRestaurantCell.swift in Sources */,
 				6E20C8EC1FF20D04001F620D /* WEUser.swift in Sources */,
 				6EEE57E62001850B007D55AB /* Restaurant+Minimized.swift in Sources */,
 				6EB5956C1FE4B20D00DF267E /* Restaurant.swift in Sources */,
+				6ED7729F2014381E006DC0A1 /* OrderWebController.swift in Sources */,
 				6EB595641FE4AABC00DF267E /* WEats.xcdatamodeld in Sources */,
 				6E20C8A81FF16AF5001F620D /* FifthOnboardDisplay.swift in Sources */,
 				6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */,
@@ -645,6 +663,7 @@
 				6EEE57E020014CC2007D55AB /* TopAlignedLabel.swift in Sources */,
 				6E20C8A21FF16AA6001F620D /* SecondOnboardDisplay.swift in Sources */,
 				6E50342F1FF31B5B00788D44 /* Restaurants.swift in Sources */,
+				6ED772A120144971006DC0A1 /* FavoriteRestaurantsController.swift in Sources */,
 				6E2897F51FF830FA00B1C74F /* MenuController.swift in Sources */,
 				6E20C8A41FF16AB4001F620D /* ThirdOnboardDisplay.swift in Sources */,
 				6E0E85A9200FBCF100CF89DF /* FinderRestaurant.swift in Sources */,
@@ -656,11 +675,12 @@
 				6E55B6CE20043E740039AE0C /* RestaurantHoursCell.swift in Sources */,
 				6EB595631FE4AABC00DF267E /* AppDelegate.swift in Sources */,
 				6EEE57E4200155D5007D55AB /* IndividualRestaurantController.swift in Sources */,
+				6E0E85AB200FD8BC00CF89DF /* RestaurantFinderResultsController.swift in Sources */,
 				6E20C8B01FF1E073001F620D /* Authentication+Service.swift in Sources */,
+				6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */,
 				6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */,
 				6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */,
 				6E20C8A01FF16A94001F620D /* FirstOnboardDisplay.swift in Sources */,
-				6E2897FD1FFC5EE900B1C74F /* PreOrderingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

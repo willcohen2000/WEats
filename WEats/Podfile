@@ -22,7 +22,8 @@ target 'WEats' do
   pod 'DropDown'
   pod 'ShadowView'
   pod 'HGCircularSlider'
-  pod 'ModernSearchBar'
+  pod 'SearchTextField', '~> 1.2'
+  pod 'Alamofire'
 
   target 'WEatsTests' do
     inherit! :search_paths

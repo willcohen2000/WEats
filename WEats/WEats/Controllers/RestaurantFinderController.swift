@@ -36,6 +36,7 @@ class RestaurantFinderController: UIViewController {
     var slider: CircularSlider?
     let dropDown = DropDown();
     var currentRestaurantFind = RestaurantCriteria();
+    var foundRestaurants = [FinderRestaurant]();
     
     struct RestaurantCriteria {
         var priceRange: Int!
@@ -111,6 +112,7 @@ class RestaurantFinderController: UIViewController {
         circularSlider.endThumbTintColor = blueColor;
         circularSlider.endThumbStrokeColor = blueColor;
         circularSlider.endThumbStrokeHighlightedColor = blueColor;
+        circularSlider.center.x = self.view.center.x;
         slider = circularSlider;
         circularSlider.addTarget(self, action: #selector(updatedPrice), for: .valueChanged);
         self.view.addSubview(circularSlider)
@@ -145,12 +147,23 @@ class RestaurantFinderController: UIViewController {
     @IBAction func findRestaurantsButtonPressed(_ sender: Any) {
         findRestaurantsButton.startAnimation();
         if (currentRestaurantFind.category != "Unsure") {
-            FirebaseService.restaurantFinderPullRestaurantsWithCategory(category: currentRestaurantFind.category, order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange) { (pulledRestaurantNames) in
-                print(pulledRestaurantNames);
+            FirebaseService.restaurantFinderPullRestaurantsWithCategory(category: currentRestaurantFind.category, order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange) { (pulledRestaurants) in
+                if let pulledRestaurants = pulledRestaurants {
+                    self.foundRestaurants = pulledRestaurants;
+                    print(pulledRestaurants)
+                    self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 0.5, completion: {
+                        self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
+                    })
+                }
             }
         } else {
-            FirebaseService.restaurantFinderPullRestaurantsNoCategory(order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange, completionHandler: { (pulledRestaurantNames) in
-                print(pulledRestaurantNames);
+            FirebaseService.restaurantFinderPullRestaurantsNoCategory(order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange, completionHandler: { (pulledRestaurants) in
+                if let pulledRestaurants = pulledRestaurants {
+                    self.foundRestaurants = pulledRestaurants;
+                    self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.normal, revertAfterDelay: 0.5, completion: {
+                        self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
+                    })
+                }
             })
         }
     }
@@ -172,3 +185,15 @@ class RestaurantFinderController: UIViewController {
     }
     
 }
+
+extension RestaurantFinderController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toFoundRestaurants") {
+            if let foundRestaurantsController = segue.destination as? RestaurantFinderResultsController {
+                foundRestaurantsController.restaurants = self.foundRestaurants;
+            }
+        }
+    }
+}
+
+

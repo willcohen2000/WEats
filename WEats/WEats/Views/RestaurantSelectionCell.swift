@@ -16,6 +16,7 @@ class RestaurantSelectionCell: UITableViewCell {
     @IBOutlet weak var restaurantDescriptionLabel: VerticalTopAlignLabel!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
     @IBOutlet weak var orderButton: UIButton!
+    @IBOutlet weak var deliveryIconImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib();
@@ -32,6 +33,11 @@ class RestaurantSelectionCell: UITableViewCell {
             orderButton.isHidden = true;
         } else {
             orderButton.isHidden = false;
+        }
+        if (!restaurant.delivery) {
+            self.deliveryIconImageView.isHidden = true;
+        } else {
+            self.deliveryIconImageView.isHidden = false;
         }
     }
     

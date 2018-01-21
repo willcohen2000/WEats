@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import Firebase
+import Alamofire
 
 class IndividualRestaurantController: UIViewController {
 
@@ -52,6 +54,13 @@ class IndividualRestaurantController: UIViewController {
         orderButton.layer.cornerRadius = (orderButton.frame.height / 2);
         favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
         FirebaseService.getFullRestaurantByName(name: restaurantName) { (restaurant) in
+            if (!(restaurant?.doesHaveOnlineOrder)!) {
+                self.orderButton.isHidden = true;
+            }
+            if (self.isFavorited()) {
+                self.favorited = true;
+                self.favoriteStyle();
+            }
             self.restaurant = restaurant;
             self.buildView();
             self.didBuild = true;
@@ -67,19 +76,33 @@ class IndividualRestaurantController: UIViewController {
         }
     }
     
+    private func favoriteStyle() {
+        favoriteRestaurantButton.setTitle("Favorited", for: .normal);
+        favoriteRestaurantButton.setTitleColor(blueColor, for: .normal);
+        favoriteRestaurantButton.backgroundColor = UIColor.white;
+    }
+    
+    private func unfavoriteStyle() {
+        favoriteRestaurantButton.setTitle("Favorite Restaurant", for: .normal);
+        favoriteRestaurantButton.setTitleColor(offWhiteColor, for: .normal);
+        favoriteRestaurantButton.backgroundColor = UIColor.clear;
+        favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
+        favoriteRestaurantButton.layer.borderWidth = 1.0;
+    }
+    
     @IBAction func favoriteRestaurantButtonPressed(_ sender: Any) {
+        let favoriteReference = Database.database().reference().child("Favorites").child(WEUser.sharedInstance.uid).child(restaurantName)
         if (favorited) {
             favorited = false;
-            favoriteRestaurantButton.setTitle("Favorite Restaurant", for: .normal);
-            favoriteRestaurantButton.setTitleColor(offWhiteColor, for: .normal);
-            favoriteRestaurantButton.backgroundColor = UIColor.clear;
-            favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
-            favoriteRestaurantButton.layer.borderWidth = 1.0;
+            unfavoriteStyle();
+            favoriteReference.removeValue();
         } else {
             favorited = true;
-            favoriteRestaurantButton.setTitle("Favorited", for: .normal);
-            favoriteRestaurantButton.setTitleColor(blueColor, for: .normal);
-            favoriteRestaurantButton.backgroundColor = UIColor.white;
+            favoriteStyle();
+            favoriteReference.updateChildValues([
+                "imageUrl": restaurant.imageURL,
+                "name": restaurantName
+            ]);
         }
     }
     
@@ -102,6 +125,9 @@ class IndividualRestaurantController: UIViewController {
         phoneLabel.text = restaurant.phoneNumber;
         buildStarRating();
         buildDollarRating();
+        favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
+        favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
+        favoriteRestaurantButton.layer.borderWidth = 1.0;
     }
     
     private func buildDollarRating() {
@@ -116,6 +142,15 @@ class IndividualRestaurantController: UIViewController {
                 rating = (rating! - 1);
             }
         }
+    }
+    
+    private func isFavorited() -> Bool {
+        for (favRestaurant) in WEUser.sharedInstance.favoriteRestaurants {
+            if (favRestaurant.name == restaurantName) {
+                return true;
+            }
+        }
+        return false;
     }
     
     private func buildStarRating() {
@@ -138,6 +173,16 @@ class IndividualRestaurantController: UIViewController {
         }
     }
 
+}
+
+extension IndividualRestaurantController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toOrderView") {
+            if let orderController = segue.destination as? OrderWebController {
+                orderController.restaurantOrderURL = restaurant.orderURL;
+            }
+        }
+    }
 }
 
 extension IndividualRestaurantController: UITableViewDelegate, UITableViewDataSource {

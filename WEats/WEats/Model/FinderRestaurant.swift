@@ -13,6 +13,9 @@ class FinderRestaurant {
     var name: String!
     var price: Int!
     var order: Bool!
+    var address: String!
+    var description: String!
+    var delivery: Bool!
     
     init(postData: Dictionary<String, AnyObject>) {
         
@@ -24,6 +27,15 @@ class FinderRestaurant {
         }
         if let price = postData["price"] as? Int {
             self.price = price;
+        }
+        if let address = postData["address"] as? String {
+            self.address = address;
+        }
+        if let description = postData["description"] as? String {
+            self.description = description;
+        }
+        if let delivery = postData["delivery"] as? Bool {
+            self.delivery = delivery;
         }
         
     }

@@ -14,5 +14,7 @@ final class WEUser {
     private init() {}
     
     var uid: String!
+    var favoriteRestaurants: [AuthenticationService.FavoriteRestaurant]!
+    var allRestaurants: [AuthenticationService.RestaurantAbridged]!
     
 }
