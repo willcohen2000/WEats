@@ -2389,6 +2389,9 @@
                                 <state key="normal" title="By signing up, you agree to our">
                                     <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="EAw-nY-lBa" kind="show" id="dMA-nG-ipI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-T0-Yee">
                                 <rect key="frame" x="62.5" y="486" width="250" height="20"/>
@@ -2400,6 +2403,9 @@
                                 <state key="normal" title="Terms of Service">
                                     <color key="titleColor" red="0.2176098078" green="0.28914743659999997" blue="0.36088123919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="EAw-nY-lBa" kind="show" id="QIJ-Pc-SVa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2446,6 +2452,75 @@
             </objects>
             <point key="canvasLocation" x="-679.20000000000005" y="2027.136431784108"/>
         </scene>
+        <!--Terms Of Service Controller-->
+        <scene sceneID="3D4-bC-ONZ">
+            <objects>
+                <viewController id="EAw-nY-lBa" customClass="TermsOfServiceController" customModule="WEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TW2-6M-Wm5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2QJ-6P-uNW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-iL-Rz6">
+                                        <rect key="frame" x="10" y="25" width="17" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Syg-Hh-E9A"/>
+                                            <constraint firstAttribute="width" constant="17" id="jYK-2C-Bxe"/>
+                                        </constraints>
+                                        <state key="normal" image="WhiteBackButton"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="sfj-oH-Zbc" eventType="touchUpInside" id="FC8-M6-L7R"/>
+                                            <action selector="backButtonPressed:" destination="EAw-nY-lBa" eventType="touchUpInside" id="Z3p-Ai-55o"/>
+                                            <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="pZR-Z0-mXQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfv-kf-edh">
+                                        <rect key="frame" x="32" y="25" width="310" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="zrM-w4-YHZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                        <color key="textColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yfv-kf-edh" secondAttribute="trailing" constant="33" id="MN9-tr-pL5"/>
+                                    <constraint firstAttribute="height" constant="70" id="QBJ-Bo-0F8"/>
+                                    <constraint firstAttribute="bottom" secondItem="yfv-kf-edh" secondAttribute="bottom" constant="10" id="X9Q-gw-lSr"/>
+                                    <constraint firstAttribute="bottom" secondItem="MPC-iL-Rz6" secondAttribute="bottom" constant="10" id="hBp-Ie-4Zp"/>
+                                    <constraint firstItem="MPC-iL-Rz6" firstAttribute="leading" secondItem="2QJ-6P-uNW" secondAttribute="leading" constant="10" id="olc-q8-UgJ"/>
+                                    <constraint firstItem="yfv-kf-edh" firstAttribute="leading" secondItem="MPC-iL-Rz6" secondAttribute="trailing" constant="5" id="q4t-ah-OLk"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AtL-fx-eRm">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="2QJ-6P-uNW" firstAttribute="leading" secondItem="u2u-3P-5Yx" secondAttribute="leading" id="3h5-fA-chW"/>
+                            <constraint firstItem="2QJ-6P-uNW" firstAttribute="trailing" secondItem="u2u-3P-5Yx" secondAttribute="trailing" id="Gnt-y8-QpZ"/>
+                            <constraint firstItem="u2u-3P-5Yx" firstAttribute="trailing" secondItem="AtL-fx-eRm" secondAttribute="trailing" id="Mha-zw-US5"/>
+                            <constraint firstItem="2QJ-6P-uNW" firstAttribute="top" secondItem="TW2-6M-Wm5" secondAttribute="top" id="e7U-wf-ASk"/>
+                            <constraint firstItem="u2u-3P-5Yx" firstAttribute="bottom" secondItem="AtL-fx-eRm" secondAttribute="bottom" id="eKM-fO-rii"/>
+                            <constraint firstItem="AtL-fx-eRm" firstAttribute="leading" secondItem="u2u-3P-5Yx" secondAttribute="leading" id="sO5-sG-i8f"/>
+                            <constraint firstItem="AtL-fx-eRm" firstAttribute="top" secondItem="2QJ-6P-uNW" secondAttribute="bottom" id="tKn-qq-Go9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u2u-3P-5Yx"/>
+                    </view>
+                    <connections>
+                        <outlet property="pdfWebView" destination="AtL-fx-eRm" id="uaO-y3-8xF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRQ-vH-e1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87.200000000000003" y="2027.136431784108"/>
+        </scene>
         <!--Onboarding Page Controller-->
         <scene sceneID="M8A-IC-0OD">
             <objects>
@@ -2479,6 +2554,7 @@
         <image name="WhiteBackButton" width="28" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QIJ-Pc-SVa"/>
         <segue reference="7bM-ov-PHw"/>
         <segue reference="zGF-7z-qNk"/>
         <segue reference="RDT-ny-8rh"/>
