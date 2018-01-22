@@ -24,6 +24,7 @@ target 'WEats' do
   pod 'HGCircularSlider'
   pod 'SearchTextField', '~> 1.2'
   pod 'Alamofire'
+  pod 'PDFReader'
 
   target 'WEatsTests' do
     inherit! :search_paths

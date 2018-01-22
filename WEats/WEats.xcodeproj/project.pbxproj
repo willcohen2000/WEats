@@ -34,6 +34,7 @@
 		6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5034301FF47A1300788D44 /* FoodGenresCell.swift */; };
 		6E55B6CE20043E740039AE0C /* RestaurantHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */; };
 		6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */; };
+		6EA47AD420169AE300D17586 /* WEPrivacyPolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6EA47AD320169AE200D17586 /* WEPrivacyPolicy.pdf */; };
 		6EB5953C1FE4A5BE00DF267E /* WEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */; };
 		6EB595471FE4A5BE00DF267E /* WEatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB595461FE4A5BE00DF267E /* WEatsUITests.swift */; };
 		6EB5955C1FE4AAB300DF267E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB5955B1FE4AAB300DF267E /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		6E5034301FF47A1300788D44 /* FoodGenresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGenresCell.swift; sourceTree = "<group>"; };
 		6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHoursCell.swift; sourceTree = "<group>"; };
 		6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundRestaurantsCell.swift; sourceTree = "<group>"; };
+		6EA47AD320169AE200D17586 /* WEPrivacyPolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WEPrivacyPolicy.pdf; sourceTree = "<group>"; };
 		6EB595201FE4A5BE00DF267E /* WEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB595371FE4A5BE00DF267E /* WEatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WEatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB5953B1FE4A5BE00DF267E /* WEatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEatsTests.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		6EB595551FE4A9C500DF267E /* Rescources */ = {
 			isa = PBXGroup;
 			children = (
+				6EA47AD320169AE200D17586 /* WEPrivacyPolicy.pdf */,
 				6EB5956D1FE4B32C00DF267E /* Fonts */,
 				6EB5955B1FE4AAB300DF267E /* Assets.xcassets */,
 			);
@@ -479,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA47AD420169AE300D17586 /* WEPrivacyPolicy.pdf in Resources */,
 				6EB595671FE4AAC500DF267E /* LaunchScreen.storyboard in Resources */,
 				6EB595721FE4B37A00DF267E /* Lato-Bold.ttf in Resources */,
 				6E20C8AA1FF1A6E4001F620D /* Info.plist in Resources */,
