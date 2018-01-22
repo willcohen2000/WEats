@@ -19,14 +19,14 @@ class OrderWebController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+        print(restaurantOrderURL)
         orderWebView.navigationDelegate = self;
         orderWebView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
         orderProgressView.transform = orderProgressView.transform.scaledBy(x: 1, y: 3);
         let url = URL(string: restaurantOrderURL);
         let request = URLRequest(url: url!);
         orderWebView.load(request);
-        
+        self.hideKeyboardWhenTappedAround();
     }
 
     @IBAction func exitButtonPressed(_ sender: Any) {

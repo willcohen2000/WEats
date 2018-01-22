@@ -19,9 +19,8 @@ class MenuController: UIViewController {
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        super.viewDidLoad();
+        self.hideKeyboardWhenTappedAround();
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {

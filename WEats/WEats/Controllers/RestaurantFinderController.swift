@@ -54,6 +54,7 @@ class RestaurantFinderController: UIViewController {
         setupPriceSlider();
         buildView();
         dropDown.hide();
+        self.hideKeyboardWhenTappedAround();
         dropDown.anchorView = restaurantTypeDropdownFrameView;
         dropDown.dataSource = Restaurants.restaurantFinderTypes;
         dropDown.selectionAction = { [unowned self] (index: Int, category: String) in

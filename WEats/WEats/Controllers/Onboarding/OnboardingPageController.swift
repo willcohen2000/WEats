@@ -33,7 +33,7 @@ class OnboardingPageController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
+        self.hideKeyboardWhenTappedAround();
         self.dataSource = self;
         
         if let firstVC = featureList.first {

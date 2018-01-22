@@ -152,6 +152,26 @@ class AuthenticationService {
         }
     }
     
+    static func signUp(controller: UIViewController, userEmail: String, userPassword: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
+            if (error != nil) {
+                self.signUpErrors(error: error!, controller: controller);
+                completionHandler(false);
+                return
+            } else {
+                if let user = user {
+                    WEUser.sharedInstance.uid = user.uid;
+                    AuthenticationService.loadAppInfo(UID: user.uid, successCompletionHandler: { (success) in
+                        if (success) {
+                            completionHandler(true);
+                        }
+                    })
+                }
+            }
+            
+        }
+    }
+    
     static func logIn(controller: UIViewController, userEmail: String, userPassword: String, completionHandler: @escaping (_ success: Bool) -> Void) {
         Auth.auth().signIn( withEmail: userEmail, password: userPassword, completion: { (user, error) in
             if error == nil {

@@ -42,11 +42,13 @@ class IndividualRestaurantController: UIViewController {
     var hourDayNames = [String]();
     var hourHours = [String]();
     var favorited: Bool = false;
+    var webURL: String?
     let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha: 1.0);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        self.hideKeyboardWhenTappedAround();
         hoursTableView.delegate = self;
         hoursTableView.dataSource = self;
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
@@ -111,11 +113,14 @@ class IndividualRestaurantController: UIViewController {
     }
     
     @IBAction func websiteButtonPressed(_ sender: Any) {
-        
+        webURL = restaurant.website;
+        print(restaurant.website)
+        performSegue(withIdentifier: "toOrderView", sender: nil);
     }
     
     @IBAction func orderButtonPressed(_ sender: Any) {
-        
+        webURL = restaurant.orderURL;
+        performSegue(withIdentifier: "toOrderView", sender: nil);
     }
     
     private func buildView() {
@@ -179,7 +184,9 @@ extension IndividualRestaurantController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toOrderView") {
             if let orderController = segue.destination as? OrderWebController {
-                orderController.restaurantOrderURL = restaurant.orderURL;
+                if let webURL = webURL {
+                    orderController.restaurantOrderURL = self.webURL;
+                }
             }
         }
     }

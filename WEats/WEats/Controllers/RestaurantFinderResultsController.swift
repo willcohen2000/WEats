@@ -19,6 +19,7 @@ class RestaurantFinderResultsController: UIViewController {
         super.viewDidLoad();
         foundRestaurantsTableView.delegate = self;
         foundRestaurantsTableView.dataSource = self;
+        self.hideKeyboardWhenTappedAround();
     }
     
     

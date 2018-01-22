@@ -19,6 +19,7 @@ class RestaurantSelectionController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        self.hideKeyboardWhenTappedAround();
         categoryLabel.text = "\(selectedCategory.capitalized) Restaurants"
         restaurantSelectionTableView.delegate = self;
         restaurantSelectionTableView.dataSource = self;

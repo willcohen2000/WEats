@@ -19,6 +19,7 @@ class FavoriteRestaurantsController: UIViewController {
         super.viewDidLoad();
         favoriteRestaurantsTableView.delegate = self;
         favoriteRestaurantsTableView.dataSource = self;
+        self.hideKeyboardWhenTappedAround();
     }
 
 }

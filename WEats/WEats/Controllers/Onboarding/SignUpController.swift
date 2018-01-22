@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import TransitionButton
 
 class SignUpController: UIViewController {
 
     @IBOutlet weak var emailHolderView: UIView!
     @IBOutlet weak var passwordHolderView: UIView!
     @IBOutlet weak var confirmPasswordHolderView: UIView!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signUpButton: TransitionButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -23,6 +24,7 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         setupView(buttons: [emailHolderView, passwordHolderView, confirmPasswordHolderView]);
+        self.hideKeyboardWhenTappedAround();
     }
     
     private func setupView(buttons: [UIView]) {
@@ -46,7 +48,34 @@ class SignUpController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
-        
+        guard let USER_EMAIL = emailTextField.text else { return };
+        guard let USER_PASSWORD = passwordTextField.text else { return };
+        signUpButton.startAnimation();
+        if (noSignupError()) {
+            AuthenticationService.signUp(controller: self, userEmail: USER_EMAIL, userPassword: USER_PASSWORD) { (success) in
+                if (success) {
+                    self.signUpButton.stopAnimation(animationStyle: StopAnimationStyle.normal, revertAfterDelay: 0.5, completion: {
+                        self.performSegue(withIdentifier: "toMain", sender: nil);
+                    })
+                } else {
+                    self.signUpButton.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 0.5, completion: {
+                        
+                    })
+                }
+            }
+        }
+    }
+    
+    private func noSignupError() -> Bool {
+        guard let password = passwordTextField.text else { return false };
+        guard let confirmPassword = confirmPasswordTextField.text else { return false };
+        if (password == confirmPassword) {
+            return true;
+        }
+        return false;
     }
     
 }
+
+
+

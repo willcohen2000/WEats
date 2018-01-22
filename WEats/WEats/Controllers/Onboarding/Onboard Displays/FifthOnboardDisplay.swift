@@ -32,6 +32,7 @@ class FifthOnboardDisplay: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView();
+        self.hideKeyboardWhenTappedAround();
     }
 
     private func setupView() {
