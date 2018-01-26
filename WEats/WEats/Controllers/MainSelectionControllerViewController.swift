@@ -117,6 +117,10 @@ extension MainSelectionControllerViewController {
                     selectionController.selectedCategory = selectedCategory;
                 }
             }
+        } else if (segue.identifier == "toMenu") {
+            if let menuController = segue.destination as? MenuController {
+                menuController.incomingController = MenuController.ControllerType.Explorer;
+            }
         } else {
             if let restaurantController = segue.destination as? IndividualRestaurantController {
                 if let selectedRestaurant = selectedRestaurant {

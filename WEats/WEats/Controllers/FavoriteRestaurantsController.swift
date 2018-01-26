@@ -59,6 +59,10 @@ extension FavoriteRestaurantsController {
             if let individualRestaurant = segue.destination as? IndividualRestaurantController {
                 individualRestaurant.restaurantName = self.selectedRestaurant;
             }
+        } else {
+            if let menuController = segue.destination as? MenuController {
+                menuController.incomingController = MenuController.ControllerType.Favorite;
+            }
         }
     }
 }

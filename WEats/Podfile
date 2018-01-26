@@ -23,7 +23,7 @@ target 'WEats' do
   pod 'ShadowView'
   pod 'HGCircularSlider'
   pod 'SearchTextField', '~> 1.2'
-  pod 'Alamofire'
+  pod 'Alamofire'kl
 
   target 'WEatsTests' do
     inherit! :search_paths

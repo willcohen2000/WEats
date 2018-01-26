@@ -15,12 +15,26 @@ class MenuController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    enum ControllerType {
+        case Explorer
+        case Finder
+        case Favorite
+        case Preferences
+    }
+    
+    
+    var incomingController: ControllerType!
     let blueColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     
     override func viewDidLoad() {
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
+        var buttons = [ControllerType.Explorer: exploreButton!, ControllerType.Finder: finderButton!, ControllerType.Favorite: searchButton!, ControllerType.Preferences: settingsButton!];
+        let highlightedButton = buttons[incomingController];
+        highlightedButton?.backgroundColor = blueColor;
+        highlightedButton?.setTitleColor(offWhiteColor, for: .normal);
+        
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {

@@ -193,6 +193,10 @@ extension RestaurantFinderController {
             if let foundRestaurantsController = segue.destination as? RestaurantFinderResultsController {
                 foundRestaurantsController.restaurants = self.foundRestaurants;
             }
+        } else {
+            if let menuController = segue.destination as? MenuController {
+                menuController.incomingController = MenuController.ControllerType.Finder;
+            }
         }
     }
 }

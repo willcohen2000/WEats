@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="quf-kT-7TL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="quf-kT-7TL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -624,7 +623,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut0-JH-btS">
-                                                                    <rect key="frame" x="10" y="9.5" width="110.5" height="25"/>
+                                                                    <rect key="frame" x="10" y="9.5" width="107.5" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="31C-3f-W7A"/>
                                                                     </constraints>
@@ -633,7 +632,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of weekerer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZe-FY-N7C">
-                                                                    <rect key="frame" x="220" y="9.5" width="145" height="25"/>
+                                                                    <rect key="frame" x="221" y="9.5" width="144" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="GA2-T2-QTh"/>
                                                                     </constraints>
@@ -810,7 +809,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCU-H5-fx2">
-                                <rect key="frame" x="55" y="25" width="250" height="35"/>
+                                <rect key="frame" x="55" y="25" width="247.5" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="isn-LH-ZiZ"/>
                                 </constraints>
@@ -827,7 +826,7 @@
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
                                     <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVR-8n-U2C"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" id="eUJ-gj-ibD"/>
+                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="eUJ-gj-ibD"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hlk-7l-7Df">
@@ -934,7 +933,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOC-IJ-b73">
-                                        <rect key="frame" x="53" y="31" width="271" height="35"/>
+                                        <rect key="frame" x="53" y="31" width="266" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="JRY-Fu-3GH"/>
                                         </constraints>
@@ -1009,7 +1008,7 @@
                                         <state key="normal" image="MenuButton"/>
                                         <connections>
                                             <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOM-HV-IsH"/>
-                                            <segue destination="sDl-AY-XDO" kind="show" id="MJm-Cx-NnP"/>
+                                            <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="MJm-Cx-NnP"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for restaurants" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWo-D5-96N" customClass="SearchTextField" customModule="SearchTextField">
@@ -1076,7 +1075,7 @@
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
                                     <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MB7-Vu-34G"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" id="Mni-K4-sWU"/>
+                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="Mni-K4-sWU"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKp-bP-qu2">
@@ -1151,7 +1150,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ordering food now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZN-PK-iaa">
-                                <rect key="frame" x="63" y="275" width="249" height="23"/>
+                                <rect key="frame" x="67" y="275" width="241" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="MAq-Vx-snp"/>
                                 </constraints>
@@ -1605,13 +1604,14 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1q-JC-mpH">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.2196078431372549" green="0.28627450980392155" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                                 <state key="normal" title="Explore">
-                                                    <color key="titleColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleColor" red="0.20620714128017426" green="0.28900113701820374" blue="0.36872434616088867" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="exploreRestaurantButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="mO6-KG-nPQ"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="1b2-Wr-gDQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1787,7 +1787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mue-Ba-4cO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="797"/>
+            <point key="canvasLocation" x="1089" y="1638"/>
         </scene>
         <!--Preferences Controller-->
         <scene sceneID="oN2-Ew-dF5">
@@ -1815,7 +1815,7 @@
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
                                     <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="76i-WN-5Hw"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" id="zGF-7z-qNk"/>
+                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="zGF-7z-qNk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sei-7B-sJo">
@@ -1830,6 +1830,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logOutButtonPressed:" destination="Q66-Nn-bGL" eventType="touchUpInside" id="5uH-zP-FhD"/>
+                                    <segue destination="quf-kT-7TL" kind="show" id="t82-dr-sgD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice a problem or have an idea that would make WestchesterEats better? Please let us know!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dl-7O-ocF">
@@ -1915,7 +1916,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WestchesterEats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJg-gm-A3Y">
-                                <rect key="frame" x="75.5" y="95" width="225" height="30"/>
+                                <rect key="frame" x="73" y="95" width="230" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="FEh-th-IAq"/>
                                 </constraints>
@@ -2125,7 +2126,7 @@
                                         <rect key="frame" x="46" y="0.0" width="277" height="65"/>
                                         <color key="textColor" red="0.2156862745" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.35422258435582821" colorSpace="calibratedWhite"/>
@@ -2292,7 +2293,7 @@
                                         <rect key="frame" x="46" y="0.0" width="277" height="65"/>
                                         <color key="textColor" red="0.2156862745" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.35422258439999998" colorSpace="calibratedWhite"/>
@@ -2320,7 +2321,7 @@
                                         <rect key="frame" x="46" y="0.0" width="277" height="65"/>
                                         <color key="textColor" red="0.2156862745" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.35422258439999998" colorSpace="calibratedWhite"/>
@@ -2557,7 +2558,7 @@
         <segue reference="QIJ-Pc-SVa"/>
         <segue reference="7bM-ov-PHw"/>
         <segue reference="zGF-7z-qNk"/>
-        <segue reference="RDT-ny-8rh"/>
+        <segue reference="1b2-Wr-gDQ"/>
         <segue reference="wiQ-Cz-gVA"/>
     </inferredMetricsTieBreakers>
 </document>

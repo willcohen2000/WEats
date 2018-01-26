@@ -34,3 +34,13 @@ class PreferencesController: UIViewController {
     }
     
 }
+
+extension PreferencesController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toMenu") {
+            if let menuController = segue.destination as? MenuController {
+                menuController.incomingController = MenuController.ControllerType.Preferences;
+            }
+        }
+    }
+}
