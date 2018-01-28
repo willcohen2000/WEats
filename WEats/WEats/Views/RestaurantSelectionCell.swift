@@ -24,11 +24,16 @@ class RestaurantSelectionCell: UITableViewCell {
         interiorHolderView.layer.cornerRadius = 10.0;
         orderButton.layer.cornerRadius = 16;
     }
+    
+    var controller: RestaurantSelectionController!
+    var restaurant: MiniRestaurant!
 
-    func buildCell(restaurant: MiniRestaurant) {
+    func buildCell(restaurant: MiniRestaurant, controller: RestaurantSelectionController) {
+        self.restaurant = restaurant;
         self.restaurantNameLabel.text = restaurant.name;
         self.restaurantDescriptionLabel.text = restaurant.description;
         self.restaurantAddressLabel.text = restaurant.address;
+        self.controller = controller;
         if (!restaurant.doesHaveOnlineOrder) {
             orderButton.isHidden = true;
         } else {
@@ -42,7 +47,7 @@ class RestaurantSelectionCell: UITableViewCell {
     }
     
     @IBAction func orderButtonPressed(_ sender: Any) {
-        
+        controller.goToOrder(orderURL: restaurant.orderURL);
     }
     
 }

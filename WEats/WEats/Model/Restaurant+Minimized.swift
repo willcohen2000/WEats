@@ -15,6 +15,7 @@ class MiniRestaurant {
     var doesHaveOnlineOrder: Bool!
     var address: String!
     var delivery: Bool!
+    var orderURL: String!
     var postKey: String?
 
     init(postkey: String, postData: Dictionary<String, AnyObject>) {
@@ -35,7 +36,9 @@ class MiniRestaurant {
         if let delivery = postData["delivery"] as? Bool {
             self.delivery = delivery;
         }
-        
+        if let orderURL = postData["orderURL"] as? String {
+            self.orderURL = orderURL;
+        }
     }
     
 }

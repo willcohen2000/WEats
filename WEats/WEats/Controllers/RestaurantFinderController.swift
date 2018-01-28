@@ -28,6 +28,11 @@ class RestaurantFinderController: UIViewController {
     @IBOutlet weak var selectTypeOfRestaurantButton: UIButton!
     @IBOutlet weak var restaurantTypeDropdownFrameView: UIView!
     @IBOutlet weak var findRestaurantsButton: TransitionButton!
+    @IBOutlet weak var optionsView: UIView!
+    
+    @IBOutlet weak var menuButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var priceSelectionViewTopConstraint: NSLayoutConstraint!
+    
     
     let blueColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0);
     let blueColorLowAlpha = UIColor(red:0.20, green:0.29, blue:0.37, alpha:0.7);
@@ -37,6 +42,9 @@ class RestaurantFinderController: UIViewController {
     let dropDown = DropDown();
     var currentRestaurantFind = RestaurantCriteria();
     var foundRestaurants = [FinderRestaurant]();
+    var menuCurrentlyUp: Bool = false;
+    let menuButtonTopMargin = 7;
+    let priceSelectionViewTopMargin = 50;
     
     struct RestaurantCriteria {
         var priceRange: Int!
@@ -183,6 +191,46 @@ class RestaurantFinderController: UIViewController {
         noButton.backgroundColor = blueColor;
         noButton.setTitleColor(offWhiteColor, for: .normal);
         currentRestaurantFind.order = false;
+    }
+    
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        if (!self.menuCurrentlyUp) {
+            self.menuCurrentlyUp = true;
+            menuButtonTopConstraint.constant = (CGFloat(menuButtonTopMargin + 150));
+            priceSelectionViewTopConstraint.constant = (CGFloat(priceSelectionViewTopMargin + 150));
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+                self.slider!.layoutIfNeeded();
+            }) { (success) in
+                self.optionsView.isHidden = false;
+                self.slider!.frame = self.priceSelectionHolderView.frame;
+            }
+        } else {
+            self.menuCurrentlyUp = false;
+            menuButtonTopConstraint.constant = CGFloat(menuButtonTopMargin);
+            priceSelectionViewTopConstraint.constant = CGFloat(priceSelectionViewTopMargin);
+            optionsView.isHidden = true;
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+                self.slider!.layoutIfNeeded();
+            }) { (success) in
+                self.slider!.frame = self.priceSelectionHolderView.frame;
+            }
+        }
+    }
+    
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        self.menuCurrentlyUp = false;
+        menuButtonTopConstraint.constant = CGFloat(menuButtonTopMargin);
+        priceSelectionViewTopConstraint.constant = CGFloat(priceSelectionViewTopMargin);
+        slider!.frame = priceSelectionHolderView.frame;
+        optionsView.isHidden = true;
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded();
+            self.slider!.layoutIfNeeded();
+        }) { (success) in
+            self.slider!.frame = self.priceSelectionHolderView.frame;
+        }
     }
     
 }

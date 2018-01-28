@@ -87,6 +87,7 @@ class FirebaseService {
         let restaurantReference = Database.database().reference().child("Restaurants").child(name);
         restaurantReference.observe(.value, with: { (snapshot) in
             let postDict = snapshot.value as? [String : AnyObject] ?? [:];
+            
             guard let address = postDict["address"] else { return };
             guard let description = postDict["description"] else { return };
             guard let doesHaveOnlineOrder = postDict["doesHaveOnlineOrder"] else { return };
@@ -99,7 +100,8 @@ class FirebaseService {
             guard let phoneNumber = postDict["phoneNumber"] else { return };
             guard let hours = postDict["hours"] else { return };
             guard let orderURL = postDict["orderURL"] else { return };
-            completionHandler(Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String, rating: rating as! Float, dollarRating: dollarRating as! Int, phoneNumber: phoneNumber as! String, hours: hours as! [String:String], orderURL: orderURL as! String));
+            let restaurant = Restaurant(name: name as! String, description: description as! String, imageURL: imageURL as! String, doesHaveOnlineOrder: doesHaveOnlineOrder as! Bool, town: town as! String, website: website as! String, address: address as! String, rating: rating as! Float, dollarRating: dollarRating as! Int, phoneNumber: phoneNumber as! String, hours: hours as! [String:String], orderURL: orderURL as! String)
+            completionHandler(restaurant);
         }) { (error) in
             completionHandler(nil);
         }

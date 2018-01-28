@@ -16,6 +16,7 @@ class RestaurantSelectionController: UIViewController {
     var selectedCategory: String!
     var restaurants = [MiniRestaurant]();
     var selectedRestaurantName: String?
+    var orderURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -46,17 +47,23 @@ extension RestaurantSelectionController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let restaurantName = restaurants[indexPath.row].name;
         self.selectedRestaurantName = restaurantName;
+        print("HELLLO: \(self.selectedRestaurantName)")
         self.performSegue(withIdentifier: "toIndividualRestaurant", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurant = self.restaurants[indexPath.row];
         if let restaurantCell = restaurantSelectionTableView.dequeueReusableCell(withIdentifier: "restaurantSelectionCell") as? RestaurantSelectionCell {
-            restaurantCell.buildCell(restaurant: restaurant);
+            restaurantCell.buildCell(restaurant: restaurant, controller: self);
             return restaurantCell;
         } else {
             return RestaurantSelectionCell();
         }
+    }
+    
+    func goToOrder(orderURL: String) {
+        self.orderURL = orderURL;
+        performSegue(withIdentifier: "toOrder", sender: nil);
     }
     
 }
@@ -65,8 +72,15 @@ extension RestaurantSelectionController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toIndividualRestaurant") {
             if let individualRestaurantController = segue.destination as? IndividualRestaurantController {
-                if selectedRestaurantName == self.selectedRestaurantName {
+                if let selectedRestaurantName = self.selectedRestaurantName {
                     individualRestaurantController.restaurantName = selectedRestaurantName;
+                    print("phil: \(individualRestaurantController.restaurant)")
+                }
+            }
+        } else {
+            if let orderController = segue.destination as? OrderWebController {
+                if let orderURL = orderURL {
+                    orderController.restaurantOrderURL = orderURL;
                 }
             }
         }

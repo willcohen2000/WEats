@@ -49,6 +49,7 @@ class IndividualRestaurantController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
+        
         hoursTableView.delegate = self;
         hoursTableView.dataSource = self;
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
@@ -97,10 +98,13 @@ class IndividualRestaurantController: UIViewController {
         if (favorited) {
             favorited = false;
             unfavoriteStyle();
+            let restaurantIndex = getRestaurantIndex();
+            WEUser.sharedInstance.favoriteRestaurants.remove(at: restaurantIndex);
             favoriteReference.removeValue();
         } else {
             favorited = true;
             favoriteStyle();
+            WEUser.sharedInstance.favoriteRestaurants.append(AuthenticationService.FavoriteRestaurant(imageURL: restaurant.imageURL, name: restaurant.name));
             favoriteReference.updateChildValues([
                 "imageUrl": restaurant.imageURL,
                 "name": restaurantName
@@ -124,7 +128,8 @@ class IndividualRestaurantController: UIViewController {
     }
     
     private func buildView() {
-        restaurantImageView.sd_setImage(with: URL(string: restaurant.imageURL), completed: nil);
+        print("keyboard: \(restaurant.imageURL!)")
+        restaurantImageView.sd_setImage(with: URL(string: restaurant.imageURL!), completed: nil);
         restaurantNameLabel.text = restaurant.name;
         addressLabel.text = restaurant.address;
         phoneLabel.text = restaurant.phoneNumber;
@@ -133,6 +138,15 @@ class IndividualRestaurantController: UIViewController {
         favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
         favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
         favoriteRestaurantButton.layer.borderWidth = 1.0;
+    }
+    
+    private func getRestaurantIndex() -> Int {
+        for i in (0...WEUser.sharedInstance.favoriteRestaurants.count) {
+            if WEUser.sharedInstance.favoriteRestaurants[i].name == restaurant.name {
+                return i;
+            }
+        }
+        return -1;
     }
     
     private func buildDollarRating() {

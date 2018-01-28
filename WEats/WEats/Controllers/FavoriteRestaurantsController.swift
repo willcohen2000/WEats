@@ -12,8 +12,15 @@ import SDWebImage
 class FavoriteRestaurantsController: UIViewController {
 
     @IBOutlet weak var favoriteRestaurantsTableView: UICollectionView!
+    @IBOutlet weak var optionsView: UIView!
+    
+    @IBOutlet weak var menuButtonTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var favoriteRestaurantsLabelTopConstraint: NSLayoutConstraint!
     
     var selectedRestaurant: String?
+    let menuTopMargin = 10;
+    let favoriteTopMargin = 5;
+    var menuCurrentlyUp: Bool = false;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -21,6 +28,38 @@ class FavoriteRestaurantsController: UIViewController {
         favoriteRestaurantsTableView.dataSource = self;
         self.hideKeyboardWhenTappedAround();
     }
+    
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        if (!self.menuCurrentlyUp) {
+            self.menuCurrentlyUp = true;
+            menuButtonTopConstraint.constant = (CGFloat(menuTopMargin + 150));
+            favoriteRestaurantsLabelTopConstraint.constant = (CGFloat(favoriteTopMargin + 150));
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+            }) { (success) in
+                self.optionsView.isHidden = false;
+            }
+        } else {
+            self.menuCurrentlyUp = false;
+            menuButtonTopConstraint.constant = CGFloat(menuTopMargin);
+            favoriteRestaurantsLabelTopConstraint.constant = CGFloat(favoriteTopMargin);
+            optionsView.isHidden = true;
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+            })
+        }
+    }
+    
+    @IBAction func favoritesButtonPressed(_ sender: Any) {
+        self.menuCurrentlyUp = false;
+        menuButtonTopConstraint.constant = CGFloat(menuTopMargin);
+        favoriteRestaurantsLabelTopConstraint.constant = CGFloat(favoriteTopMargin);
+        optionsView.isHidden = true;
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded();
+        })
+    }
+    
 
 }
 

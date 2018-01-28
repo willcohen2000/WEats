@@ -13,18 +13,25 @@ class MainSelectionControllerViewController: UIViewController {
     
     @IBOutlet weak var foodGenreCollectionView: UICollectionView!
     @IBOutlet weak var restaurantSearchBar: SearchTextField!
+    @IBOutlet weak var optionsView: UIView!
     
+    @IBOutlet weak var menuButtonTopMargin: NSLayoutConstraint!
+    @IBOutlet weak var exploreRestaurantsTopMargin: NSLayoutConstraint!
+    
+    let menuButtonMargin = 7;
+    let exploreLabelMargin = 3;
     var openRestaurantCategories = [String]();
     var selectedCategory: String?
     var selectedRestaurant: String?
     let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha:1.0);
     let blueColorContainer = UIColor(red:0.22, green:0.29, blue:0.36, alpha:0.95);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
+    var menuCurrentlyUp: Bool = false;
     
     override func viewDidLoad() {
         super.viewDidLoad();
         //suggestedRestaurantsCollectionView.delegate = self;
-       // suggestedRestaurantsCollectionView.dataSource = self;
+        //  suggestedRestaurantsCollectionView.dataSource = self;
         foodGenreCollectionView.delegate = self;
         foodGenreCollectionView.dataSource = self;
         foodGenreCollectionView.backgroundView?.backgroundColor = UIColor.clear;
@@ -66,7 +73,33 @@ class MainSelectionControllerViewController: UIViewController {
     }
     
     @IBAction func menuButtonPressed(_ sender: Any) {
-      
+        if (!self.menuCurrentlyUp) {
+            self.menuCurrentlyUp = true;
+            menuButtonTopMargin.constant = (CGFloat(menuButtonMargin + 150));
+            exploreRestaurantsTopMargin.constant = (CGFloat(exploreLabelMargin + 150));
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+            }) { (success) in
+                self.optionsView.isHidden = false;
+            }
+        } else {
+            self.menuCurrentlyUp = false;
+            menuButtonTopMargin.constant = CGFloat(menuButtonMargin);
+            exploreRestaurantsTopMargin.constant = CGFloat(exploreLabelMargin);
+            optionsView.isHidden = true;
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.layoutIfNeeded();
+            })
+        }
+    }
+    
+    @IBAction func exploreButtonPressed(_ sender: Any) {
+        menuButtonTopMargin.constant = CGFloat(menuButtonMargin);
+        exploreRestaurantsTopMargin.constant = CGFloat(exploreLabelMargin);
+        optionsView.isHidden = true;
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded();
+        })
     }
     
 }

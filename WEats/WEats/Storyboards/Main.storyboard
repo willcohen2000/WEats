@@ -149,7 +149,6 @@
                                 </constraints>
                                 <state key="normal" image="BlueBackButton"/>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="Dke-2Z-3Lc"/>
                                     <action selector="backButtonPressed:" destination="YfW-LO-2Ol" eventType="touchUpInside" id="IXN-IZ-Pqx"/>
                                 </connections>
                             </button>
@@ -310,6 +309,7 @@
                         <outlet property="categoryLabel" destination="R9u-nt-7cb" id="tEf-Ra-ewc"/>
                         <outlet property="restaurantSelectionTableView" destination="Ew6-Ym-Tg6" id="gRv-LW-Uwb"/>
                         <segue destination="sfj-oH-Zbc" kind="show" identifier="toIndividualRestaurant" id="ERz-v7-hwc"/>
+                        <segue destination="blo-YO-xcQ" kind="show" identifier="toOrder" id="gup-tV-GzW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwE-X8-58T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,7 +341,6 @@
                                         </constraints>
                                         <state key="normal" image="WhiteBackButton"/>
                                         <connections>
-                                            <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="47E-6j-n46"/>
                                             <action selector="backButtonPressed:" destination="sfj-oH-Zbc" eventType="touchUpInside" id="6fD-ub-mFm"/>
                                         </connections>
                                     </button>
@@ -825,8 +824,7 @@
                                 </constraints>
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
-                                    <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QVR-8n-U2C"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="eUJ-gj-ibD"/>
+                                    <action selector="menuButtonPressed:" destination="44S-Mc-1og" eventType="touchUpInside" id="Cj9-nw-4iv"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hlk-7l-7Df">
@@ -898,6 +896,80 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E28-sU-7G7">
+                                <rect key="frame" x="0.0" y="30" width="375" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF6-A4-EAR">
+                                        <rect key="frame" x="8" y="0.0" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Pd6-Jh-ddi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Favorites">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="favoritesButtonPressed:" destination="44S-Mc-1og" eventType="touchUpInside" id="ucf-SU-tXn"/>
+                                            <action selector="searchButtonPressed:" destination="gga-r3-pnn" eventType="touchUpInside" id="pjZ-jU-eco"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9o-z0-Qoz">
+                                        <rect key="frame" x="8" y="32" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="laW-OL-Q2S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Preferences">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Q66-Nn-bGL" kind="show" id="0pJ-Wg-4oQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-HH-mcu">
+                                        <rect key="frame" x="8" y="64" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="t2q-Nd-ph3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Explore">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="1yj-cx-Eg5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-XL-CGU">
+                                        <rect key="frame" x="8" y="96" width="357" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="smr-lT-9Vb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gga-r3-pnn" kind="show" id="2J0-uw-TAR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ew1-XL-CGU" firstAttribute="top" secondItem="SqL-HH-mcu" secondAttribute="bottom" constant="3" id="6IF-PI-kxe"/>
+                                    <constraint firstItem="P9o-z0-Qoz" firstAttribute="leading" secondItem="E28-sU-7G7" secondAttribute="leading" constant="8" id="Q5h-oz-ASq"/>
+                                    <constraint firstItem="ew1-XL-CGU" firstAttribute="leading" secondItem="E28-sU-7G7" secondAttribute="leading" constant="8" id="RKt-Zh-ScA"/>
+                                    <constraint firstItem="P9o-z0-Qoz" firstAttribute="top" secondItem="KF6-A4-EAR" secondAttribute="bottom" constant="3" id="XrS-mp-DvE"/>
+                                    <constraint firstAttribute="trailing" secondItem="SqL-HH-mcu" secondAttribute="trailing" id="cli-9a-fjg"/>
+                                    <constraint firstAttribute="trailing" secondItem="KF6-A4-EAR" secondAttribute="trailing" id="fer-VL-W60"/>
+                                    <constraint firstItem="SqL-HH-mcu" firstAttribute="leading" secondItem="E28-sU-7G7" secondAttribute="leading" constant="8" id="hXG-Da-yct"/>
+                                    <constraint firstAttribute="trailing" secondItem="P9o-z0-Qoz" secondAttribute="trailing" id="imD-rr-Qwj"/>
+                                    <constraint firstAttribute="height" constant="130" id="jvI-Fj-HGC"/>
+                                    <constraint firstItem="KF6-A4-EAR" firstAttribute="top" secondItem="E28-sU-7G7" secondAttribute="top" id="poJ-BR-zEq"/>
+                                    <constraint firstItem="SqL-HH-mcu" firstAttribute="top" secondItem="P9o-z0-Qoz" secondAttribute="bottom" constant="3" id="r79-vW-RS1"/>
+                                    <constraint firstAttribute="trailing" secondItem="ew1-XL-CGU" secondAttribute="trailing" constant="10" id="wMZ-yM-E37"/>
+                                    <constraint firstItem="KF6-A4-EAR" firstAttribute="leading" secondItem="E28-sU-7G7" secondAttribute="leading" constant="8" id="xhz-r8-jZw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -905,15 +977,21 @@
                             <constraint firstItem="JGP-Cr-5U2" firstAttribute="trailing" secondItem="hlk-7l-7Df" secondAttribute="trailing" constant="10" id="E2J-Na-MT7"/>
                             <constraint firstItem="hlk-7l-7Df" firstAttribute="top" secondItem="vCU-H5-fx2" secondAttribute="bottom" constant="30" id="GIz-Bb-CjQ"/>
                             <constraint firstItem="vCU-H5-fx2" firstAttribute="top" secondItem="JGP-Cr-5U2" secondAttribute="top" constant="5" id="Krg-Wr-15y"/>
+                            <constraint firstItem="E28-sU-7G7" firstAttribute="leading" secondItem="JGP-Cr-5U2" secondAttribute="leading" id="L36-nF-yI8"/>
+                            <constraint firstItem="E28-sU-7G7" firstAttribute="trailing" secondItem="JGP-Cr-5U2" secondAttribute="trailing" id="TrY-tc-gMf"/>
                             <constraint firstItem="hlk-7l-7Df" firstAttribute="leading" secondItem="JGP-Cr-5U2" secondAttribute="leading" constant="10" id="Ul6-SQ-Fsu"/>
                             <constraint firstItem="JGP-Cr-5U2" firstAttribute="bottom" secondItem="hlk-7l-7Df" secondAttribute="bottom" id="Yf4-hX-oSc"/>
                             <constraint firstItem="o4z-d7-KE2" firstAttribute="leading" secondItem="JGP-Cr-5U2" secondAttribute="leading" constant="10" id="cFP-V6-irP"/>
+                            <constraint firstItem="E28-sU-7G7" firstAttribute="top" secondItem="gzA-oz-u0v" secondAttribute="top" constant="30" id="dOh-YE-Lf7"/>
                             <constraint firstItem="o4z-d7-KE2" firstAttribute="top" secondItem="JGP-Cr-5U2" secondAttribute="top" constant="10" id="edh-8d-I9h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JGP-Cr-5U2"/>
                     </view>
                     <connections>
+                        <outlet property="favoriteRestaurantsLabelTopConstraint" destination="Krg-Wr-15y" id="MSz-ei-But"/>
                         <outlet property="favoriteRestaurantsTableView" destination="hlk-7l-7Df" id="91S-UL-4Pw"/>
+                        <outlet property="menuButtonTopConstraint" destination="edh-8d-I9h" id="gHQ-br-6L2"/>
+                        <outlet property="optionsView" destination="E28-sU-7G7" id="2HW-5s-jbo"/>
                         <segue destination="sfj-oH-Zbc" kind="show" identifier="toIndividualRestaurant" id="EVD-3n-RtA"/>
                     </connections>
                 </viewController>
@@ -1007,8 +1085,7 @@
                                         </constraints>
                                         <state key="normal" image="MenuButton"/>
                                         <connections>
-                                            <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOM-HV-IsH"/>
-                                            <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="MJm-Cx-NnP"/>
+                                            <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hM1-pu-rhx"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for restaurants" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWo-D5-96N" customClass="SearchTextField" customModule="SearchTextField">
@@ -1021,9 +1098,83 @@
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usr-Cz-S8k">
+                                        <rect key="frame" x="0.0" y="30" width="375" height="130"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Io-0g-4VE">
+                                                <rect key="frame" x="8" y="0.0" width="367" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="fmv-6V-J41"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                                                <state key="normal" title="Explore">
+                                                    <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="exploreButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWo-jA-dhx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gun-aH-sJe">
+                                                <rect key="frame" x="8" y="32" width="367" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="EcZ-qs-4TM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                                <state key="normal" title="Search">
+                                                    <color key="titleColor" red="0.20236764848232269" green="0.28500548005104065" blue="0.36872467398643494" alpha="0.70318472859327219" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="gga-r3-pnn" kind="show" id="is0-pD-qci"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W35-lG-wF7">
+                                                <rect key="frame" x="8" y="64" width="367" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="e5M-RO-Pda"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                                <state key="normal" title="Favorites">
+                                                    <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="44S-Mc-1og" kind="show" id="6Jj-CM-53q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYi-QV-0ub">
+                                                <rect key="frame" x="8" y="96" width="357" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="fJC-q4-Qda"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                                <state key="normal" title="Preferences">
+                                                    <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Q66-Nn-bGL" kind="show" id="fCP-JO-f96"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="W35-lG-wF7" secondAttribute="trailing" id="71W-iy-n0c"/>
+                                            <constraint firstItem="UYi-QV-0ub" firstAttribute="top" secondItem="W35-lG-wF7" secondAttribute="bottom" constant="3" id="BRN-mD-Pf7"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Io-0g-4VE" secondAttribute="trailing" id="BxH-lk-YlW"/>
+                                            <constraint firstItem="W35-lG-wF7" firstAttribute="leading" secondItem="Usr-Cz-S8k" secondAttribute="leading" constant="8" id="O5k-Hs-Dcj"/>
+                                            <constraint firstItem="Gun-aH-sJe" firstAttribute="top" secondItem="3Io-0g-4VE" secondAttribute="bottom" constant="3" id="Q2s-0R-j9F"/>
+                                            <constraint firstItem="3Io-0g-4VE" firstAttribute="top" secondItem="Usr-Cz-S8k" secondAttribute="top" id="UTz-Fk-1ai"/>
+                                            <constraint firstAttribute="trailing" secondItem="UYi-QV-0ub" secondAttribute="trailing" constant="10" id="WBh-1O-axO"/>
+                                            <constraint firstAttribute="height" constant="130" id="ZBd-jT-3Vd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gun-aH-sJe" secondAttribute="trailing" id="drV-em-NW4"/>
+                                            <constraint firstItem="UYi-QV-0ub" firstAttribute="leading" secondItem="Usr-Cz-S8k" secondAttribute="leading" constant="8" id="eYv-bK-PcH"/>
+                                            <constraint firstItem="Gun-aH-sJe" firstAttribute="leading" secondItem="Usr-Cz-S8k" secondAttribute="leading" constant="8" id="jcm-8g-TGs"/>
+                                            <constraint firstItem="W35-lG-wF7" firstAttribute="top" secondItem="Gun-aH-sJe" secondAttribute="bottom" constant="3" id="veN-xF-hhc"/>
+                                            <constraint firstItem="3Io-0g-4VE" firstAttribute="leading" secondItem="Usr-Cz-S8k" secondAttribute="leading" constant="8" id="zZl-Cd-1ev"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="Usr-Cz-S8k" firstAttribute="top" secondItem="Nrg-xu-Dcq" secondAttribute="top" constant="30" id="Gef-hv-g79"/>
                                     <constraint firstItem="jWo-D5-96N" firstAttribute="top" secondItem="ZOC-IJ-b73" secondAttribute="bottom" constant="20" id="V00-nz-Gvu"/>
                                     <constraint firstAttribute="trailing" secondItem="jWo-D5-96N" secondAttribute="trailing" id="cbI-bc-qwG"/>
                                     <constraint firstItem="ZOC-IJ-b73" firstAttribute="top" secondItem="Nrg-xu-Dcq" secondAttribute="topMargin" constant="3" id="cjV-Yo-a4E"/>
@@ -1033,8 +1184,10 @@
                                     <constraint firstAttribute="bottom" secondItem="0aW-7E-Eo4" secondAttribute="bottom" id="nga-Gg-YoQ"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="0aW-7E-Eo4" secondAttribute="trailing" id="ov4-AQ-bEv"/>
                                     <constraint firstItem="jWo-D5-96N" firstAttribute="leading" secondItem="Nrg-xu-Dcq" secondAttribute="leading" id="rxU-Jr-BhL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Usr-Cz-S8k" secondAttribute="trailing" id="top-F3-LZj"/>
                                     <constraint firstItem="ZOC-IJ-b73" firstAttribute="leading" secondItem="cmZ-El-eOu" secondAttribute="trailing" constant="10" id="uXK-I7-Mcv"/>
                                     <constraint firstItem="cmZ-El-eOu" firstAttribute="leading" secondItem="Nrg-xu-Dcq" secondAttribute="leadingMargin" id="wQP-UY-G8j"/>
+                                    <constraint firstItem="Usr-Cz-S8k" firstAttribute="leading" secondItem="Nrg-xu-Dcq" secondAttribute="leading" id="xHt-45-Rpg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1048,7 +1201,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="exploreRestaurantsTopMargin" destination="cjV-Yo-a4E" id="bXk-L7-XC8"/>
                         <outlet property="foodGenreCollectionView" destination="0aW-7E-Eo4" id="fHN-jo-jUb"/>
+                        <outlet property="menuButtonTopMargin" destination="fcI-Wa-zvm" id="rU8-g1-ptS"/>
+                        <outlet property="optionsView" destination="Usr-Cz-S8k" id="d6N-1Q-dmo"/>
                         <outlet property="restaurantSearchBar" destination="jWo-D5-96N" id="ALO-28-3O5"/>
                         <segue destination="YfW-LO-2Ol" kind="show" identifier="toRestaurantSelection" id="ZBe-Tz-Kba"/>
                         <segue destination="sfj-oH-Zbc" kind="show" identifier="toIndividiualRestaurant" id="wiQ-Cz-gVA"/>
@@ -1056,7 +1212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="28"/>
+            <point key="canvasLocation" x="64.799999999999997" y="26.53673163418291"/>
         </scene>
         <!--Restaurant Finder Controller-->
         <scene sceneID="XWZ-C8-MqR">
@@ -1074,8 +1230,7 @@
                                 </constraints>
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
-                                    <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MB7-Vu-34G"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="Mni-K4-sWU"/>
+                                    <action selector="menuButtonPressed:" destination="gga-r3-pnn" eventType="touchUpInside" id="GL8-uG-tDW"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKp-bP-qu2">
@@ -1282,11 +1437,85 @@
                                     <action selector="findRestaurantsButtonPressed:" destination="gga-r3-pnn" eventType="touchUpInside" id="f2A-kb-41Z"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCU-vC-U3P">
+                                <rect key="frame" x="0.0" y="30" width="375" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6t-uE-61z">
+                                        <rect key="frame" x="8" y="0.0" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="vj6-8g-uun"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchButtonPressed:" destination="gga-r3-pnn" eventType="touchUpInside" id="oss-c0-HTh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fho-Uu-cD8">
+                                        <rect key="frame" x="8" y="32" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="xfy-W0-IqF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Favorites">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="44S-Mc-1og" kind="show" id="FJv-67-6v4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAP-GG-2lu">
+                                        <rect key="frame" x="8" y="64" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="N1X-ir-Kur"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Preferences">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Q66-Nn-bGL" kind="show" id="LIi-7V-gHU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUc-2r-g3x">
+                                        <rect key="frame" x="8" y="96" width="357" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="sui-t9-QqC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Explore">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="ITn-Zl-59a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fho-Uu-cD8" firstAttribute="top" secondItem="g6t-uE-61z" secondAttribute="bottom" constant="3" id="0kM-ZI-t8b"/>
+                                    <constraint firstAttribute="trailing" secondItem="uUc-2r-g3x" secondAttribute="trailing" constant="10" id="1H6-vR-18A"/>
+                                    <constraint firstItem="fho-Uu-cD8" firstAttribute="leading" secondItem="vCU-vC-U3P" secondAttribute="leading" constant="8" id="1iU-54-EgQ"/>
+                                    <constraint firstAttribute="height" constant="130" id="Bh1-Aq-Wxx"/>
+                                    <constraint firstItem="g6t-uE-61z" firstAttribute="leading" secondItem="vCU-vC-U3P" secondAttribute="leading" constant="8" id="EHB-xE-uwb"/>
+                                    <constraint firstAttribute="trailing" secondItem="g6t-uE-61z" secondAttribute="trailing" id="GYW-Kz-ft7"/>
+                                    <constraint firstItem="g6t-uE-61z" firstAttribute="top" secondItem="vCU-vC-U3P" secondAttribute="top" id="ME0-jY-BjY"/>
+                                    <constraint firstItem="XAP-GG-2lu" firstAttribute="top" secondItem="fho-Uu-cD8" secondAttribute="bottom" constant="3" id="Wai-xm-0mq"/>
+                                    <constraint firstItem="XAP-GG-2lu" firstAttribute="leading" secondItem="vCU-vC-U3P" secondAttribute="leading" constant="8" id="cao-z0-8gc"/>
+                                    <constraint firstAttribute="trailing" secondItem="XAP-GG-2lu" secondAttribute="trailing" id="cgg-83-1WR"/>
+                                    <constraint firstItem="uUc-2r-g3x" firstAttribute="leading" secondItem="vCU-vC-U3P" secondAttribute="leading" constant="8" id="dV3-Cz-yw6"/>
+                                    <constraint firstAttribute="trailing" secondItem="fho-Uu-cD8" secondAttribute="trailing" id="heo-eG-NMX"/>
+                                    <constraint firstItem="uUc-2r-g3x" firstAttribute="top" secondItem="XAP-GG-2lu" secondAttribute="bottom" constant="3" id="uL3-E0-zSs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="bQu-N3-8ei" firstAttribute="trailing" secondItem="94b-Xd-O0H" secondAttribute="trailing" constant="20" id="1Uu-J7-qjM"/>
                             <constraint firstItem="bQu-N3-8ei" firstAttribute="trailing" secondItem="TwK-Oa-IfU" secondAttribute="trailing" constant="30" id="3FL-Lq-bd4"/>
+                            <constraint firstItem="vCU-vC-U3P" firstAttribute="leading" secondItem="bQu-N3-8ei" secondAttribute="leading" id="3uZ-zO-u2U"/>
                             <constraint firstItem="DKp-bP-qu2" firstAttribute="top" secondItem="bQu-N3-8ei" secondAttribute="top" constant="50" id="A9N-BX-xQ4"/>
                             <constraint firstItem="94b-Xd-O0H" firstAttribute="top" secondItem="TwK-Oa-IfU" secondAttribute="bottom" constant="20" id="CVX-L7-vMy"/>
                             <constraint firstItem="5Cp-AA-z3v" firstAttribute="leading" secondItem="bQu-N3-8ei" secondAttribute="leading" constant="20" id="IO4-rw-5M2"/>
@@ -1294,10 +1523,12 @@
                             <constraint firstItem="TwK-Oa-IfU" firstAttribute="leading" secondItem="bQu-N3-8ei" secondAttribute="leading" constant="30" id="Xpl-n3-Ihu"/>
                             <constraint firstItem="DKp-bP-qu2" firstAttribute="centerX" secondItem="2I9-xv-Ywe" secondAttribute="centerX" id="bXx-1h-qfZ"/>
                             <constraint firstItem="0ZN-PK-iaa" firstAttribute="top" secondItem="DKp-bP-qu2" secondAttribute="bottom" constant="5" id="bYb-A5-7D2"/>
+                            <constraint firstItem="vCU-vC-U3P" firstAttribute="top" secondItem="2I9-xv-Ywe" secondAttribute="top" constant="30" id="dK0-yX-fJY"/>
                             <constraint firstItem="kVK-jG-dvz" firstAttribute="centerX" secondItem="2I9-xv-Ywe" secondAttribute="centerX" id="eqF-5N-DZ5"/>
                             <constraint firstItem="7jU-qm-dML" firstAttribute="leading" secondItem="bQu-N3-8ei" secondAttribute="leading" constant="12" id="f5Z-5a-dxM"/>
                             <constraint firstItem="bQu-N3-8ei" firstAttribute="trailing" secondItem="5Cp-AA-z3v" secondAttribute="trailing" constant="20" id="gSh-ew-6ni"/>
                             <constraint firstItem="kVK-jG-dvz" firstAttribute="top" secondItem="94b-Xd-O0H" secondAttribute="bottom" constant="30" id="hHR-Cf-YmN"/>
+                            <constraint firstItem="vCU-vC-U3P" firstAttribute="trailing" secondItem="bQu-N3-8ei" secondAttribute="trailing" id="hpc-Ba-fIN"/>
                             <constraint firstItem="0ZN-PK-iaa" firstAttribute="centerX" secondItem="2I9-xv-Ywe" secondAttribute="centerX" id="qN6-GE-ttE"/>
                             <constraint firstItem="bQu-N3-8ei" firstAttribute="bottom" secondItem="5Cp-AA-z3v" secondAttribute="bottom" constant="20" id="qwW-ev-a5z"/>
                             <constraint firstItem="94b-Xd-O0H" firstAttribute="leading" secondItem="bQu-N3-8ei" secondAttribute="leading" constant="20" id="tB2-gb-yIH"/>
@@ -1312,9 +1543,12 @@
                         <outlet property="findRestaurantsButton" destination="kVK-jG-dvz" id="elA-RM-g6r"/>
                         <outlet property="firstDollar" destination="ROa-dg-mfI" id="8x3-Of-S5Q"/>
                         <outlet property="fourthDollar" destination="Ruc-Tt-8v7" id="fuh-Pm-yNc"/>
+                        <outlet property="menuButtonTopConstraint" destination="Qhi-ww-N62" id="RDc-tV-A0V"/>
                         <outlet property="noButton" destination="wAS-3X-NnW" id="iIP-4P-XRM"/>
                         <outlet property="noShadowView" destination="iRN-Vk-z3u" id="17n-2i-wMW"/>
+                        <outlet property="optionsView" destination="vCU-vC-U3P" id="BT1-Wa-G0r"/>
                         <outlet property="priceSelectionHolderView" destination="DKp-bP-qu2" id="Jen-fQ-xMK"/>
+                        <outlet property="priceSelectionViewTopConstraint" destination="A9N-BX-xQ4" id="KTG-J1-Nei"/>
                         <outlet property="restaurantTypeDropdownFrameView" destination="5Cp-AA-z3v" id="LfW-Vg-kJM"/>
                         <outlet property="secondDollar" destination="98N-Ef-yQ2" id="lKo-Py-0Pz"/>
                         <outlet property="selectTypeOfRestaurantButton" destination="MKg-Z2-G6R" id="5dd-fz-GC8"/>
@@ -1344,7 +1578,6 @@
                                 </constraints>
                                 <state key="normal" image="BlueBackButton"/>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="6gG-cT-gih"/>
                                     <action selector="backButtonPressed:" destination="YfW-LO-2Ol" eventType="touchUpInside" id="czH-1m-hwC"/>
                                     <action selector="backButtonPressed:" destination="cR0-gM-4S3" eventType="touchUpInside" id="jA8-9B-KFK"/>
                                 </connections>
@@ -1577,218 +1810,6 @@
             </objects>
             <point key="canvasLocation" x="1642" y="27"/>
         </scene>
-        <!--Menu Controller-->
-        <scene sceneID="EYP-tm-E6d">
-            <objects>
-                <viewController id="sDl-AY-XDO" customClass="MenuController" customModule="WEats" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oP1-ox-INe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXn-jQ-pkX">
-                                <rect key="frame" x="10" y="30" width="17" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="17" id="LRM-84-DMZ"/>
-                                    <constraint firstAttribute="height" constant="35" id="d0A-sL-MG9"/>
-                                </constraints>
-                                <state key="normal" image="BlueBackButton"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="WjF-jB-qyR"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="lbv-Mu-mox">
-                                <rect key="frame" x="27.5" y="115" width="320" height="140"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXE-Qc-xZb" customClass="ShadowView">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1q-JC-mpH">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                                <state key="normal" title="Explore">
-                                                    <color key="titleColor" red="0.20620714128017426" green="0.28900113701820374" blue="0.36872434616088867" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="exploreRestaurantButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="mO6-KG-nPQ"/>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="1b2-Wr-gDQ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="o1q-JC-mpH" secondAttribute="trailing" id="3dc-rl-mhe"/>
-                                            <constraint firstItem="o1q-JC-mpH" firstAttribute="top" secondItem="eXE-Qc-xZb" secondAttribute="top" id="NEp-A2-aIO"/>
-                                            <constraint firstAttribute="width" constant="140" id="kuK-zz-OZq"/>
-                                            <constraint firstAttribute="bottom" secondItem="o1q-JC-mpH" secondAttribute="bottom" id="pOp-zu-XFF"/>
-                                            <constraint firstAttribute="height" constant="140" id="scM-Bz-qwG"/>
-                                            <constraint firstItem="o1q-JC-mpH" firstAttribute="leading" secondItem="eXE-Qc-xZb" secondAttribute="leading" id="uM0-2n-tKL"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.59999999999999998"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-VZ-S8u" customClass="ShadowView">
-                                        <rect key="frame" x="180" y="0.0" width="140" height="140"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-mO-VXg">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                                <state key="normal" title="Search">
-                                                    <color key="titleColor" red="0.21760980784893036" green="0.28914743661880493" blue="0.36088123917579651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="finderButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="x0E-zM-1Rb"/>
-                                                    <segue destination="gga-r3-pnn" kind="show" id="j2D-WF-1MI"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="4L3-mO-VXg" secondAttribute="trailing" id="KOm-t3-o9R"/>
-                                            <constraint firstAttribute="bottom" secondItem="4L3-mO-VXg" secondAttribute="bottom" id="YUa-9T-3kN"/>
-                                            <constraint firstItem="4L3-mO-VXg" firstAttribute="leading" secondItem="qZp-VZ-S8u" secondAttribute="leading" id="dR1-Eb-jXm"/>
-                                            <constraint firstAttribute="width" constant="140" id="io5-lU-UhS"/>
-                                            <constraint firstAttribute="height" constant="140" id="nlI-ti-OWh"/>
-                                            <constraint firstItem="4L3-mO-VXg" firstAttribute="top" secondItem="qZp-VZ-S8u" secondAttribute="top" id="sRf-Bz-jjI"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.59999999999999998"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-y1-2Rf">
-                                <rect key="frame" x="27.5" y="295" width="320" height="140"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yc-Xo-rsg" customClass="ShadowView">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKu-bZ-ts9">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                                <state key="normal" title="Favorites">
-                                                    <color key="titleColor" red="0.21761001646518707" green="0.29313793778419495" blue="0.36088091135025024" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="searchButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="Lek-OK-etd"/>
-                                                    <segue destination="44S-Mc-1og" kind="show" id="H5w-oq-PrB"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="B14-0s-M3F"/>
-                                            <constraint firstAttribute="height" constant="140" id="CH1-d4-2EI"/>
-                                            <constraint firstItem="uKu-bZ-ts9" firstAttribute="top" secondItem="8yc-Xo-rsg" secondAttribute="top" id="KkU-Y7-dYy"/>
-                                            <constraint firstAttribute="bottom" secondItem="uKu-bZ-ts9" secondAttribute="bottom" id="KvQ-lw-ad0"/>
-                                            <constraint firstItem="uKu-bZ-ts9" firstAttribute="leading" secondItem="8yc-Xo-rsg" secondAttribute="leading" id="WzQ-iR-xVg"/>
-                                            <constraint firstAttribute="trailing" secondItem="uKu-bZ-ts9" secondAttribute="trailing" id="hYo-ja-YN7"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.59999999999999998"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKO-5q-nXB" customClass="ShadowView">
-                                        <rect key="frame" x="180" y="0.0" width="140" height="140"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-Rp-BNO">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                                                <state key="normal" title="Preferences">
-                                                    <color key="titleColor" red="0.22145996987819672" green="0.28515717387199402" blue="0.36088159680366516" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="settingsButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="0qF-ER-uM9"/>
-                                                    <segue destination="Q66-Nn-bGL" kind="show" id="xXi-9u-4a0"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="JDT-Rp-BNO" firstAttribute="top" secondItem="jKO-5q-nXB" secondAttribute="top" id="1ce-73-jiz"/>
-                                            <constraint firstItem="JDT-Rp-BNO" firstAttribute="leading" secondItem="jKO-5q-nXB" secondAttribute="leading" id="76r-zy-uoX"/>
-                                            <constraint firstAttribute="width" constant="140" id="dua-vG-vzE"/>
-                                            <constraint firstAttribute="bottom" secondItem="JDT-Rp-BNO" secondAttribute="bottom" id="jbm-rY-HFa"/>
-                                            <constraint firstAttribute="height" constant="140" id="mLV-Ht-ipb"/>
-                                            <constraint firstAttribute="trailing" secondItem="JDT-Rp-BNO" secondAttribute="trailing" id="xK7-2A-u64"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.59999999999999998"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92567920684814453" green="0.94112229347229004" blue="0.9451063871383667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="Dkn-y1-2Rf" firstAttribute="top" secondItem="lbv-Mu-mox" secondAttribute="bottom" constant="40" id="F4D-Kq-3MB"/>
-                            <constraint firstItem="lbv-Mu-mox" firstAttribute="centerX" secondItem="oP1-ox-INe" secondAttribute="centerX" id="Ouu-NN-aIJ"/>
-                            <constraint firstItem="Dkn-y1-2Rf" firstAttribute="centerX" secondItem="oP1-ox-INe" secondAttribute="centerX" id="brK-rx-3z7"/>
-                            <constraint firstItem="lbv-Mu-mox" firstAttribute="top" secondItem="pXn-jQ-pkX" secondAttribute="bottom" constant="50" id="cUd-Wz-xJJ"/>
-                            <constraint firstItem="pXn-jQ-pkX" firstAttribute="leading" secondItem="bgd-uh-wcn" secondAttribute="leading" constant="10" id="dwl-ab-SJz"/>
-                            <constraint firstItem="pXn-jQ-pkX" firstAttribute="top" secondItem="oP1-ox-INe" secondAttribute="topMargin" constant="10" id="l5J-OP-4VN"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="bgd-uh-wcn"/>
-                    </view>
-                    <connections>
-                        <outlet property="exploreButton" destination="o1q-JC-mpH" id="c37-R5-Hem"/>
-                        <outlet property="finderButton" destination="4L3-mO-VXg" id="Ddi-Bi-Fdq"/>
-                        <outlet property="searchButton" destination="uKu-bZ-ts9" id="dhk-cO-HBO"/>
-                        <outlet property="settingsButton" destination="JDT-Rp-BNO" id="bU2-Xu-hpQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mue-Ba-4cO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1089" y="1638"/>
-        </scene>
         <!--Preferences Controller-->
         <scene sceneID="oN2-Ew-dF5">
             <objects>
@@ -1814,8 +1835,7 @@
                                 </constraints>
                                 <state key="normal" image="MenuButton"/>
                                 <connections>
-                                    <action selector="menuButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="76i-WN-5Hw"/>
-                                    <segue destination="sDl-AY-XDO" kind="show" identifier="toMenu" id="zGF-7z-qNk"/>
+                                    <action selector="menuButtonPressed:" destination="Q66-Nn-bGL" eventType="touchUpInside" id="Adk-d6-uxf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sei-7B-sJo">
@@ -1874,6 +1894,80 @@
                                     <constraint firstItem="9ye-tN-fEx" firstAttribute="leading" secondItem="dI3-W1-jhQ" secondAttribute="leading" id="tWm-aH-FO6"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcs-i0-0Dz">
+                                <rect key="frame" x="0.0" y="30" width="375" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKf-Ld-qpJ">
+                                        <rect key="frame" x="8" y="0.0" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="vYc-AG-hIc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Preferences">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="preferencesButtonPressed:" destination="Q66-Nn-bGL" eventType="touchUpInside" id="izb-Ya-ZrI"/>
+                                            <action selector="searchButtonPressed:" destination="gga-r3-pnn" eventType="touchUpInside" id="wqr-Th-Lxd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGs-iL-c1p">
+                                        <rect key="frame" x="8" y="32" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Xmm-Db-8g9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Explore">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="9IT-hY-kQd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwN-V3-nzu">
+                                        <rect key="frame" x="8" y="64" width="367" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="oqI-z6-u3Y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gga-r3-pnn" kind="show" id="23f-sv-Xnu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-LN-Iyz">
+                                        <rect key="frame" x="8" y="96" width="357" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="57J-Sf-NK0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="26"/>
+                                        <state key="normal" title="Favorites">
+                                            <color key="titleColor" red="0.2023676485" green="0.28500548009999999" blue="0.36872467399999997" alpha="0.70318472860000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="44S-Mc-1og" kind="show" id="L2A-hl-7vu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="xGs-iL-c1p" firstAttribute="top" secondItem="EKf-Ld-qpJ" secondAttribute="bottom" constant="3" id="CoL-oS-541"/>
+                                    <constraint firstItem="IwN-V3-nzu" firstAttribute="top" secondItem="xGs-iL-c1p" secondAttribute="bottom" constant="3" id="Ido-ui-ubf"/>
+                                    <constraint firstItem="SRo-LN-Iyz" firstAttribute="top" secondItem="IwN-V3-nzu" secondAttribute="bottom" constant="3" id="Lna-pm-M0Y"/>
+                                    <constraint firstItem="EKf-Ld-qpJ" firstAttribute="top" secondItem="Mcs-i0-0Dz" secondAttribute="top" id="O9o-xS-fkk"/>
+                                    <constraint firstItem="xGs-iL-c1p" firstAttribute="leading" secondItem="Mcs-i0-0Dz" secondAttribute="leading" constant="8" id="Pq2-4Z-ncq"/>
+                                    <constraint firstItem="SRo-LN-Iyz" firstAttribute="leading" secondItem="Mcs-i0-0Dz" secondAttribute="leading" constant="8" id="QqK-bw-DKh"/>
+                                    <constraint firstAttribute="trailing" secondItem="xGs-iL-c1p" secondAttribute="trailing" id="Scf-uk-Dx6"/>
+                                    <constraint firstAttribute="trailing" secondItem="SRo-LN-Iyz" secondAttribute="trailing" constant="10" id="VLk-pI-JPb"/>
+                                    <constraint firstAttribute="trailing" secondItem="IwN-V3-nzu" secondAttribute="trailing" id="aDc-Uy-akh"/>
+                                    <constraint firstAttribute="height" constant="130" id="ipu-by-zAw"/>
+                                    <constraint firstItem="EKf-Ld-qpJ" firstAttribute="leading" secondItem="Mcs-i0-0Dz" secondAttribute="leading" constant="8" id="pBE-rT-Pnb"/>
+                                    <constraint firstAttribute="trailing" secondItem="EKf-Ld-qpJ" secondAttribute="trailing" id="pff-N5-aqD"/>
+                                    <constraint firstItem="IwN-V3-nzu" firstAttribute="leading" secondItem="Mcs-i0-0Dz" secondAttribute="leading" constant="8" id="sBF-2V-Uqe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -1881,14 +1975,17 @@
                             <constraint firstItem="gIG-QV-S2n" firstAttribute="trailing" secondItem="jjY-Y7-zWS" secondAttribute="trailing" constant="5" id="5sd-uv-6Ib"/>
                             <constraint firstItem="0Dl-7O-ocF" firstAttribute="top" secondItem="jjY-Y7-zWS" secondAttribute="bottom" constant="35" id="AYx-hR-5vJ"/>
                             <constraint firstItem="jjY-Y7-zWS" firstAttribute="top" secondItem="gIG-QV-S2n" secondAttribute="top" constant="5" id="I7Q-xn-QMP"/>
+                            <constraint firstItem="Mcs-i0-0Dz" firstAttribute="top" secondItem="q2E-Yk-vUQ" secondAttribute="top" constant="30" id="Iau-Kd-pP8"/>
                             <constraint firstItem="0nH-lG-QHO" firstAttribute="top" secondItem="gIG-QV-S2n" secondAttribute="top" constant="10" id="Lq7-Nk-W17"/>
                             <constraint firstItem="dI3-W1-jhQ" firstAttribute="leading" secondItem="gIG-QV-S2n" secondAttribute="leading" constant="30" id="Lz9-Ul-uju"/>
                             <constraint firstItem="dI3-W1-jhQ" firstAttribute="top" secondItem="0Dl-7O-ocF" secondAttribute="bottom" constant="20" id="MgX-am-bMJ"/>
                             <constraint firstItem="0Dl-7O-ocF" firstAttribute="leading" secondItem="gIG-QV-S2n" secondAttribute="leading" constant="30" id="Naq-NF-cs5"/>
                             <constraint firstItem="0nH-lG-QHO" firstAttribute="leading" secondItem="gIG-QV-S2n" secondAttribute="leading" constant="10" id="QFy-8k-yUA"/>
+                            <constraint firstItem="Mcs-i0-0Dz" firstAttribute="trailing" secondItem="gIG-QV-S2n" secondAttribute="trailing" id="TQ2-Va-8yP"/>
                             <constraint firstItem="jjY-Y7-zWS" firstAttribute="leading" secondItem="0nH-lG-QHO" secondAttribute="trailing" constant="10" id="avd-bf-DoN"/>
                             <constraint firstItem="Sei-7B-sJo" firstAttribute="top" secondItem="dI3-W1-jhQ" secondAttribute="bottom" constant="40" id="e0x-ig-cgP"/>
                             <constraint firstItem="gIG-QV-S2n" firstAttribute="trailing" secondItem="Sei-7B-sJo" secondAttribute="trailing" constant="30" id="hCq-Ev-l6i"/>
+                            <constraint firstItem="Mcs-i0-0Dz" firstAttribute="leading" secondItem="gIG-QV-S2n" secondAttribute="leading" id="oVM-O9-sZg"/>
                             <constraint firstItem="gIG-QV-S2n" firstAttribute="bottom" secondItem="Sei-7B-sJo" secondAttribute="bottom" constant="20" id="r3G-U0-T6i"/>
                             <constraint firstItem="Sei-7B-sJo" firstAttribute="centerX" secondItem="q2E-Yk-vUQ" secondAttribute="centerX" id="rb9-0f-mK6"/>
                             <constraint firstItem="Sei-7B-sJo" firstAttribute="leading" secondItem="gIG-QV-S2n" secondAttribute="leading" constant="30" id="ubC-YQ-6D7"/>
@@ -1899,6 +1996,9 @@
                     <connections>
                         <outlet property="buttonTextViewStackView" destination="dI3-W1-jhQ" id="xO7-BQ-5bs"/>
                         <outlet property="logOutButton" destination="Sei-7B-sJo" id="s69-wH-1Pq"/>
+                        <outlet property="menuButtonTopConstraint" destination="Lq7-Nk-W17" id="3d8-Xd-RlV"/>
+                        <outlet property="optionsView" destination="Mcs-i0-0Dz" id="n8b-eL-Qv6"/>
+                        <outlet property="preferencesLabelTopConstraint" destination="I7Q-xn-QMP" id="cpD-DL-ShZ"/>
                         <outlet property="reportTextView" destination="9ye-tN-fEx" id="Yqm-OA-Y2R"/>
                         <outlet property="submitButton" destination="PG0-jj-pdr" id="LLb-ot-sib"/>
                     </connections>
@@ -2237,6 +2337,7 @@
                         <outlet property="passwordHolderView" destination="Svc-vz-T9t" id="MsY-4f-0Iw"/>
                         <outlet property="passwordTextField" destination="VKC-4C-aLq" id="Jsh-wq-45B"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMain" id="EB5-Rj-Rgm"/>
+                        <segue destination="uRS-YD-IuB" kind="show" identifier="createAccountSegue" id="RV1-0B-LIT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beX-xL-DqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2474,7 +2575,6 @@
                                         <connections>
                                             <action selector="backButtonPressed:" destination="sfj-oH-Zbc" eventType="touchUpInside" id="FC8-M6-L7R"/>
                                             <action selector="backButtonPressed:" destination="EAw-nY-lBa" eventType="touchUpInside" id="Z3p-Ai-55o"/>
-                                            <action selector="backButtonPressed:" destination="sDl-AY-XDO" eventType="touchUpInside" id="pZR-Z0-mXQ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfv-kf-edh">
@@ -2556,9 +2656,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QIJ-Pc-SVa"/>
-        <segue reference="7bM-ov-PHw"/>
-        <segue reference="zGF-7z-qNk"/>
-        <segue reference="1b2-Wr-gDQ"/>
-        <segue reference="wiQ-Cz-gVA"/>
+        <segue reference="RV1-0B-LIT"/>
+        <segue reference="LIi-7V-gHU"/>
+        <segue reference="23f-sv-Xnu"/>
+        <segue reference="9IT-hY-kQd"/>
+        <segue reference="L2A-hl-7vu"/>
+        <segue reference="gup-tV-GzW"/>
+        <segue reference="EVD-3n-RtA"/>
     </inferredMetricsTieBreakers>
 </document>
