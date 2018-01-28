@@ -2039,25 +2039,60 @@
                                     <constraint firstAttribute="height" constant="200" id="nXE-zy-Mxz"/>
                                 </constraints>
                             </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHn-dH-dJ6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vbS-5S-fsQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9u-Ua-VvS" customClass="TransitionButton" customModule="TransitionButton">
+                                            <rect key="frame" x="30" y="487" width="315" height="70"/>
+                                            <color key="backgroundColor" red="0.21761001646518707" green="0.29313793778419495" blue="0.36088091135025024" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="IOj-dg-0iB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                            <state key="normal" title="Loading...">
+                                                <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="g9u-Ua-VvS" secondAttribute="bottom" constant="30" id="Exo-0C-P1Q"/>
+                                        <constraint firstItem="g9u-Ua-VvS" firstAttribute="leading" secondItem="vbS-5S-fsQ" secondAttribute="leading" constant="30" id="KcP-PX-UfZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="g9u-Ua-VvS" secondAttribute="trailing" constant="30" id="udv-xZ-jac"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.92567920680000004" green="0.94112229349999998" blue="0.94510638709999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="VHn-dH-dJ6" firstAttribute="top" secondItem="Rxs-sX-E6K" secondAttribute="top" id="4ke-Gi-QLg"/>
                             <constraint firstItem="sFf-BV-gLL" firstAttribute="trailing" secondItem="W5U-WO-wVc" secondAttribute="trailing" constant="10" id="6Fm-Ed-9kX"/>
                             <constraint firstItem="AJg-gm-A3Y" firstAttribute="centerX" secondItem="Rxs-sX-E6K" secondAttribute="centerX" id="8S9-Xr-5aB"/>
                             <constraint firstItem="AJg-gm-A3Y" firstAttribute="top" secondItem="sFf-BV-gLL" secondAttribute="top" constant="75" id="9m8-AY-uDf"/>
                             <constraint firstItem="sFf-BV-gLL" firstAttribute="trailing" secondItem="boa-y5-OiQ" secondAttribute="trailing" constant="100" id="Kl0-Na-40i"/>
                             <constraint firstItem="boa-y5-OiQ" firstAttribute="top" secondItem="W5U-WO-wVc" secondAttribute="bottom" constant="50" id="RLv-P1-jdo"/>
+                            <constraint firstItem="VHn-dH-dJ6" firstAttribute="leading" secondItem="sFf-BV-gLL" secondAttribute="leading" id="TcN-ft-W2s"/>
                             <constraint firstItem="W5U-WO-wVc" firstAttribute="leading" secondItem="sFf-BV-gLL" secondAttribute="leading" constant="10" id="UDr-LC-3ao"/>
+                            <constraint firstItem="VHn-dH-dJ6" firstAttribute="bottom" secondItem="sFf-BV-gLL" secondAttribute="bottom" id="aUz-2S-KWZ"/>
                             <constraint firstItem="boa-y5-OiQ" firstAttribute="leading" secondItem="sFf-BV-gLL" secondAttribute="leading" constant="100" id="mWo-Wf-tuo"/>
                             <constraint firstItem="W5U-WO-wVc" firstAttribute="top" secondItem="AJg-gm-A3Y" secondAttribute="bottom" constant="5" id="mg8-p3-uoB"/>
+                            <constraint firstItem="VHn-dH-dJ6" firstAttribute="trailing" secondItem="sFf-BV-gLL" secondAttribute="trailing" id="rPe-Z1-cUy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sFf-BV-gLL"/>
                     </view>
                     <size key="freeformSize" width="375" height="587"/>
+                    <connections>
+                        <outlet property="loadingButton" destination="g9u-Ua-VvS" id="QVh-3q-QiH"/>
+                        <outlet property="visualBackgroundView" destination="VHn-dH-dJ6" id="T07-hT-N8V"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toExplore" id="v7q-Bc-IcJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N64-gL-s9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3538" y="1353"/>
+            <point key="canvasLocation" x="-3538.4000000000001" y="1352.473763118441"/>
         </scene>
         <!--Second Onboard Display-->
         <scene sceneID="f7d-qg-Abe">
@@ -2659,7 +2694,7 @@
         <segue reference="RV1-0B-LIT"/>
         <segue reference="LIi-7V-gHU"/>
         <segue reference="23f-sv-Xnu"/>
-        <segue reference="9IT-hY-kQd"/>
+        <segue reference="v7q-Bc-IcJ"/>
         <segue reference="L2A-hl-7vu"/>
         <segue reference="gup-tV-GzW"/>
         <segue reference="EVD-3n-RtA"/>

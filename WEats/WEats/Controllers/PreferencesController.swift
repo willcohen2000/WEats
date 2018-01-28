@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class PreferencesController: UIViewController {
 
@@ -47,7 +48,7 @@ class PreferencesController: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        
+        KeychainWrapper.standard.removeObject(forKey: "uid");
     }
     
     @IBAction func preferencesButtonPressed(_ sender: Any) {

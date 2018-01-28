@@ -161,6 +161,7 @@ class AuthenticationService {
             } else {
                 if let user = user {
                     WEUser.sharedInstance.uid = user.uid;
+                    KeychainWrapper.standard.set(user.uid, forKey: "uid");
                     AuthenticationService.loadAppInfo(UID: user.uid, successCompletionHandler: { (success) in
                         if (success) {
                             completionHandler(true);
@@ -177,6 +178,7 @@ class AuthenticationService {
             if error == nil {
                 if let user = user {
                     WEUser.sharedInstance.uid = user.uid;
+                    KeychainWrapper.standard.set(user.uid, forKey: "uid");
                     loadAppInfo(UID: user.uid, successCompletionHandler: { (success) in
                         completionHandler(true);
                     })
