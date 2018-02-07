@@ -24,6 +24,9 @@ class RestaurantSelectionController: UIViewController {
         categoryLabel.text = "\(selectedCategory.capitalized) Restaurants"
         restaurantSelectionTableView.delegate = self;
         restaurantSelectionTableView.dataSource = self;
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture));
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right;
+        self.view.addGestureRecognizer(swipeRight);
         FirebaseService.getRestaurantsByCategory(category: selectedCategory) { (pulledRestaurants) in
             if let pulledRestaurants = pulledRestaurants {
                 self.restaurants = pulledRestaurants;
@@ -32,6 +35,14 @@ class RestaurantSelectionController: UIViewController {
         }
     }
 
+    @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            if (swipeGesture.direction == .right) {
+                self.dismiss(animated: true, completion: nil);
+            }
+        }
+    }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
@@ -47,7 +58,6 @@ extension RestaurantSelectionController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let restaurantName = restaurants[indexPath.row].name;
         self.selectedRestaurantName = restaurantName;
-        print("HELLLO: \(self.selectedRestaurantName)")
         self.performSegue(withIdentifier: "toIndividualRestaurant", sender: nil)
     }
     

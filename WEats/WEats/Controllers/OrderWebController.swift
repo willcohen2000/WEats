@@ -19,7 +19,9 @@ class OrderWebController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        print(restaurantOrderURL)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture));
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right;
+        self.view.addGestureRecognizer(swipeRight);
         orderWebView.navigationDelegate = self;
         orderWebView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
         orderProgressView.transform = orderProgressView.transform.scaledBy(x: 1, y: 3);
@@ -29,9 +31,18 @@ class OrderWebController: UIViewController {
         self.hideKeyboardWhenTappedAround();
     }
 
+    @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            if (swipeGesture.direction == .right) {
+                self.dismiss(animated: true, completion: nil);
+            }
+        }
+    }
+    
     @IBAction func exitButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
+    
 }
 
 extension OrderWebController: WKNavigationDelegate {

@@ -14,6 +14,7 @@ class FavoriteRestaurantsController: UIViewController {
 
     @IBOutlet weak var favoriteRestaurantsTableView: UICollectionView!
     @IBOutlet weak var optionsView: UIView!
+    @IBOutlet weak var noFavoritesLabel: UILabel!
     
     @IBOutlet weak var menuButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var favoriteRestaurantsLabelTopConstraint: NSLayoutConstraint!
@@ -36,6 +37,9 @@ class FavoriteRestaurantsController: UIViewController {
         for (favoriteRestaurant) in Defaults[.favorites] {
             let favRestaurant = AuthenticationService.FavoriteRestaurant(imageURL: favoriteRestaurant.value as! String, name: favoriteRestaurant.key);
             favoriteRestaurants.append(favRestaurant);
+        }
+        if (favoriteRestaurants.isEmpty) {
+            noFavoritesLabel.isHidden = false;
         }
         favoriteRestaurantsTableView.reloadData();
     }

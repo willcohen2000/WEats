@@ -27,6 +27,7 @@ class MainSelectionControllerViewController: UIViewController {
     let blueColorContainer = UIColor(red:0.22, green:0.29, blue:0.36, alpha:0.95);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
     var menuCurrentlyUp: Bool = false;
+    let placeholderWhite = UIColor(red:0.93, green:0.94, blue:0.95, alpha:0.75);
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -67,6 +68,8 @@ class MainSelectionControllerViewController: UIViewController {
         self.restaurantSearchBar.theme.bgColor = blueColorContainer;
         self.restaurantSearchBar.theme.borderColor = blueColor;
         self.restaurantSearchBar.theme.fontColor = offWhiteColor;
+        self.restaurantSearchBar.attributedPlaceholder = NSAttributedString(string: "Search for restaurants",
+                                                                            attributes: [NSAttributedStringKey.foregroundColor: placeholderWhite])
         self.restaurantSearchBar.setLeftPaddingPoints(10);
         self.restaurantSearchBar.highlightAttributes = [NSAttributedStringKey.backgroundColor: UIColor.clear, NSAttributedStringKey.font: UIFont(name: "Lato-Bold", size: 20)!];
         self.restaurantSearchBar.theme.cellHeight = 70;

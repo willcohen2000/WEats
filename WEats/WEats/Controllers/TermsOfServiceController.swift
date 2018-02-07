@@ -18,7 +18,6 @@ class TermsOfServiceController: UIViewController {
             let req = NSURLRequest(url: pdf);
             pdfWebView.loadRequest(req as URLRequest);
         }
-
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {

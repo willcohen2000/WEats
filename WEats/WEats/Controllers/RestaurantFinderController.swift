@@ -155,7 +155,7 @@ class RestaurantFinderController: UIViewController {
     
     @IBAction func findRestaurantsButtonPressed(_ sender: Any) {
         findRestaurantsButton.startAnimation();
-        if (currentRestaurantFind.category != "Unsure") {
+        if (currentRestaurantFind.category != "No Preference") {
             FirebaseService.restaurantFinderPullRestaurantsWithCategory(category: currentRestaurantFind.category, order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange) { (pulledRestaurants) in
                 if let pulledRestaurants = pulledRestaurants {
                     self.foundRestaurants = pulledRestaurants;

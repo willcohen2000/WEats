@@ -65,11 +65,14 @@ struct Restaurants {
         "Salad",
         "Sandwiches",
         "Steak",
-        "Sushi"
+        "Sushi",
+        "Seafood",
+        "Japanese",
+        "American"
     ];
     
     static var restaurantFinderTypes: [String] = [
-        "Unsure",
+        "No Preference",
         "BBQ",
         "Burgers",
         "Cafe",
@@ -96,7 +99,11 @@ struct Restaurants {
         "Salad": UIImage(named: "SaladIcon")!,
         "Sandwiches": UIImage(named: "SandwichesIcon")!,
         "Steak": UIImage(named: "Steak")!,
-        "Sushi": UIImage(named: "SushiIcon")!
+        "Sushi": UIImage(named: "SushiIcon")!,
+        "More": UIImage(named: "MoreIcon")!,
+        "Seafood": UIImage(named: "SeafoodIcon")!,
+        "American": UIImage(named: "AmericanIcon")!,
+        "Japanese": UIImage(named: "JapaneseIcon")!
     ];
     
 }

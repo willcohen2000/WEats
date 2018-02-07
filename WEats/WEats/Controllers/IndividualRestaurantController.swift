@@ -28,7 +28,6 @@ class IndividualRestaurantController: UIViewController {
     @IBOutlet weak var fourthDollar: UILabel!
     @IBOutlet weak var fifthDollar: UILabel!
     @IBOutlet weak var orderButton: UIButton!
-    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var addressLabel: VerticalTopAlignLabel!
     @IBOutlet weak var phoneLabel: VerticalTopAlignLabel!
     @IBOutlet weak var hoursTableView: UITableView!
@@ -36,17 +35,17 @@ class IndividualRestaurantController: UIViewController {
     
     @IBOutlet weak var restaurantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var restaurantImageDarkenViewHeight: NSLayoutConstraint!
-    
-   // var favorites = [AuthenticationService.FavoriteRestaurant]();
+
     var restaurantName: String!
     var restaurant: Restaurant!
     var didBuild: Bool = false;
-    var hourDayNames = [String]();
-    var hourHours = [String]();
+    var hourDayNames: [String] = ["","","","","","",""];
+    var hourHours: [String] = ["","","","","","",""];
     var favorited: Bool = false;
     var webURL: String?
     let blueColor = UIColor(red:0.22, green:0.29, blue:0.36, alpha: 1.0);
     let offWhiteColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0);
+    let currentDay: String = Date().dayNumberOfWeek();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -57,6 +56,9 @@ class IndividualRestaurantController: UIViewController {
         restaurantImageDarkenViewHeight.constant = (self.view.frame.height * 0.45);
         orderButton.layer.cornerRadius = (orderButton.frame.height / 2);
         favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture));
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right;
+        self.view.addGestureRecognizer(swipeRight);
         FirebaseService.getFullRestaurantByName(name: restaurantName) { (restaurant) in
             if (!(restaurant?.doesHaveOnlineOrder)!) {
                 self.orderButton.isHidden = true;
@@ -73,14 +75,43 @@ class IndividualRestaurantController: UIViewController {
         }
     }
     
+    @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            if (swipeGesture.direction == .right) {
+                self.dismiss(animated: true, completion: nil);
+            }
+        }
+    }
+    
     private func removeRestaurantAsFavorite() {
         Defaults[.favorites].removeValue(forKey: restaurant.name);
     }
     
+    private func setHour(index: Int, hour: String, day: String) {
+        hourHours[index] = day;
+        hourDayNames[index] = hour;
+    }
+    
     private func getHoursArray() {
         for (hourBlock) in self.restaurant.hours {
-            hourDayNames.append(hourBlock.key);
-            hourHours.append(hourBlock.value);
+            switch (hourBlock.key) {
+            case "Monday":
+                setHour(index: 0, hour: hourBlock.key, day: hourBlock.value);
+            case "Tuesday":
+                setHour(index: 1, hour: hourBlock.key, day: hourBlock.value);
+            case "Wednesday":
+                setHour(index: 2, hour: hourBlock.key, day: hourBlock.value);
+            case "Thursday":
+                setHour(index: 3, hour: hourBlock.key, day: hourBlock.value);
+            case "Friday":
+                setHour(index: 4, hour: hourBlock.key, day: hourBlock.value);
+            case "Saturday":
+                setHour(index: 5, hour: hourBlock.key, day: hourBlock.value);
+            case "Sunday":
+                setHour(index: 5, hour: hourBlock.key, day: hourBlock.value);
+            default:
+                setHour(index: 0, hour: "", day: "");
+            }
         }
     }
     
@@ -208,6 +239,10 @@ extension IndividualRestaurantController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let hoursCell = hoursTableView.dequeueReusableCell(withIdentifier: "hoursCell") as? RestaurantHoursCell {
             hoursCell.buildCell(dayOfWeek: self.hourDayNames[indexPath.row], hour: self.hourHours[indexPath.row]);
+            if (self.hourDayNames[indexPath.row] == currentDay) {
+                hoursCell.dayOfWeekLabel.font = UIFont(name: "Lato-Bold", size: hoursCell.dayOfWeekLabel.font.pointSize)
+                hoursCell.hoursLabel.font = UIFont(name: "Lato-Bold", size: hoursCell.dayOfWeekLabel.font.pointSize)
+            }
             return hoursCell;
         } else {
             return RestaurantHoursCell();
@@ -215,3 +250,29 @@ extension IndividualRestaurantController: UITableViewDelegate, UITableViewDataSo
     }
     
 }
+
+extension Date {
+    func dayNumberOfWeek() -> String {
+        let intDate = Calendar.current.dateComponents([.weekday], from: self).weekday;
+        switch (intDate!) {
+        case 1:
+            return "Sunday";
+        case 2:
+            return "Monday";
+        case 3:
+            return "Tuesday";
+        case 4:
+            return "Wednesday";
+        case 5:
+            return "Thursday";
+        case 6:
+            return "Friday";
+        case 7:
+            return "Saturday";
+        default:
+            return "";
+        }
+    }
+}
+
+

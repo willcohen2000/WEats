@@ -19,9 +19,19 @@ class RestaurantFinderResultsController: UIViewController {
         super.viewDidLoad();
         foundRestaurantsTableView.delegate = self;
         foundRestaurantsTableView.dataSource = self;
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture));
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right;
+        self.view.addGestureRecognizer(swipeRight);
         self.hideKeyboardWhenTappedAround();
     }
     
+    @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            if (swipeGesture.direction == .right) {
+                self.dismiss(animated: true, completion: nil);
+            }
+        }
+    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);

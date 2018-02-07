@@ -13,17 +13,19 @@ class LaunchPage: UIViewController {
 
     @IBOutlet weak var backgroundView: UIVisualEffectView!
     @IBOutlet weak var loadingTransitionButton: TransitionButton!
+    @IBOutlet weak var gifLoadingView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        gifLoadingView.loadGif(name: "loadingAnimation");
         loadingTransitionButton.startAnimation();
         AuthenticationService.loadAppInfo { (success) in
             if (success) {
-                self.performSegue(withIdentifier: "toExplore", sender: nil);
+                self.loadingTransitionButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1.0, completion: {
+                    self.performSegue(withIdentifier: "toExplore", sender: nil);
+                })
             }
         }
     }
-
-    
 
 }

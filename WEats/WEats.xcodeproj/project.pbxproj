@@ -50,6 +50,8 @@
 		6EEE57E220014EAD007D55AB /* RestaurantSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57E120014EAD007D55AB /* RestaurantSelectionCell.swift */; };
 		6EEE57E4200155D5007D55AB /* IndividualRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57E3200155D5007D55AB /* IndividualRestaurantController.swift */; };
 		6EEE57E62001850B007D55AB /* Restaurant+Minimized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE57E52001850B007D55AB /* Restaurant+Minimized.swift */; };
+		6EEF3B5C202BB4D000BCBD11 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEF3B5B202BB4D000BCBD11 /* UIImage+Gif.swift */; };
+		6EEF3B5E202BB5C100BCBD11 /* loadingAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EEF3B5D202BB5C100BCBD11 /* loadingAnimation.gif */; };
 		84D201C7BD5F8052914D9E88 /* Pods_WEats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A70AF6F4C3F5EF2D8FF2666 /* Pods_WEats.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		6EEE57E120014EAD007D55AB /* RestaurantSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionCell.swift; sourceTree = "<group>"; };
 		6EEE57E3200155D5007D55AB /* IndividualRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRestaurantController.swift; sourceTree = "<group>"; };
 		6EEE57E52001850B007D55AB /* Restaurant+Minimized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+Minimized.swift"; sourceTree = "<group>"; };
+		6EEF3B5B202BB4D000BCBD11 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		6EEF3B5D202BB5C100BCBD11 /* loadingAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingAnimation.gif; sourceTree = "<group>"; };
 		75C920BAE5436DA6F1CB5BDA /* Pods_WEatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WEatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78AC4B6411239AC9002E3E0 /* Pods_WEatsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WEatsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15614B5D216DDEEBD1242D9 /* Pods-WEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-WEats/Pods-WEats.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		6EB595551FE4A9C500DF267E /* Rescources */ = {
 			isa = PBXGroup;
 			children = (
+				6EEF3B5D202BB5C100BCBD11 /* loadingAnimation.gif */,
 				6EB5956D1FE4B32C00DF267E /* Fonts */,
 				6EB5955B1FE4AAB300DF267E /* Assets.xcassets */,
 			);
@@ -270,6 +275,7 @@
 				6EB5955F1FE4AABC00DF267E /* AppDelegate.swift */,
 				6EB595601FE4AABC00DF267E /* WEats.xcdatamodeld */,
 				6EB5955D1FE4AABC00DF267E /* WEats-Bridging-Header.h */,
+				6EEF3B5B202BB4D000BCBD11 /* UIImage+Gif.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				6EB5955C1FE4AAB300DF267E /* Assets.xcassets in Resources */,
 				6E672A37202914A600F947A6 /* GoogleService-Info.plist in Resources */,
 				6EB595751FE4B37A00DF267E /* Lato-Italic.ttf in Resources */,
+				6EEF3B5E202BB5C100BCBD11 /* loadingAnimation.gif in Resources */,
 				6EB595681FE4AAC500DF267E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +656,7 @@
 				6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */,
 				6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */,
 				6E672A32202907E100F947A6 /* LaunchPage.swift in Sources */,
+				6EEF3B5C202BB4D000BCBD11 /* UIImage+Gif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
