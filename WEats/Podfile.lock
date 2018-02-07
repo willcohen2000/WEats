@@ -72,6 +72,7 @@ PODS:
   - SearchTextField (1.2.0)
   - ShadowView (1.2)
   - SwiftKeychainWrapper (3.0.1)
+  - SwiftyUserDefaults (3.0.0)
   - TransitionButton (0.3.0)
 
 DEPENDENCIES:
@@ -90,6 +91,7 @@ DEPENDENCIES:
   - SearchTextField (~> 1.2)
   - ShadowView
   - SwiftKeychainWrapper
+  - SwiftyUserDefaults
   - TransitionButton (~> 0.2)
 
 SPEC CHECKSUMS:
@@ -116,8 +118,9 @@ SPEC CHECKSUMS:
   SearchTextField: a5bb7e4c33affadb115afdbe8100d84ef10a8024
   ShadowView: e686f2e27fc281c0118419b1fb314b6e534a4682
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
 
-PODFILE CHECKSUM: fa4de4dc4f1df7f8cccff50abb92d869e79c1ab8
+PODFILE CHECKSUM: ccce2999a7ed99bb04748d3eaaad7cdd763a3a5f
 
 COCOAPODS: 1.2.1

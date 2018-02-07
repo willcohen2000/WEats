@@ -38,7 +38,6 @@ class PreferencesController: UIViewController {
         if (reportTextView.text != "") {
             let reference = Database.database().reference().child("Reports").childByAutoId();
             reference.updateChildValues([
-                "UID": WEUser.sharedInstance.uid,
                 "Report": reportTextView.text
             ]);
             let alert = UIAlertController(title: "Thank you for reporting!", message: "We appreciate you taking the time to help make WestchesterEats better.", preferredStyle: UIAlertControllerStyle.alert)

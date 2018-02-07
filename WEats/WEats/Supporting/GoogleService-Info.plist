@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>231540265770-kfhl5olgq6n0snrfq6ci9shgk1ui0pm3.apps.googleusercontent.com</string>
+	<string>231540265770-7h0ojdfbrg4i8batbl8h2f9lufhduu21.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.231540265770-kfhl5olgq6n0snrfq6ci9shgk1ui0pm3</string>
+	<string>com.googleusercontent.apps.231540265770-7h0ojdfbrg4i8batbl8h2f9lufhduu21</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCtii2Y-8vC4pGSjBFHugxK4aiQco2Ac2Q</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.willcohen.WEats</string>
+	<string>com.willcohen.WestchesterEats</string>
 	<key>PROJECT_ID</key>
 	<string>weats-68049</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:231540265770:ios:59d4ec912a104325</string>
+	<string>1:231540265770:ios:104aa5bcb76fcfbe</string>
 	<key>DATABASE_URL</key>
 	<string>https://weats-68049.firebaseio.com</string>
 </dict>

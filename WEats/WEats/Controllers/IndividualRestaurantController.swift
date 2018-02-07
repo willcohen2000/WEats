@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import Firebase
 import Alamofire
+import SwiftyUserDefaults
 
 class IndividualRestaurantController: UIViewController {
 
@@ -36,6 +37,7 @@ class IndividualRestaurantController: UIViewController {
     @IBOutlet weak var restaurantImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var restaurantImageDarkenViewHeight: NSLayoutConstraint!
     
+   // var favorites = [AuthenticationService.FavoriteRestaurant]();
     var restaurantName: String!
     var restaurant: Restaurant!
     var didBuild: Bool = false;
@@ -49,7 +51,6 @@ class IndividualRestaurantController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         self.hideKeyboardWhenTappedAround();
-        
         hoursTableView.delegate = self;
         hoursTableView.dataSource = self;
         restaurantImageViewHeight.constant = (self.view.frame.height * 0.45);
@@ -60,16 +61,20 @@ class IndividualRestaurantController: UIViewController {
             if (!(restaurant?.doesHaveOnlineOrder)!) {
                 self.orderButton.isHidden = true;
             }
+            self.restaurant = restaurant;
             if (self.isFavorited()) {
                 self.favorited = true;
                 self.favoriteStyle();
             }
-            self.restaurant = restaurant;
             self.buildView();
             self.didBuild = true;
             self.getHoursArray();
             self.hoursTableView.reloadData();
         }
+    }
+    
+    private func removeRestaurantAsFavorite() {
+        Defaults[.favorites].removeValue(forKey: restaurant.name);
     }
     
     private func getHoursArray() {
@@ -94,21 +99,14 @@ class IndividualRestaurantController: UIViewController {
     }
     
     @IBAction func favoriteRestaurantButtonPressed(_ sender: Any) {
-        let favoriteReference = Database.database().reference().child("Favorites").child(WEUser.sharedInstance.uid).child(restaurantName)
         if (favorited) {
             favorited = false;
             unfavoriteStyle();
-            let restaurantIndex = getRestaurantIndex();
-            WEUser.sharedInstance.favoriteRestaurants.remove(at: restaurantIndex);
-            favoriteReference.removeValue();
+            removeRestaurantAsFavorite();
         } else {
             favorited = true;
             favoriteStyle();
-            WEUser.sharedInstance.favoriteRestaurants.append(AuthenticationService.FavoriteRestaurant(imageURL: restaurant.imageURL, name: restaurant.name));
-            favoriteReference.updateChildValues([
-                "imageUrl": restaurant.imageURL,
-                "name": restaurantName
-            ]);
+            Defaults[.favorites][restaurant.name] = restaurant.imageURL;
         }
     }
     
@@ -128,7 +126,6 @@ class IndividualRestaurantController: UIViewController {
     }
     
     private func buildView() {
-        print("keyboard: \(restaurant.imageURL!)")
         restaurantImageView.sd_setImage(with: URL(string: restaurant.imageURL!), completed: nil);
         restaurantNameLabel.text = restaurant.name;
         addressLabel.text = restaurant.address;
@@ -138,15 +135,6 @@ class IndividualRestaurantController: UIViewController {
         favoriteRestaurantButton.layer.cornerRadius = (favoriteRestaurantButton.frame.height / 2);
         favoriteRestaurantButton.layer.borderColor = offWhiteColor.cgColor;
         favoriteRestaurantButton.layer.borderWidth = 1.0;
-    }
-    
-    private func getRestaurantIndex() -> Int {
-        for i in (0...WEUser.sharedInstance.favoriteRestaurants.count) {
-            if WEUser.sharedInstance.favoriteRestaurants[i].name == restaurant.name {
-                return i;
-            }
-        }
-        return -1;
     }
     
     private func buildDollarRating() {
@@ -164,8 +152,10 @@ class IndividualRestaurantController: UIViewController {
     }
     
     private func isFavorited() -> Bool {
-        for (favRestaurant) in WEUser.sharedInstance.favoriteRestaurants {
-            if (favRestaurant.name == restaurantName) {
+        for (favoriteRestaurant) in Defaults[.favorites] {
+            print(favoriteRestaurant.key);
+            print(restaurant.name);
+            if (favoriteRestaurant.key == restaurant.name) {
                 return true;
             }
         }

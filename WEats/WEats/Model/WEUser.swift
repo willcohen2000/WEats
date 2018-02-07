@@ -12,9 +12,7 @@ final class WEUser {
     
     static let sharedInstance = WEUser();
     private init() {}
-    
-    var uid: String!
-    var favoriteRestaurants: [AuthenticationService.FavoriteRestaurant]!
+
     var allRestaurants: [AuthenticationService.RestaurantAbridged]!
     
 }

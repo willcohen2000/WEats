@@ -159,19 +159,32 @@ class RestaurantFinderController: UIViewController {
             FirebaseService.restaurantFinderPullRestaurantsWithCategory(category: currentRestaurantFind.category, order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange) { (pulledRestaurants) in
                 if let pulledRestaurants = pulledRestaurants {
                     self.foundRestaurants = pulledRestaurants;
-                    print(pulledRestaurants)
-                    self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 0.5, completion: {
-                        self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
-                    })
+                    if (self.foundRestaurants.count != 0) {
+                        self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 0.5, completion: {
+                            self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
+                        })
+                    } else {
+                        let noResultAlert = UIAlertController(title: "No Restaurants Found", message: "No restaurants found. Please change your query and try again.", preferredStyle: UIAlertControllerStyle.alert);
+                        noResultAlert.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: UIAlertActionStyle.default,handler: nil));
+                        self.present(noResultAlert, animated: true, completion: nil);
+                        self.findRestaurantsButton.stopAnimation();
+                    }
                 }
             }
         } else {
             FirebaseService.restaurantFinderPullRestaurantsNoCategory(order: currentRestaurantFind.order, priceRange: currentRestaurantFind.priceRange, completionHandler: { (pulledRestaurants) in
                 if let pulledRestaurants = pulledRestaurants {
                     self.foundRestaurants = pulledRestaurants;
-                    self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.normal, revertAfterDelay: 0.5, completion: {
-                        self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
-                    })
+                    if (self.foundRestaurants.count != 0) {
+                        self.findRestaurantsButton.stopAnimation(animationStyle: StopAnimationStyle.normal, revertAfterDelay: 0.5, completion: {
+                            self.performSegue(withIdentifier: "toFoundRestaurants", sender: nil);
+                        })
+                    } else {
+                        let noResultAlert = UIAlertController(title: "No Restaurants Found", message: "No restaurants found. Please change your query and try again.", preferredStyle: UIAlertControllerStyle.alert);
+                        noResultAlert.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: UIAlertActionStyle.default,handler: nil));
+                        self.present(noResultAlert, animated: true, completion: nil);
+                        self.findRestaurantsButton.stopAnimation();
+                    }
                 }
             })
         }

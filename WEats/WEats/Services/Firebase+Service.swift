@@ -87,7 +87,6 @@ class FirebaseService {
         let restaurantReference = Database.database().reference().child("Restaurants").child(name);
         restaurantReference.observe(.value, with: { (snapshot) in
             let postDict = snapshot.value as? [String : AnyObject] ?? [:];
-            
             guard let address = postDict["address"] else { return };
             guard let description = postDict["description"] else { return };
             guard let doesHaveOnlineOrder = postDict["doesHaveOnlineOrder"] else { return };

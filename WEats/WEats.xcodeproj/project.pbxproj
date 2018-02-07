@@ -11,19 +11,10 @@
 		3E0AEDE0DCA041FAFCB7719C /* Pods_WEatsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78AC4B6411239AC9002E3E0 /* Pods_WEatsUITests.framework */; };
 		6E0E85A9200FBCF100CF89DF /* FinderRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E85A8200FBCF100CF89DF /* FinderRestaurant.swift */; };
 		6E0E85AB200FD8BC00CF89DF /* RestaurantFinderResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E85AA200FD8BC00CF89DF /* RestaurantFinderResultsController.swift */; };
-		6E20C8991FF144D4001F620D /* OnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8981FF144D4001F620D /* OnboardingPageController.swift */; };
 		6E20C89B1FF149F4001F620D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C89A1FF149F4001F620D /* Lato-Light.ttf */; };
-		6E20C89D1FF16A1C001F620D /* MainOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */; };
-		6E20C8A01FF16A94001F620D /* FirstOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C89F1FF16A94001F620D /* FirstOnboardDisplay.swift */; };
-		6E20C8A21FF16AA6001F620D /* SecondOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A11FF16AA6001F620D /* SecondOnboardDisplay.swift */; };
-		6E20C8A41FF16AB4001F620D /* ThirdOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A31FF16AB4001F620D /* ThirdOnboardDisplay.swift */; };
-		6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A51FF16AE7001F620D /* FourthOnboardDisplay.swift */; };
-		6E20C8A81FF16AF5001F620D /* FifthOnboardDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8A71FF16AF5001F620D /* FifthOnboardDisplay.swift */; };
 		6E20C8AA1FF1A6E4001F620D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C8A91FF1A6E4001F620D /* Info.plist */; };
-		6E20C8AE1FF1D782001F620D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8AD1FF1D782001F620D /* SignUpController.swift */; };
 		6E20C8B01FF1E073001F620D /* Authentication+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8AF1FF1E073001F620D /* Authentication+Service.swift */; };
 		6E20C8EC1FF20D04001F620D /* WEUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20C8EB1FF20D04001F620D /* WEUser.swift */; };
-		6E20C8EE1FF211C9001F620D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E20C8ED1FF211C9001F620D /* GoogleService-Info.plist */; };
 		6E2897F51FF830FA00B1C74F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F41FF830FA00B1C74F /* MenuController.swift */; };
 		6E2897F91FF88B7B00B1C74F /* RestaurantFinderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */; };
 		6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2897FE2001271700B1C74F /* Firebase+Service.swift */; };
@@ -33,6 +24,8 @@
 		6E50342F1FF31B5B00788D44 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50342E1FF31B5B00788D44 /* Restaurants.swift */; };
 		6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5034301FF47A1300788D44 /* FoodGenresCell.swift */; };
 		6E55B6CE20043E740039AE0C /* RestaurantHoursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */; };
+		6E672A32202907E100F947A6 /* LaunchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A31202907E100F947A6 /* LaunchPage.swift */; };
+		6E672A37202914A600F947A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E672A36202914A600F947A6 /* GoogleService-Info.plist */; };
 		6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */; };
 		6EA47AD420169AE300D17586 /* WEPrivacyPolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6EA47AD320169AE200D17586 /* WEPrivacyPolicy.pdf */; };
 		6EA47AD62016A41100D17586 /* TermsOfServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA47AD52016A41100D17586 /* TermsOfServiceController.swift */; };
@@ -85,19 +78,10 @@
 		5A70AF6F4C3F5EF2D8FF2666 /* Pods_WEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0E85A8200FBCF100CF89DF /* FinderRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderRestaurant.swift; sourceTree = "<group>"; };
 		6E0E85AA200FD8BC00CF89DF /* RestaurantFinderResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFinderResultsController.swift; sourceTree = "<group>"; };
-		6E20C8981FF144D4001F620D /* OnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageController.swift; sourceTree = "<group>"; };
 		6E20C89A1FF149F4001F620D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Light.ttf"; path = "../../../../../../Downloads/Lato/Lato-Light.ttf"; sourceTree = "<group>"; };
-		6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboardController.swift; sourceTree = "<group>"; };
-		6E20C89F1FF16A94001F620D /* FirstOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardDisplay.swift; sourceTree = "<group>"; };
-		6E20C8A11FF16AA6001F620D /* SecondOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardDisplay.swift; sourceTree = "<group>"; };
-		6E20C8A31FF16AB4001F620D /* ThirdOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardDisplay.swift; sourceTree = "<group>"; };
-		6E20C8A51FF16AE7001F620D /* FourthOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardDisplay.swift; sourceTree = "<group>"; };
-		6E20C8A71FF16AF5001F620D /* FifthOnboardDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthOnboardDisplay.swift; sourceTree = "<group>"; };
 		6E20C8A91FF1A6E4001F620D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E20C8AD1FF1D782001F620D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		6E20C8AF1FF1E073001F620D /* Authentication+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Authentication+Service.swift"; sourceTree = "<group>"; };
 		6E20C8EB1FF20D04001F620D /* WEUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEUser.swift; sourceTree = "<group>"; };
-		6E20C8ED1FF211C9001F620D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E2897F41FF830FA00B1C74F /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFinderController.swift; sourceTree = "<group>"; };
 		6E2897FE2001271700B1C74F /* Firebase+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Service.swift"; sourceTree = "<group>"; };
@@ -107,6 +91,8 @@
 		6E50342E1FF31B5B00788D44 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
 		6E5034301FF47A1300788D44 /* FoodGenresCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGenresCell.swift; sourceTree = "<group>"; };
 		6E55B6CD20043E740039AE0C /* RestaurantHoursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHoursCell.swift; sourceTree = "<group>"; };
+		6E672A31202907E100F947A6 /* LaunchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPage.swift; sourceTree = "<group>"; };
+		6E672A36202914A600F947A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E705CD1200FEAF100D6866A /* FoundRestaurantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundRestaurantsCell.swift; sourceTree = "<group>"; };
 		6EA47AD320169AE200D17586 /* WEPrivacyPolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WEPrivacyPolicy.pdf; sourceTree = "<group>"; };
 		6EA47AD52016A41100D17586 /* TermsOfServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceController.swift; sourceTree = "<group>"; };
@@ -194,29 +180,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6E20C8951FF094BA001F620D /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				6E20C89E1FF16A7E001F620D /* Onboard Displays */,
-				6E20C89C1FF16A1C001F620D /* MainOnboardController.swift */,
-				6E20C8981FF144D4001F620D /* OnboardingPageController.swift */,
-				6E20C8AD1FF1D782001F620D /* SignUpController.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		6E20C89E1FF16A7E001F620D /* Onboard Displays */ = {
-			isa = PBXGroup;
-			children = (
-				6E20C89F1FF16A94001F620D /* FirstOnboardDisplay.swift */,
-				6E20C8A11FF16AA6001F620D /* SecondOnboardDisplay.swift */,
-				6E20C8A31FF16AB4001F620D /* ThirdOnboardDisplay.swift */,
-				6E20C8A51FF16AE7001F620D /* FourthOnboardDisplay.swift */,
-				6E20C8A71FF16AF5001F620D /* FifthOnboardDisplay.swift */,
-			);
-			path = "Onboard Displays";
-			sourceTree = "<group>";
-		};
 		6EB595171FE4A5BE00DF267E = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +239,6 @@
 		6EB595541FE4A9C000DF267E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E20C8951FF094BA001F620D /* Onboarding */,
 				6EB595691FE4B1F200DF267E /* MainSelectionControllerViewController.swift */,
 				6E2897F41FF830FA00B1C74F /* MenuController.swift */,
 				6E2897F81FF88B7B00B1C74F /* RestaurantFinderController.swift */,
@@ -287,6 +249,7 @@
 				6ED772A020144971006DC0A1 /* FavoriteRestaurantsController.swift */,
 				6E2F4CEA2014588E00506871 /* PreferencesController.swift */,
 				6EA47AD52016A41100D17586 /* TermsOfServiceController.swift */,
+				6E672A31202907E100F947A6 /* LaunchPage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,7 +266,7 @@
 		6EB595561FE4A9CB00DF267E /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				6E20C8ED1FF211C9001F620D /* GoogleService-Info.plist */,
+				6E672A36202914A600F947A6 /* GoogleService-Info.plist */,
 				6EB5955F1FE4AABC00DF267E /* AppDelegate.swift */,
 				6EB595601FE4AABC00DF267E /* WEats.xcdatamodeld */,
 				6EB5955D1FE4AABC00DF267E /* WEats-Bridging-Header.h */,
@@ -493,7 +456,7 @@
 				6E20C89B1FF149F4001F620D /* Lato-Light.ttf in Resources */,
 				6EB595741FE4B37A00DF267E /* Lato-Regular.ttf in Resources */,
 				6EB5955C1FE4AAB300DF267E /* Assets.xcassets in Resources */,
-				6E20C8EE1FF211C9001F620D /* GoogleService-Info.plist in Resources */,
+				6E672A37202914A600F947A6 /* GoogleService-Info.plist in Resources */,
 				6EB595751FE4B37A00DF267E /* Lato-Italic.ttf in Resources */,
 				6EB595681FE4AAC500DF267E /* Main.storyboard in Resources */,
 			);
@@ -659,7 +622,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA47AD62016A41100D17586 /* TermsOfServiceController.swift in Sources */,
-				6E20C89D1FF16A1C001F620D /* MainOnboardController.swift in Sources */,
 				6E3352D02013E20D0055DA41 /* PaddedTextField.swift in Sources */,
 				6EB595771FE4B8B600DF267E /* SuggestedRestaurantsCell.swift in Sources */,
 				6ED772A32014498E006DC0A1 /* FavoriteRestaurantCell.swift in Sources */,
@@ -668,31 +630,25 @@
 				6EB5956C1FE4B20D00DF267E /* Restaurant.swift in Sources */,
 				6ED7729F2014381E006DC0A1 /* OrderWebController.swift in Sources */,
 				6EB595641FE4AABC00DF267E /* WEats.xcdatamodeld in Sources */,
-				6E20C8A81FF16AF5001F620D /* FifthOnboardDisplay.swift in Sources */,
 				6E5034311FF47A1300788D44 /* FoodGenresCell.swift in Sources */,
 				6EB5956A1FE4B1F200DF267E /* MainSelectionControllerViewController.swift in Sources */,
 				6EEE57E020014CC2007D55AB /* TopAlignedLabel.swift in Sources */,
-				6E20C8A21FF16AA6001F620D /* SecondOnboardDisplay.swift in Sources */,
 				6E50342F1FF31B5B00788D44 /* Restaurants.swift in Sources */,
 				6ED772A120144971006DC0A1 /* FavoriteRestaurantsController.swift in Sources */,
 				6E2897F51FF830FA00B1C74F /* MenuController.swift in Sources */,
-				6E20C8A41FF16AB4001F620D /* ThirdOnboardDisplay.swift in Sources */,
 				6E0E85A9200FBCF100CF89DF /* FinderRestaurant.swift in Sources */,
-				6E20C8AE1FF1D782001F620D /* SignUpController.swift in Sources */,
 				6E2898012001420A00B1C74F /* RestaurantSelectionController.swift in Sources */,
 				6EEE57E220014EAD007D55AB /* RestaurantSelectionCell.swift in Sources */,
 				6E2F4CEB2014588E00506871 /* PreferencesController.swift in Sources */,
 				6E2897F91FF88B7B00B1C74F /* RestaurantFinderController.swift in Sources */,
-				6E20C8991FF144D4001F620D /* OnboardingPageController.swift in Sources */,
 				6E55B6CE20043E740039AE0C /* RestaurantHoursCell.swift in Sources */,
 				6EB595631FE4AABC00DF267E /* AppDelegate.swift in Sources */,
 				6EEE57E4200155D5007D55AB /* IndividualRestaurantController.swift in Sources */,
 				6E0E85AB200FD8BC00CF89DF /* RestaurantFinderResultsController.swift in Sources */,
 				6E20C8B01FF1E073001F620D /* Authentication+Service.swift in Sources */,
 				6E705CD2200FEAF100D6866A /* FoundRestaurantsCell.swift in Sources */,
-				6E20C8A61FF16AE7001F620D /* FourthOnboardDisplay.swift in Sources */,
 				6E2897FF2001271700B1C74F /* Firebase+Service.swift in Sources */,
-				6E20C8A01FF16A94001F620D /* FirstOnboardDisplay.swift in Sources */,
+				6E672A32202907E100F947A6 /* LaunchPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,7 +803,7 @@
 				INFOPLIST_FILE = WEats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.willcohen.WEats2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willcohen.WestchesterEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WEats/Supporting/WEats-Bridging-Header.h";
@@ -869,7 +825,7 @@
 				INFOPLIST_FILE = WEats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.willcohen.WEats2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willcohen.WestchesterEats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WEats/Supporting/WEats-Bridging-Header.h";
