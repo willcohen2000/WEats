@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol foundRestaurantPro {
+    func restaurantSelectedFidner(_ restaurant: FinderRestaurant);
+}
+
 class FoundRestaurantsCell: UITableViewCell {
 
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -24,6 +28,7 @@ class FoundRestaurantsCell: UITableViewCell {
     @IBOutlet weak var deliveryIconImageView: UIImageView!
     
     var restaurant: FinderRestaurant!
+    var restaurantSelectedFinderDelegate: foundRestaurantPro!
     
     override func awakeFromNib() {
         super.awakeFromNib();
@@ -61,6 +66,11 @@ class FoundRestaurantsCell: UITableViewCell {
                 numToDollar[i]!.alpha = 0.5;
                 rating = (rating! - 1);
             }
+        }
+    }
+    @IBAction func restaurantSelectedPressedFind(_ sender: Any) {
+        if let restaurantSelectedFinderDelegate = restaurantSelectedFinderDelegate {
+            restaurantSelectedFinderDelegate.restaurantSelectedFidner(restaurant);
         }
     }
     

@@ -11,7 +11,6 @@ import TransitionButton
 
 class LaunchPage: UIViewController {
 
-    @IBOutlet weak var backgroundView: UIVisualEffectView!
     @IBOutlet weak var loadingTransitionButton: TransitionButton!
     @IBOutlet weak var gifLoadingView: UIImageView!
     

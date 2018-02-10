@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol categorySelectionPro {
+    func restaurantSelectedCat(_ restaurant: MiniRestaurant);
+}
+
 class RestaurantSelectionCell: UITableViewCell {
 
     @IBOutlet weak var interiorHolderView: UIView!
@@ -18,15 +22,16 @@ class RestaurantSelectionCell: UITableViewCell {
     @IBOutlet weak var orderButton: UIButton!
     @IBOutlet weak var deliveryIconImageView: UIImageView!
     
+    var controller: RestaurantSelectionController!
+    var restaurant: MiniRestaurant!
+    var restaurantSelectedDel: categorySelectionPro!
+    
     override func awakeFromNib() {
         super.awakeFromNib();
         shadowView.layer.cornerRadius = 10.0;
         interiorHolderView.layer.cornerRadius = 10.0;
         orderButton.layer.cornerRadius = 16;
     }
-    
-    var controller: RestaurantSelectionController!
-    var restaurant: MiniRestaurant!
 
     func buildCell(restaurant: MiniRestaurant, controller: RestaurantSelectionController) {
         self.restaurant = restaurant;
@@ -48,6 +53,12 @@ class RestaurantSelectionCell: UITableViewCell {
     
     @IBAction func orderButtonPressed(_ sender: Any) {
         controller.goToOrder(orderURL: restaurant.orderURL);
+    }
+    
+    @IBAction func restaurantSelectedPressed(_ sender: Any) {
+        if let restaurantSelectedDel = restaurantSelectedDel {
+            restaurantSelectedDel.restaurantSelectedCat(self.restaurant);
+        }
     }
     
 }

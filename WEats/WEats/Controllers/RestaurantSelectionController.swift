@@ -34,7 +34,7 @@ class RestaurantSelectionController: UIViewController {
             }
         }
     }
-
+    
     @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             if (swipeGesture.direction == .right) {
@@ -55,16 +55,11 @@ extension RestaurantSelectionController: UITableViewDelegate, UITableViewDataSou
         return restaurants.count;
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let restaurantName = restaurants[indexPath.row].name;
-        self.selectedRestaurantName = restaurantName;
-        self.performSegue(withIdentifier: "toIndividualRestaurant", sender: nil)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurant = self.restaurants[indexPath.row];
         if let restaurantCell = restaurantSelectionTableView.dequeueReusableCell(withIdentifier: "restaurantSelectionCell") as? RestaurantSelectionCell {
             restaurantCell.buildCell(restaurant: restaurant, controller: self);
+            restaurantCell.restaurantSelectedDel = self;
             return restaurantCell;
         } else {
             return RestaurantSelectionCell();
@@ -78,13 +73,19 @@ extension RestaurantSelectionController: UITableViewDelegate, UITableViewDataSou
     
 }
 
+extension RestaurantSelectionController: categorySelectionPro {
+    func restaurantSelectedCat(_ restaurant: MiniRestaurant) {
+        self.selectedRestaurantName = restaurant.name;
+        self.performSegue(withIdentifier: "toIndividualRestaurant", sender: nil)
+    }
+}
+
 extension RestaurantSelectionController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toIndividualRestaurant") {
             if let individualRestaurantController = segue.destination as? IndividualRestaurantController {
                 if let selectedRestaurantName = self.selectedRestaurantName {
                     individualRestaurantController.restaurantName = selectedRestaurantName;
-                    print("phil: \(individualRestaurantController.restaurant)")
                 }
             }
         } else {

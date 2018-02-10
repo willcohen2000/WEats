@@ -33,22 +33,27 @@ class RestaurantFinderResultsController: UIViewController {
         }
     }
     
+    @IBAction func finderRestaurantSelectedPressed(_ sender: Any) {
+        print("yashdh")
+    }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
     
 }
 
+extension RestaurantFinderResultsController: foundRestaurantPro {
+    func restaurantSelectedFidner(_ restaurant: FinderRestaurant) {
+        self.selectedRestaurantName = restaurant.name;
+        self.performSegue(withIdentifier: "toIndivRestaurant", sender: nil)
+    }
+}
+
 extension RestaurantFinderResultsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.restaurants.count;
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let restaurantName = restaurants[indexPath.row].name;
-        self.selectedRestaurantName = restaurantName;
-        self.performSegue(withIdentifier: "toIndivRestaurant", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,6 +64,7 @@ extension RestaurantFinderResultsController: UITableViewDelegate, UITableViewDat
         let restaurant = self.restaurants[indexPath.row];
         if let restaurantCell = foundRestaurantsTableView.dequeueReusableCell(withIdentifier: "foundRestaurantCell") as? FoundRestaurantsCell {
             restaurantCell.buildCell(restaurant: restaurant);
+            restaurantCell.restaurantSelectedFinderDelegate = self;
             return restaurantCell;
         } else {
             return FoundRestaurantsCell();

@@ -14,7 +14,6 @@ class PreferencesController: UIViewController {
 
     @IBOutlet weak var reportTextView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var buttonTextViewStackView: UIStackView!
     @IBOutlet weak var optionsView: UIView!
     
@@ -28,7 +27,6 @@ class PreferencesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        logOutButton.layer.cornerRadius = (logOutButton.frame.height / 2);
         reportTextView.layer.borderColor = blueColor.cgColor;
         reportTextView.layer.borderWidth = 1.0;
         self.hideKeyboardWhenTappedAround();
